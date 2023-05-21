@@ -32,14 +32,19 @@
 			<a href="<%=request.getContextPath()%>/viewBillDetail" class="btn btn-info button-search" role="button">View Bill</a>
 		</div>
           <c:url value="/SearchInventory" var="SearchInventory"/>
- 		<form:form class = "searchform" action="SearchInventory" method="post">
-					<p class = "text2" >Search Information by:</p>
-    								<select name="op" class="select">
-     									 <option value="ID_Inventory">Mã Sản Phẩm</option>
-      									 <option value="Inventory_Name">Tên Sản Phẩm</option>
-      									 <option value="Inventory_Address">Địa chỉ</option>
-      									 <option value="ID_Inventory_Type">Loại kho</option>
+ 		<form:form class = "searchform" action="inventorysearchbyattribute" method="post">
+					<p class = "text2" >Tìm kiếm theo: </p>
+    								<select name="inventoryProductTypeClicked" class="select">
+    									<c:forEach items="${productTypeList}" var="producttypelist">
+  											<option value ="${producttypelist.id }">${producttypelist.productType }</option>	
+      									</c:forEach>
     								</select>
+    								<select name="inventorySupplierClicked" class="select">
+    									<c:forEach items="${supplierList}" var="supplierlist">
+  											<option value="${supplierlist.id }">${supplierlist.supplierName }</option>	
+      									</c:forEach>
+    								</select>
+    								<button class = "button-search" type = "submit">OK</button>
     	</form:form>
         <form:form id="form2" action="inventorysearch">
   						<div class="searchbar"><input name="searchInventoryString" type="search" placeholder='Search' /></div>

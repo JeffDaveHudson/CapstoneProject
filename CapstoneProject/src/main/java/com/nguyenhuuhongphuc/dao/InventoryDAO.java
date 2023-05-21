@@ -57,7 +57,7 @@ public class InventoryDAO {
 	}
 
 	public List<Product> getInventorySearch(String searchInventoryString) {
-		 String sql = "SELECT * FROM Product WHERE ProductName LIKE '%" + searchInventoryString + "%'";
+		String sql = "SELECT * FROM Product WHERE ProductName LIKE '%" + searchInventoryString + "%'";
 		List<Product> productList = jdbcTemplate.query(sql, new RowMapper<Product>() {
 			
 			public Product mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -70,7 +70,28 @@ public class InventoryDAO {
 				product.setPrice(rs.getInt("Price"));
 				product.setIdProductInventory(rs.getInt("IDProductInventory"));
 				
-				System.out.println(product.getId()+"-"+product.getProductName()+"-"+product.getIdProductType()+"-"+product.getIdSupplier()+"-"+product.getPrice()+"-"+product.getIdProductInventory());
+				//System.out.println(product.getId()+"-"+product.getProductName()+"-"+product.getIdProductType()+"-"+product.getIdSupplier()+"-"+product.getPrice()+"-"+product.getIdProductInventory());
+				return product;
+			}
+		});
+		return productList;
+	}
+
+	public List<Product> getInventoryByAttribute(int idProductType, int idSupplier) {
+		String sql = "SELECT * FROM Product WHERE IDProductType = " + idProductType + " AND IDSupplier = "+ idSupplier;
+		List<Product> productList = jdbcTemplate.query(sql, new RowMapper<Product>() {
+			
+			public Product mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Product product = new Product();
+				
+				product.setId(rs.getInt("ID"));
+				product.setProductName(rs.getString("ProductName"));
+				product.setIdProductType(rs.getInt("IDProductType"));
+				product.setIdSupplier(rs.getInt("IDSupplier"));
+				product.setPrice(rs.getInt("Price"));
+				product.setIdProductInventory(rs.getInt("IDProductInventory"));
+				
+				//System.out.println(product.getId()+"-"+product.getProductName()+"-"+product.getIdProductType()+"-"+product.getIdSupplier()+"-"+product.getPrice()+"-"+product.getIdProductInventory());
 				return product;
 			}
 		});

@@ -49,7 +49,7 @@ public class InventoryController {
 	
 
 
-@RequestMapping("inventorysearch")
+	@RequestMapping("inventorysearch")
 	public String showInventorySearch(Model model, @RequestParam("searchInventoryString") String searchInventoryString) {
 		
 		List<Product> productList = inventoryService.getInventorySearch(searchInventoryString);
@@ -68,8 +68,26 @@ public class InventoryController {
 		
 		return "admin/Inventory";
 	}
-	
-	
-	
+
+
+	@RequestMapping("inventorysearchbyattribute")
+	public String showInventoryByAttribute(Model model, @RequestParam("inventoryProductTypeClicked") String inventoryProductTypeClicked, 
+			@RequestParam("inventorySupplierClicked") String inventorySupplierClicked) {
+		
+		List<Product> productList = inventoryService.getInventoryByAttribute(Integer.parseInt(inventoryProductTypeClicked), Integer.parseInt(inventorySupplierClicked));
+		model.addAttribute("productList", productList);
+		//-------
+		
+		List<ProductType> productTypeList = inventoryService.getProductType();
+		model.addAttribute("productTypeList", productTypeList);
+		
+		List<Supplier> supplierList = supplierService.getSupplier();
+		model.addAttribute("supplierList", supplierList);
+		
+		List<ProductInventory> productInventoryList = productInventoryService.getProductInventory();
+		model.addAttribute("productInventoryList", productInventoryList);
+		
+		return "admin/Inventory";
+	}
 	
 }

@@ -26,5 +26,9 @@ public class InventoryService {
 	public List<Product> getInventorySearch(String searchInventoryString){
 		return inventoryDAO.getInventorySearch(searchInventoryString);
 	}
+
+	public List<Product> getInventoryByAttribute(int idProductType, int idSupplier) {
+		return inventoryDAO.getInventoryByAttribute(idProductType, idSupplier);
+	}
 	
 }
