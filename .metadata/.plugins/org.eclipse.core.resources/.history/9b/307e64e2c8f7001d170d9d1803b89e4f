@@ -1,0 +1,34 @@
+package com.nguyenhuuhongphuc.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.nguyenhuuhongphuc.bean.Product;
+import com.nguyenhuuhongphuc.service.InventoryService;
+
+@Controller
+public class InventoryController {
+	
+	@Autowired
+	InventoryService inventoryService;
+	
+	@RequestMapping("inventory")
+	public String showInventory(Model model) {
+		
+		List<Product> productList = inventoryService.getInventory();
+		model.addAttribute("productList", productList);
+//		for (Product product : productList) {
+//			System.out.println("controller: "+product.getId()+"-"+product.getProductName()+"-"+product.getIdProductType()+"-"+product.getIdSupplier()+"-"+product.getPrice()+"-"+product.getIdProductInventory());
+//			
+//		}
+//		
+		
+		return "admin/Inventory";
+	}
+	
+	
+}

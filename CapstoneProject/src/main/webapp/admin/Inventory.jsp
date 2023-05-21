@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+    <%@ page isELIgnored = "false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +13,13 @@
  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<style type="text/css">
+#form2{
+	text-align: center;
+	margin-top: 20px;
+}
+
+</style>
 </head>
 <body>
 <jsp:include page="navbar.jsp" />
@@ -27,45 +35,63 @@
  		<form:form class = "searchform" action="SearchInventory" method="post">
 					<p class = "text2" >Search Information by:</p>
     								<select name="op" class="select">
-     									 <option value="ID_Inventory">Mã kho</option>
-      									 <option value="Inventory_Name">Tên kho</option>
+     									 <option value="ID_Inventory">Mã Sản Phẩm</option>
+      									 <option value="Inventory_Name">Tên Sản Phẩm</option>
       									 <option value="Inventory_Address">Địa chỉ</option>
       									 <option value="ID_Inventory_Type">Loại kho</option>
     								</select>
-                	<p class = "text2" >Type here:</p>
-  						<div class="searchbar"><input name="search" type="search" placeholder='Search' /></div>
+    	</form:form>
+        <form:form id="form2" action="inventorysearch">
+  						<div class="searchbar"><input name="searchInventoryString" type="search" placeholder='Search' /></div>
   						<button class = "button-search" type = "submit">Search</button>
-                		<button class = "button-search" type = "reset">Reset</button>
-
         </form:form>
+
+        
 <br>
 <br>
 <div class="table-wrapper">
     <table class="fl-table">
         <thead>
         <tr>
-            <th>Mã kho</th>
-            <th>Tên kho</th>
-            <th>Địa chỉ</th>
-            <th>Loại kho</th>
+            <th>Mã Sản Phẩm</th>
+            <th>Tên Sản Phẩm</th>
+            <th>Loại Sản Phẩm</th>
+            <th>Nhà Cung Cấp</th>
+            <th>Giá (VND)</th>
+            <th>Số Lượng Trong Kho (Cái)</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${inventory}" var="item">
+        <c:forEach items="${productList}" var="productlist">
         <tr>
-            <td><c:out value="${item.id}" /></td>
-            <td><c:out value="${item.name}" />
-            	&nbsp &nbsp
+            <td>${productlist.id}</td>
+            <td>${productlist.productName}
+            	<%-- &nbsp &nbsp
   				<a class = "bx bxs-box bx-xs" style="text-decoration:none; color: blue " href = "<%=request.getContextPath()%>/viewProduct?id=<c:out value="${item.id}-${item.name}" />">
-  					</a></td>
-            <td><c:out value="${item.address}" /></td>
-            <td><c:out value="${item.productType.name}" /></td>
+  					</a> --%></td>
+  			<c:forEach items="${productTypeList}" var="producttypelist">
+  				<c:if test="${productlist.idProductType==producttypelist.id}">
+            		<td>${producttypelist.productType}</td>
+            	</c:if>
+            </c:forEach>
+            
+            <c:forEach items="${supplierList}" var="supplierlist">
+            	<c:if test="${productlist.idSupplier==supplierlist.id}">
+           			<td>${supplierlist.supplierName}</td>
+            	</c:if>
+            </c:forEach>
+            <td>${productlist.price}</td>
+            
+            <c:forEach items="${productInventoryList }" var="productinventorylist">
+            	<c:if test="${productlist.idProductInventory==productinventorylist.id }">
+            		<td>${productinventorylist.quantity}</td>
+            	</c:if>
+            </c:forEach>
         </tr>
         </c:forEach>
         <tbody>
     </table>
 </div>
-        </div>
     </section>
 </body>
 <script src='<c:url value="/resources/js/js-page-admin.js" />'></script>

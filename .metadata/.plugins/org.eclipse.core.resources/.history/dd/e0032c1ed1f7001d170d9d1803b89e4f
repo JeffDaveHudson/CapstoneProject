@@ -1,0 +1,13 @@
+package com.nguyenhuuhongphuc.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.nguyenhuuhongphuc.dao.ProductInventoryDAO;
+
+@Service
+public class ProductInventoryService {
+	
+	@Autowired
+	ProductInventoryDAO productInventoryDAO;
+}
