@@ -108,6 +108,7 @@ public class StaffController {
 		staff.setIdStaffType(Integer.parseInt(staffTypeClicked));
 		staffService.updateStaff(staff);
 		return "redirect:/stafflist";
+		//staff
 	}
 	
 	@GetMapping(value = "staffdelete")
