@@ -1,0 +1,44 @@
+package com.nguyenhuuhongphuc.dao;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
+
+import com.nguyenhuuhongphuc.bean.Staff;
+
+@Repository
+public class StaffDAO {
+	
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+	
+	public List<Staff> getStaffList(){
+		String sql = "SELECT * FROM staff";
+		System.out.println("-");
+		List<Staff> staffList = jdbcTemplate.query(sql, new RowMapper<Staff>() {
+			
+			public Staff mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Staff staff = new Staff();
+				System.out.println("--");
+				staff.setId(rs.getInt("ID"));
+				System.out.println("---");
+				staff.setStaffName(rs.getString("StaffName"));
+				System.out.println("----");
+				staff.setSalary(rs.getInt("Salary"));
+				System.out.println("-----");
+				staff.setIdStaffType(rs.getInt("IDStaffType"));
+				System.out.println("------");
+				staff.setUserName(rs.getString("Username"));
+				System.out.println("-------");
+				System.out.println(staff.getId()+"-"+staff.getStaffName()+"-"+staff.getIdStaffType()+"-"+staff.getSalary()+"-"+staff.getUserName());
+				return staff;
+			}
+		});
+		return staffList;
+	}
+}

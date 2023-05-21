@@ -1,0 +1,14 @@
+package com.nguyenhuuhongphuc.bean;
+
+import java.util.Date;
+
+
+public class Process {
+	private int id;
+	private String detail;
+	private Date startDate;
+	private Date endDate;
+	private int idContract;
+	
+	
+}

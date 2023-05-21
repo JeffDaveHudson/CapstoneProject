@@ -1,0 +1,118 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css"
+	href="resources/css/style-customer-information.css">
+</head>
+<body>
+	<jsp:include page="header.jsp"></jsp:include>
+	
+	<div class="image-title">
+		<h1>BÁCH KHOA ĐỘNG VẬT</h1>
+	</div>
+	
+	<section class="session1">
+		<div class="s1-div1">
+			<div class="s1-d1-title">
+				<h2><span>SỰ AM HIỂU VỀ ĐỘNG VẬT GÂY HẠI</span><br/> LÀ NỀN TẢNG VỮNG CHẮC <br/> CHO CÁC GIẢI PHÁP HIỆU QUẢ</h2>
+				<div class="session1-text">
+					Việc sử dụng hóa chất không có kế hoạch giúp côn trùng gia tăng khả năng miễn dịch và tiếp tục sinh sôi mạnh mẽ hơn. 
+					Hiểu được điều đó, công ty luôn dựa trên các nguyên lý khoa học, sinh học để xây dựng ra những giải pháp có tính bền vững, 
+					lâu dài nhằm kiểm soát côn trùng dịch hại tối ưu.
+				</div>
+			</div>
+			<div class="s1-d1-img">
+				<img src="https://res.cloudinary.com/dedbfm0dk/image/upload/v1681789736/capstoneproject/information/learning_xojeve.png">
+			</div>
+		</div>
+	</section>
+	
+	<section class="session2">
+		<div class="s2-div1">
+			<div class="s2-d1-title"><h2>NHỮNG LOÀI ĐỘNG VẬT GÂY HẠI THƯỜNG GẶP TẠI VIỆT NAM</h2></div>
+		</div>
+		<div class="s2-content">
+			<div class="s2-s2content-pest">
+				<a href="informationmouse"> <img src="https://res.cloudinary.com/dedbfm0dk/image/upload/v1681722144/capstoneproject/pest/chuot_vlvoo2.png"> </a>
+				<h4>Chuột</h4>
+			</div>
+			<div class="s2-s2content-pest">
+				<a href="informationcockroach"> <img src="https://res.cloudinary.com/dedbfm0dk/image/upload/v1681730552/capstoneproject/pest/gian_jqs058.jpg"> </a>
+				<h4>Gián</h4>
+			</div>
+			<div class="s2-s2content-pest">
+				<a href="informationant"> <img src="https://res.cloudinary.com/dedbfm0dk/image/upload/v1681730552/capstoneproject/pest/kien_y7jees.jpg"> </a>
+				<h4>Kiến</h4>
+			</div>
+			<div class="s2-s2content-pest">
+				<a href="informationfly"> <img src="https://res.cloudinary.com/dedbfm0dk/image/upload/v1681730552/capstoneproject/pest/ruoi_d3osqo.jpg"> </a>
+				<h4>Ruồi</h4>
+			</div>
+			<div class="s2-s2content-pest">
+				<a href="informationmosquito"> <img src="https://res.cloudinary.com/dedbfm0dk/image/upload/v1681730552/capstoneproject/pest/muoi_jbi12x.png"> </a>
+				<h4>Muỗi</h4>
+			</div>
+			<div class="s2-s2content-pest">
+				<a href="informationgrasshopper"> <img src="https://res.cloudinary.com/dedbfm0dk/image/upload/v1681731151/capstoneproject/pest/chauchau_jemzxe.jpg"> </a>
+				<h4>Châu Chấu</h4>
+			</div>
+			<div class="s2-s2content-pest">
+				<a href="informationbee"> <img src="https://res.cloudinary.com/dedbfm0dk/image/upload/v1681731150/capstoneproject/pest/ong_v9nq93.jpg"> </a>
+				<h4>Ong</h4>
+			</div>
+			<div class="s2-s2content-pest">
+				<a href="informationdragonfly"> <img src="https://res.cloudinary.com/dedbfm0dk/image/upload/v1681731159/capstoneproject/pest/chuonchuon_uy54qe.jpg"> </a>
+				<h4>Chuồn Chuồn</h4>
+			</div>
+			<div class="s2-s2content-pest">
+				<a href="informationcricket"> <img src="https://res.cloudinary.com/dedbfm0dk/image/upload/v1681731363/capstoneproject/pest/de_sygmo7.jpg"> </a>
+				<h4>Dế</h4>
+			</div>
+			<div class="s2-s2content-pest">
+				<a href="informationspider"> <img src="https://res.cloudinary.com/dedbfm0dk/image/upload/v1681730552/capstoneproject/pest/nhen_eysnxi.jpg"> </a>
+				<h4>Nhện</h4>
+			</div>
+			<div class="s2-s2content-pest">
+				<a href="informationsnake"> <img src="https://res.cloudinary.com/dedbfm0dk/image/upload/v1681732232/capstoneproject/pest/ran_qj8lp1.jpg"> </a>
+				<h4>Rắn</h4>
+			</div>
+			<div class="s2-s2content-pest">
+				<a href="informationtermite"> <img src="https://res.cloudinary.com/dedbfm0dk/image/upload/v1681732231/capstoneproject/pest/moi_re4gmk.jpg"> </a>
+				<h4>Mối</h4>
+			</div>
+			<div class="s2-s2content-pest">
+				<a href="informationwoodborer"> <img src="https://res.cloudinary.com/dedbfm0dk/image/upload/v1681732232/capstoneproject/pest/mot_z6yu8r.png"> </a>
+				<h4>Mọt</h4>
+			</div>
+			<div class="s2-s2content-pest">
+				<a href="informationbug"> <img src="https://res.cloudinary.com/dedbfm0dk/image/upload/v1681732232/capstoneproject/pest/rep_ycqajr.png"> </a>
+				<h4>Rẹp</h4>
+			</div>
+			<div class="s2-s2content-pest">
+				<a href="informationflea"> <img src="https://res.cloudinary.com/dedbfm0dk/image/upload/v1681732232/capstoneproject/pest/bochet_ydbxpn.jpg"> </a>
+				<h4>Bọ Chét</h4>
+			</div>
+			
+			
+		</div>
+	</section>
+	
+	<section class="section3">
+		<div class="s3-div1">
+			<div class="s3-d1-title">
+				<h2><span>BẠN CẦN XỬ LÝ </span><br/>ĐÁM ĐỘNG VẬT GÂY HẠI ĐÓ?<br/> HÃY LIÊN HỆ CHÚNG TÔI</h2>
+				<a href="schedule"><input type="submit" value="LIÊN HỆ TƯ VẤN"> </a>
+			</div>
+			<div class="s3-d1-image">
+				<img src="https://res.cloudinary.com/dedbfm0dk/image/upload/v1681718962/capstoneproject/information/pest-control_qthlxe.jpg">
+			</div>
+		</div>
+	</section>
+	
+	<jsp:include page="footer.jsp" />
+</body>
+</html>

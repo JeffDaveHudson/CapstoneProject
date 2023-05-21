@@ -1,0 +1,90 @@
+package com.nguyenhuuhongphuc.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class AccountController {
+	
+	@RequestMapping("/")
+	public String index() {
+		return "customer/Information";
+	}
+	
+//	information detail
+	
+	@RequestMapping("informationdragonfly")
+	public String informationDragonfly() {
+		return "customer/InformationDragonfly";
+	}
+	
+	@RequestMapping("informationant")
+	public String informationAnt() {
+		return "customer/InformationAnt";
+	}
+	
+	@RequestMapping("informationmouse")
+	public String informationMouse() {
+		return "customer/InformationMouse";
+	}
+	
+	@RequestMapping("informationcockroach")
+	public String informationCockroach() {
+		return "customer/InformationCockroach";
+	}
+	
+	@RequestMapping("informationfly")
+	public String informationFly() {
+		return "customer/InformationFly";
+	}
+	
+	@RequestMapping("informationmosquito")
+	public String informationMosquito() {
+		return "customer/InformationMosquito";
+	}
+	
+	@RequestMapping("informationgrasshopper")
+	public String informationGrasshopper() {
+		return "customer/InformationGrasshopper";
+	}
+	
+	@RequestMapping("informationbee")
+	public String informationBee() {
+		return "customer/InformationBee";
+	}
+	
+	@RequestMapping("informationcricket")
+	public String informationCricket() {
+		return "customer/InformationCricket";
+	}
+	
+	@RequestMapping("informationspider")
+	public String informationSpider() {
+		return "customer/InformationSpider";
+	}
+	
+	@RequestMapping("informationsnake")
+	public String informationSnake() {
+		return "customer/InformationSnake";
+	}
+	
+	@RequestMapping("informationtermite")
+	public String informationTermite() {
+		return "customer/InformationTermite";
+	}
+	
+	@RequestMapping("informationwoodborer")
+	public String informationWoodborer() {
+		return "customer/InformationWoodborer";
+	}
+	
+	@RequestMapping("informationbug")
+	public String informationBug() {
+		return "customer/Informationbug";
+	}
+	
+	@RequestMapping("informationflea")
+	public String informationFlea() {
+		return "customer/InformationFlea";
+	}
+}

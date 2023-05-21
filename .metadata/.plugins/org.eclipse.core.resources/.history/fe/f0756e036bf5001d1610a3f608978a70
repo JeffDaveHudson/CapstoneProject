@@ -1,0 +1,27 @@
+package com.nguyenhuuhongphuc.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.nguyenhuuhongphuc.bean.Staff;
+import com.nguyenhuuhongphuc.service.StaffService;
+
+@Controller
+public class StaffController {
+	
+	@Autowired
+	StaffService staffService;
+	
+	@RequestMapping("StaffList")
+	public String showStaffList(Model model) {
+		System.out.println("11");
+		List<Staff> listStaff = staffService.getStaffList();
+		
+				
+		return "admin/index";
+	}
+}

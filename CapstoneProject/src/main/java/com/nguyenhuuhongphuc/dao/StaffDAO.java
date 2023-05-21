@@ -1,0 +1,163 @@
+package com.nguyenhuuhongphuc.dao;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
+
+import com.nguyenhuuhongphuc.bean.Staff;
+import com.nguyenhuuhongphuc.bean.StaffType;
+
+@Repository
+public class StaffDAO {
+	
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+	
+	public List<Staff> getStaffList(){
+		String sql = "SELECT * FROM staff";
+		List<Staff> staffList = jdbcTemplate.query(sql, new RowMapper<Staff>() {
+			
+			public Staff mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Staff staff = new Staff();
+				
+				staff.setId(rs.getInt("ID"));
+				staff.setStaffName(rs.getString("StaffName"));
+				staff.setSalary(rs.getInt("Salary"));
+				staff.setIdStaffType(rs.getInt("IDStaffType"));
+				staff.setUserName(rs.getString("Username"));
+				
+				//System.out.println(staff.getId()+"-"+staff.getStaffName()+"-"+staff.getIdStaffType()+"-"+staff.getSalary()+"-"+staff.getUserName());
+				return staff;
+			}
+		});
+		return staffList;
+	}
+	
+	public List<StaffType> getStaffTypeList(){
+		String sql = "SELECT * FROM stafftype";
+		List<StaffType> staffTypeList = jdbcTemplate.query(sql, new RowMapper<StaffType>() {
+			
+			public StaffType mapRow(ResultSet rs, int rowNum) throws SQLException {
+				StaffType staffType = new StaffType();
+				
+				staffType.setId(rs.getInt("ID"));
+				staffType.setStaffType(rs.getString("StaffType"));
+				//System.out.println(staffType.getId()+"-"+staffType.getStaffType());
+				return staffType;
+			}
+		});
+		return staffTypeList;
+	}
+	
+	public List<Staff> getStaffSearch(String searchString) {
+        String sql = "SELECT * FROM Staff WHERE StaffName LIKE '%" + searchString + "%' or  Username LIKE '%"
+                + searchString + "%'";
+        List<Staff> staffList = jdbcTemplate.query(sql, new RowMapper<Staff>() {
+
+            public Staff mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Staff staff = new Staff();
+
+                staff.setId(rowNum);
+                staff.setStaffName(rs.getString("StaffName"));
+                staff.setSalary(rs.getInt("Salary"));
+                staff.setIdStaffType(rs.getInt("IDStaffType"));
+                staff.setUserName(rs.getString("Username"));
+
+//                System.out.println(
+//                        "search: " + staff.getId() + "-" + staff.getStaffName() + "-" + staff.getIdStaffType() + "-" + staff.getSalary() + "-" + staff.getUserName());
+                return staff;
+
+            }
+        });
+        return staffList;
+    }
+
+	public List<Staff> getStaffByIdStaffType(int id) {
+        String sql = "SELECT * FROM Staff WHERE IDStaffType = " + id;
+        List<Staff> staffList = jdbcTemplate.query(sql, new RowMapper<Staff>() {
+
+            public Staff mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Staff staff = new Staff();
+
+                staff.setId(rs.getInt("ID"));
+                staff.setStaffName(rs.getString("StaffName"));
+                staff.setSalary(rs.getInt("Salary"));
+                staff.setIdStaffType(rs.getInt("IDStaffType"));
+                staff.setUserName(rs.getString("Username"));
+
+//                System.out.println(
+//                        "updateee: " + staff.getId() + "-" + staff.getStaffName() + "-" + staff.getIdStaffType() + "-" + staff.getSalary() + "-" + staff.getUserName());
+                return staff;
+
+            }
+        });
+        return staffList;
+    }
+	
+	public void createStaff(Staff staff) {
+        String sql = "INSERT INTO Staff (StaffName, Salary, IDStaffType, Username) VALUES ('"
+                + staff.getStaffName() + "', " + staff.getSalary() + ","
+                + staff.getIdStaffType() + ", '" + staff.getUserName() + "')";
+        jdbcTemplate.update(sql);
+    }
+
+	public List<Staff> getStaffById(int id) {
+        String sql = "SELECT * FROM Staff WHERE ID = " + id;
+        List<Staff> staffList = jdbcTemplate.query(sql, new RowMapper<Staff>() {
+
+            public Staff mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Staff staff = new Staff();
+
+                staff.setId(rs.getInt("ID"));
+                staff.setStaffName(rs.getString("StaffName"));
+                staff.setSalary(rs.getInt("Salary"));
+                staff.setIdStaffType(rs.getInt("IDStaffType"));
+                staff.setUserName(rs.getString("Username"));
+
+                //System.out.println(
+                //       "updateee: " + staff.getId() + "-" + staff.getStaffName() + "-" + staff.getIdStaffType() + "-" + staff.getSalary() + "-" + staff.getUserName());
+                return staff;
+
+            }
+        });
+        return staffList;
+    }
+	
+	public Staff getStaffById1Row(int id) {
+        String sql = "SELECT * FROM Staff WHERE ID = " + id;
+        Staff staff = (Staff) jdbcTemplate.query(sql, new RowMapper<Staff>() {
+
+            public Staff mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Staff staff = new Staff();
+
+                staff.setId(rs.getInt("ID"));
+                staff.setStaffName(rs.getString("StaffName"));
+                staff.setSalary(rs.getInt("Salary"));
+                staff.setIdStaffType(rs.getInt("IDStaffType"));
+                staff.setUserName(rs.getString("Username"));
+
+//                System.out.println(
+//                        "updateee: " + staff.getId() + "-" + staff.getStaffName() + "-" + staff.getIdStaffType() + "-" + staff.getSalary() + "-" + staff.getUserName());
+                return staff;
+
+            }
+        });
+        return staff;
+    }
+	
+	public void updateStaff(Staff staff) {
+        String sql = "UPDATE Staff SET StaffName = '" + staff.getStaffName() + "', Salary=" + staff.getSalary()
+                + ", IDStaffType = " + staff.getIdStaffType() + " WHERE ID = " + staff.getId();
+        jdbcTemplate.update(sql);
+    }
+
+    public void deleteStaff(int id) {
+        String sql = "DELETE FROM Staff WHERE ID = " + id;
+        jdbcTemplate.update(sql);
+    }
+}

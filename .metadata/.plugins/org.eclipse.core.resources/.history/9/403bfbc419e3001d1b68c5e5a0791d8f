@@ -1,0 +1,86 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+body {
+	margin: 0px;
+}
+
+.cm-section1{
+	border: 1px solid;
+	width: 100%;
+	height: 640px;
+	margin-top: 100px;
+	position: relative;
+	
+	background-color: #EEEEEE;
+}
+
+.cm-section1 .img{
+	border: 1px solid;
+	width: 30%;
+	height: 400px;
+	position: absolute;
+	top: 50%;
+  	transform: translateY(-50%);
+  	margin-left: 7%;
+}
+
+.cm-section1 .content{
+	border: 1px solid;
+	width: 58%;
+	height: 490px;
+	position: absolute;
+	top: 50%;
+  	transform: translateY(-50%);
+  	margin-left: 39%;
+  	
+  	/* text-align: center; */
+}
+
+.cm-section1 .content div{
+	border: 1px solid;
+	width: 30%;
+	height: 350px;
+	display: inline-block;
+}
+
+.cm-section1 .content .dangerous1{
+	
+}
+
+.cm-section1 .content .dangerous2{
+	
+}
+
+.cm-section1 .content .dangerous3{
+	
+}
+</style>
+</head>
+<body>
+	<jsp:include page="header.jsp"></jsp:include>
+	
+	<section class="cm-section1">
+		<div class="div1">
+			<div class="img">
+			</div>
+			<div class="content">
+				<h1>MỐI NGUY HẠI</h1>
+				<div class="dangerous1">
+					
+				</div>
+				<div class="dangerous2">
+					
+				</div>
+				<div class="dangerous3">
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

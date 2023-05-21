@@ -1,0 +1,71 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+body{
+	margin: 0;
+}
+.section1{
+	border: 1px solid black;
+	width: 100%;
+	height: 400px;
+}
+.col1{
+	background-color: pink;
+	width: 43%;
+	height: 399px;
+	float: left;
+}
+.col2{
+	background-color: blue;
+	width: 23%;
+	height: 399px;
+	float: left;
+	
+}
+.col3{
+	background-color: grey;
+	width: 33%;
+	height: 399px;
+	float: left;
+	
+}
+
+.col1 img{
+	width: 150px;
+	height: 70px;
+	margin-top: 30px;
+	margin-left: 80px;
+}
+
+h4{
+	margin-left: 80px;
+	margin-top20px;
+	font-family: sans-serif;
+}
+</style>
+</head>
+<body>
+	<footer>
+		<section class="section1">
+			<div class="div1">
+				<div class="col1">
+					<img src="https://res.cloudinary.com/dedbfm0dk/image/upload/v1681460706/capstoneproject/logo/logo_jpthaj.jpg">
+					<h4>Trụ Sở: 75 Nguyễn Thái Bình, Liên Chiểu, Đà Nẵng</h4>
+					<h4>Mã Số Doanh Nghiệp: 09876543567</h4>
+					<h4>Email: phuc3851@gmail.com</h4>
+					<h4>Hotline: 1900 0000</h4>
+				</div>
+				<div class="col2">
+				</div>
+				<div class="col3">
+				</div>
+			</div>
+		</section>
+	</footer>
+</body>
+</html>

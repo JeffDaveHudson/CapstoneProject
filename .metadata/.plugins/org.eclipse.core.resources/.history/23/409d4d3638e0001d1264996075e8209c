@@ -1,0 +1,217 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+body{
+	margin: 0px;
+}
+
+.hp-section1{
+	width: 100%;
+	height: 650px;
+	margin-top: 95px;
+	background-image: url("https://res.cloudinary.com/dedbfm0dk/image/upload/v1682069319/capstoneproject/customer/homepage/home_dhigyg.png");
+	background-repeat: no-repeat;
+	background-size: 100% 112%;
+	background-position: center;
+}
+
+.hp-section1 .div1 .title{
+	width: 600px;
+	float: left;
+	height: 600px;
+	margin-left: 100px;
+	margin-top: 1.5%;
+	
+}
+
+.hp-section1 .div1 .img{
+	width: 714px;
+	float: left;
+	height: 600px;
+	margin-left: 50px;
+	margin-top: 1.5%;
+	
+}
+
+.hp-section1 .div1 .img img{
+	width: 710px;
+	height: 506px;
+}
+
+.hp-section1 .div1 .title h2{
+	line-height: 80px;
+	font-size: 44px;
+	margin-top: 80px;
+}
+
+.hp-section1 .div1 .title span{
+	color: #00405d;
+}
+
+/* .hp-section1 .div1 .title a{
+	text-decoration: none;
+	font-size: 25px;
+	color: #fff;
+	background-color: #00405d;
+	border: 1px solid;
+	width: 350px;
+	border-radius: 2px 10em 50%;
+}
+
+.hp-section1 .div1 .title a:hover{
+	background-color: #528B8B;
+} */
+
+.hp-section2{
+	width: 100%;
+	height: 700px;
+	position: relative;
+}
+
+.hp-section2 .div1{
+	position: absolute;
+	width: 100%;
+	height: 70%;
+	background-color:  #99CCCC;
+	top: 50%;
+  	transform: translateY(-50%);
+}
+
+.hp-section2 .div1 .img {
+	position: absolute;
+	top: 50%;
+  	transform: translateY(-50%);
+  	margin-left: 200px;
+  	float: left;
+}
+
+.hp-section2 .div1 .content {
+	position: absolute;
+	top: 50%;
+  	transform: translateY(-50%);
+  	width: 450px;
+  	height: 400px;
+  	margin-left:830px;
+}
+
+.hp-section2 .div1 .img img{
+	height: 550px;
+	
+}
+
+.hp-section2 .div1 .content h6{
+	font-size: 18px;
+	line-height: 1px;
+}
+
+.hp-section2 .div1 .content h2{
+	font-size: 28px;
+	line-height: 38px;
+}
+
+.hp-section2 .div1 .content span{
+	color: #00405d;
+}
+
+.hp-section2 .div1 .content p{
+	font-size: 20px;
+	line-height: 30px;
+}
+
+.hp-section3{
+	width: 100%;
+	height: 700px;
+	position: relative;
+	box-shadow: inset 0px 0px 0px 12px /* 25px 5px */ #99CCCC;
+}
+
+.hp-section3 .div1 .content{
+	width: 500px;
+  	height: 450px;
+  	position: absolute;
+  	top: 50%;
+  	transform: translateY(-50%);
+  	margin-left: 200px;
+}
+
+.hp-section3 .div1 .img{
+	width: 532px;
+  	height: 356px;
+  	position: absolute;
+  	top: 50%;
+  	transform: translateY(-50%);
+  	margin-left: 750px;
+}
+
+.hp-section3 .div1 .content h2{
+	margin-top: 80px;
+	font-size: 28px;
+	line-height: 38px;
+}
+
+.hp-section3 .div1 .content span{
+	color: #00405d;
+}
+
+.hp-section3 .div1 .content p{
+	font-size: 20px;
+	line-height: 30px;
+}
+
+.hp-section3 .div1 .img img{
+	width: 530px;
+	height: 354px;
+}
+
+</style>
+</head>
+<body>
+
+<jsp:include page="header.jsp"></jsp:include>
+
+<section class="hp-section1">
+	<div class="div1">
+		<div class="title">
+			<h2>BẢO VỆ<br/> <span>GIA ĐÌNH BẠN</span> <br/> KHỎI ĐỘNG VẬT GÂY HẠI</h2>
+			<!-- <a href="">Tư Vấn Miễn Phí </a> -->
+		</div>
+		<div class="img">
+			<img src="https://res.cloudinary.com/dedbfm0dk/image/upload/v1682071844/capstoneproject/customer/homepage/family3_corv2c.png">
+		</div>
+	</div>
+</section>
+
+<section class="hp-section2">
+	<div class="div1">
+		<div class="img">
+			<img src="https://res.cloudinary.com/dedbfm0dk/image/upload/v1682073585/capstoneproject/customer/homepage/control_vlg6yv.webp">
+		</div>
+		<div class="content">
+			<h6>Chúng Tôi Là Pest Control Service</h6>
+			<h2><span>CHUYÊN GIA KIỂM SOÁT</span><br/> ĐỘNG VẬT GÂY HẠI</h2>
+			<p>Không chỉ xua đuổi côn trùng, chúng tôi bảo vệ những giá trị mà gia đình Việt trân trọng nhất: 
+			nhà cửa, sức khỏe, hạnh phúc và cả sự an tâm.</p>
+		</div>
+	</div>
+</section>
+
+<section class="hp-section3">
+	<div class="div1">
+		<div class="content">
+			<h2><span>CHĂM SÓC</span><br/> MỌI NGÔI NHÀ VIỆT</h2>
+			<p>Không chỉ xua đuổi côn trùng, chúng tôi bảo vệ những giá trị mà gia đình Việt trân trọng nhất: 
+			nhà cửa, sức khỏe, hạnh phúc và cả sự an tâm.</p>
+		</div>
+		<div class="img">
+			<img src="https://res.cloudinary.com/dedbfm0dk/image/upload/v1682076138/capstoneproject/customer/homepage/homeinhand_vviqrt.jpg">
+		</div>
+	</div>
+</section>
+
+</body>
+</html>
