@@ -29,7 +29,7 @@
         <h2 class = "banner ">Inventory Management Table</h2>
         <div class = "banner">
 			<a href="<%=request.getContextPath()%>/viewSupplier" class="btn btn-info button-search" role="button">View Supplier</a>
-			<a href="<%=request.getContextPath()%>/viewBillDetail" class="btn btn-info button-search" role="button">View Bill</a>
+			<a href="<%-- <%=request.getContextPath()%>/viewbill --%> bill" class="btn btn-info button-search" role="button">View Bill</a>
 		</div>
           <c:url value="/SearchInventory" var="SearchInventory"/>
  		<form:form class = "searchform" action="inventorysearchbyattribute" method="post">

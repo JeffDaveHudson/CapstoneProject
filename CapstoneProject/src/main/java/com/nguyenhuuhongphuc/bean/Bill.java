@@ -1,11 +1,21 @@
 package com.nguyenhuuhongphuc.bean;
 
+import java.sql.Date;
+
 public class Bill {
 	private int id;
 	private String billName;
 	private int idSupplier;
 	private int idStaff;
 	private int total;
+	private Date dateTransfer;
+	
+	public Date getDateTransfer() {
+		return dateTransfer;
+	}
+	public void setDateTransfer(Date dateTransfer) {
+		this.dateTransfer = dateTransfer;
+	}
 	public int getId() {
 		return id;
 	}
@@ -44,6 +54,15 @@ public class Bill {
 		this.total = total;
 	}
 	
+	public Bill(int id, String billName, int idSupplier, int idStaff, int total, Date dateTransfer) {
+		super();
+		this.id = id;
+		this.billName = billName;
+		this.idSupplier = idSupplier;
+		this.idStaff = idStaff;
+		this.total = total;
+		this.dateTransfer = dateTransfer;
+	}
 	public Bill() {
 		// TODO Auto-generated constructor stub
 	}

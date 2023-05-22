@@ -1,0 +1,24 @@
+package com.nguyenhuuhongphuc.controller;
+
+import java.awt.Dialog.ModalExclusionType;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.nguyenhuuhongphuc.service.BillService;
+
+@Controller
+public class BillController {
+	
+	@Autowired
+	BillService billService;
+	
+	@RequestMapping("bill")
+	public String showBillList(Modal model) {
+		
+		billService.getBillList();
+		
+		return "admin/Bill";
+	}
+}

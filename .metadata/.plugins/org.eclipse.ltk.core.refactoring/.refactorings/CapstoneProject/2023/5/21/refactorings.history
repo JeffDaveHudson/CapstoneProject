@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.nguyenhuuhongphuc.controller.Bill&apos; to &apos;BillController&apos;&#x0D;&#x0A;- Original project: &apos;CapstoneProject&apos;&#x0D;&#x0A;- Original element: &apos;com.nguyenhuuhongphuc.controller.Bill&apos;&#x0D;&#x0A;- Renamed element: &apos;com.nguyenhuuhongphuc.controller.BillController&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Bill&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.nguyenhuuhongphuc.controller{Bill.java[Bill" matchStrategy="1" name="BillController" qualified="false" references="true" similarDeclarations="false" stamp="1684725379934" textual="false" version="1.0"/>
+</session>
