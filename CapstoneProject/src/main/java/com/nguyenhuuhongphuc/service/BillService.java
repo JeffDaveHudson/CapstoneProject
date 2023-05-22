@@ -15,10 +15,11 @@ public class BillService {
 	BillDAO billDAO;
 	
 	public List<Bill> getBillList(){
-		
-		List<Bill> billList = billDAO.getBillList();
-		
-		return billList;
+		return billDAO.getBillList(); 
+	}
+	
+	public List<Bill> getBillSearch(String searchString){
+		return billDAO.getBillSearch(searchString);
 	}
 
 }

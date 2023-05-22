@@ -11,6 +11,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='<c:url value="/resources/css/style-page-admin.css" />' rel="stylesheet" type ="text/css"> 
  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+ 
+<style type="text/css">
+
+#searchForm{
+	text-align: center;
+}
+</style>
 </head>
 <body>
  	<jsp:include page="navbar.jsp"/>
@@ -23,7 +30,7 @@
 			<a href="<%=request.getContextPath()%>/showAddBillAvailable" class="button-search" role="button">Add Bill (Available Product)</a>
 		</div>
           <c:url value="/SearchInventory" var="SearchInventory"/>
- 		<form:form class = "searchform" action="SearchBillDetail" method="post">
+ 		<%-- <form:form class = "searchform" action="SearchBillDetail" method="post">
 					<p class = "text2" >Search Information by:</p>
     								<select name="op" class="select">
       									 <option value="Bill_Name">Tên hóa đơn</option>
@@ -32,11 +39,10 @@
       									 <option value="Product_Name">Sản phẩm</option>
       									 <option value="Transfer_Date ">Ngày</option>
     								</select>
-                	<p class = "text2" >Type here:</p>
-  						<div class="searchbar"><input name="search" type="search" placeholder='Search' /></div>
-  						<button class = "button-search" type = "submit">Search</button>
-                		<button class = "button-search" type = "reset">Reset</button>
-
+        </form:form> --%>
+        <form:form id="searchForm" action="billsearch">
+  			<div class="searchbar"><input name="searchString" type="search" placeholder='Search' /></div>
+  			<button class = "button-search" type = "submit">Search</button>
         </form:form>
 <br>
 <br>
