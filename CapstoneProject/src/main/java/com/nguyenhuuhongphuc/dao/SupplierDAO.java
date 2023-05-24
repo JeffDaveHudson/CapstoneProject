@@ -17,19 +17,20 @@ public class SupplierDAO {
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	
+
 	public List<Supplier> getSupplier() {
 		String sql = "SELECT * FROM supplier";
 		List<Supplier> supplierList = jdbcTemplate.query(sql, new RowMapper<Supplier>() {
-			
+
 			public Supplier mapRow(ResultSet rs, int rowNum) throws SQLException {
 				Supplier supplier = new Supplier();
-				
+
 				supplier.setId(rs.getInt("ID"));
 				supplier.setSupplierName(rs.getString("SupplierName"));
 				supplier.setIdSupplierType(rs.getInt("IDSupplierType"));
-				
-				//System.out.println("dao: "+supplier.getId()+"-"+supplier.getSupplierName()+"-"+supplier.getIdSupplierType());
+
+				// System.out.println("dao:
+				// "+supplier.getId()+"-"+supplier.getSupplierName()+"-"+supplier.getIdSupplierType());
 				return supplier;
 			}
 		});
@@ -39,14 +40,15 @@ public class SupplierDAO {
 	public List<SupplierType> getSupplierType() {
 		String sql = "SELECT * FROM suppliertype";
 		List<SupplierType> supplierTypeList = jdbcTemplate.query(sql, new RowMapper<SupplierType>() {
-			
+
 			public SupplierType mapRow(ResultSet rs, int rowNum) throws SQLException {
 				SupplierType supplierType = new SupplierType();
-				
+
 				supplierType.setId(rs.getInt("ID"));
 				supplierType.setSupplierType(rs.getString("SupplierType"));
-				
-				//System.out.println("dao: "+supplier.getId()+"-"+supplier.getSupplierName()+"-"+supplier.getIdSupplierType());
+
+				// System.out.println("dao:
+				// "+supplier.getId()+"-"+supplier.getSupplierName()+"-"+supplier.getIdSupplierType());
 				return supplierType;
 			}
 		});
@@ -54,17 +56,18 @@ public class SupplierDAO {
 	}
 
 	public List<Supplier> getSupplierById(int id) {
-		String sql = "SELECT * FROM supplier WHERE ID = "+id;
+		String sql = "SELECT * FROM supplier WHERE ID = " + id;
 		List<Supplier> supplierList = jdbcTemplate.query(sql, new RowMapper<Supplier>() {
-			
+
 			public Supplier mapRow(ResultSet rs, int rowNum) throws SQLException {
 				Supplier supplier = new Supplier();
-				
+
 				supplier.setId(rs.getInt("ID"));
 				supplier.setSupplierName(rs.getString("SupplierName"));
 				supplier.setIdSupplierType(rs.getInt("IDSupplierType"));
-				
-				//System.out.println("dao: "+supplier.getId()+"-"+supplier.getSupplierName()+"-"+supplier.getIdSupplierType());
+
+				// System.out.println("dao:
+				// "+supplier.getId()+"-"+supplier.getSupplierName()+"-"+supplier.getIdSupplierType());
 				return supplier;
 			}
 		});
@@ -73,6 +76,11 @@ public class SupplierDAO {
 
 	public void deleteSupplier(int id) {
 		String sql = "DELETE FROM Supplier WHERE ID = " + id;
-        jdbcTemplate.update(sql);
+		jdbcTemplate.update(sql);
+	}
+
+	public void updateSupplier(Supplier supplier) {
+		String sql = "UPDATE Supplier SET SupplierName = '" +supplier.getSupplierName() + "', IDSupplierType = " + supplier.getIdSupplierType() + " WHERE ID = " + supplier.getId();
+		jdbcTemplate.update(sql);
 	}
 }

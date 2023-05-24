@@ -579,3 +579,13 @@
 0:0:0:0:0:0:0:1 - - [24/May/2023:18:18:14 +0700] "GET /resources/css/style-page-admin.css HTTP/1.1" 404 715
 0:0:0:0:0:0:0:1 - - [24/May/2023:18:18:25 +0700] "GET /CapstoneProject/supplier HTTP/1.1" 200 5401
 0:0:0:0:0:0:0:1 - - [24/May/2023:18:18:25 +0700] "GET /resources/css/style-page-admin.css HTTP/1.1" 404 715
+0:0:0:0:0:0:0:1 - - [24/May/2023:18:38:37 +0700] "GET /CapstoneProject/supplier HTTP/1.1" 200 5909
+0:0:0:0:0:0:0:1 - - [24/May/2023:18:38:37 +0700] "GET /resources/css/style-page-admin.css HTTP/1.1" 404 715
+0:0:0:0:0:0:0:1 - - [24/May/2023:18:38:40 +0700] "GET /CapstoneProject/supplierdelete?id=3 HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [24/May/2023:18:38:40 +0700] "GET /CapstoneProject/supplier HTTP/1.1" 200 5406
+0:0:0:0:0:0:0:1 - - [24/May/2023:18:38:40 +0700] "GET /resources/css/style-page-admin.css HTTP/1.1" 404 715
+0:0:0:0:0:0:0:1 - - [24/May/2023:18:38:59 +0700] "GET /CapstoneProject/supplier HTTP/1.1" 200 7420
+0:0:0:0:0:0:0:1 - - [24/May/2023:18:38:59 +0700] "GET /resources/css/style-page-admin.css HTTP/1.1" 404 715
+0:0:0:0:0:0:0:1 - - [24/May/2023:18:39:04 +0700] "GET /CapstoneProject/supplierdelete?id=7 HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [24/May/2023:18:39:04 +0700] "GET /CapstoneProject/supplier HTTP/1.1" 200 6915
+0:0:0:0:0:0:0:1 - - [24/May/2023:18:39:04 +0700] "GET /resources/css/style-page-admin.css HTTP/1.1" 404 715

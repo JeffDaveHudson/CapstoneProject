@@ -56,9 +56,9 @@
 		</form>
 		</div> --%>
 
-		<br> <br> <a href="staffcreateform">
+		<br> <br> <a href="suppliercreateform">
 			<button style="margin-left: 70px" class="button-search">Thêm
-				NV</button>
+			</button>
 		</a>
 		<div class="table-wrapper" style="position: relative;
 								  width:90%;
@@ -100,7 +100,7 @@
 						<td><a class="bx bxs-edit bx-xs"
 							<%-- style="text-decoration: none; color: green" href="staffupdate/${stafflist.idStaff}"></a> &nbsp --%>
 							style="text-decoration: none; color: green"
-							href="staffupdateform?id=${stafflist.id}"></a> &nbsp &nbsp 
+							href="supplierupdateform?id=${supplierlist.id}"></a> &nbsp &nbsp 
 							<a class="bx bxs-trash bx-xs"
 							style="text-decoration: none; color: red"
 							<%-- href="staffdelete?id=${stafflist.idStaff}" --%> onclick="confirm_decision('${supplierlist.id}')"></a></td>

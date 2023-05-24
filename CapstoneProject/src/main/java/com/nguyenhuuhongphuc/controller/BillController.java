@@ -158,9 +158,7 @@ public class BillController {
 		
 		List<Supplier> supplierList = supplierService.getSupplier();
 		model.addAttribute("supplierList", supplierList);
-		
-		
-		
+				
 		List<BillDetail> billDetailListWhenCreating = billService.getBillDetailWhenCreating(idBill);
 		model.addAttribute("billDetailListWhenCreating", billDetailListWhenCreating);
 		

@@ -32,5 +32,10 @@ public class SupplierService {
 		
 	}
 
+	public void updateSupplier(Supplier supplier) {
+		supplierDAO.updateSupplier(supplier);
+		
+	}
+
 
 }
