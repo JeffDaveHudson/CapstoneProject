@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.nguyenhuuhongphuc.bean.Supplier;
+import com.nguyenhuuhongphuc.bean.SupplierType;
 
 @Repository
 public class SupplierDAO {
@@ -33,5 +34,22 @@ public class SupplierDAO {
 			}
 		});
 		return supplierList;
+	}
+
+	public List<SupplierType> getSupplierType() {
+		String sql = "SELECT * FROM suppliertype";
+		List<SupplierType> supplierTypeList = jdbcTemplate.query(sql, new RowMapper<SupplierType>() {
+			
+			public SupplierType mapRow(ResultSet rs, int rowNum) throws SQLException {
+				SupplierType supplierType = new SupplierType();
+				
+				supplierType.setId(rs.getInt("ID"));
+				supplierType.setSupplierType(rs.getString("SupplierType"));
+				
+				//System.out.println("dao: "+supplier.getId()+"-"+supplier.getSupplierName()+"-"+supplier.getIdSupplierType());
+				return supplierType;
+			}
+		});
+		return supplierTypeList;
 	}
 }

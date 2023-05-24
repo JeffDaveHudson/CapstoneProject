@@ -1,0 +1,21 @@
+package com.nguyenhuuhongphuc.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.nguyenhuuhongphuc.service.SupplierService;
+
+@Controller
+public class SupplierController {
+	 
+	@Autowired
+	SupplierService supplierService;
+	
+	@RequestMapping("supplier")
+	public String showSupplierList(Model model) {
+		
+		return "admin/Supplier";
+	}
+}
