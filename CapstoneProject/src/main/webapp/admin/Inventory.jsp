@@ -26,10 +26,10 @@
 
     <section class="home">
         		<div class="text">Inventory Page</div>
-        <h2 class = "banner ">Inventory Management Table</h2>
+        <h2 class = "banner "  style="margin-top: -70px">Inventory Management Table</h2>
         <div class = "banner">
 			<a href="<%=request.getContextPath()%>/viewSupplier" class="btn btn-info button-search" role="button">View Supplier</a>
-			<a href="<%-- <%=request.getContextPath()%>/viewbill --%> bill" class="btn btn-info button-search" role="button">View Bill</a>
+			<a href="bill" class="btn btn-info button-search" role="button">View Bill</a>
 		</div>
           <c:url value="/SearchInventory" var="SearchInventory"/>
  		<form:form class = "searchform" action="inventorysearchbyattribute" method="post">
@@ -54,9 +54,19 @@
         
 <br>
 <br>
-<div class="table-wrapper">
-    <table class="fl-table">
-        <thead>
+<div class="table-wrapper"  style="position: relative;
+								  width:90%;
+								  z-index: 1;
+								  overflow: auto;
+								  height: 350px;">
+    <table class="fl-table" style="	  width: 100%;
+									  margin: auto;
+									  border-collapse: separate;
+									  border-spacing: 0;">
+        <thead style="
+				  position: -webkit-sticky;
+				  position: sticky;
+				  top: 0;">
         <tr>
             <th>Mã Sản Phẩm</th>
             <th>Tên Sản Phẩm</th>
@@ -87,11 +97,11 @@
             </c:forEach>
             <td>${productlist.price}</td>
             
-            <c:forEach items="${productInventoryList }" var="productinventorylist">
-            	<c:if test="${productlist.idProductInventory==productinventorylist.id }">
-            		<td>${productinventorylist.quantity}</td>
-            	</c:if>
-            </c:forEach>
+            <%-- <c:forEach items="${productInventoryList }" var="productinventorylist">
+            	<c:if test="${productlist.idProductInventory==productinventorylist.id }"> --%>
+            		<td>${productlist.stock}</td>
+            	<%-- </c:if>
+            </c:forEach> --%>
         </tr>
         </c:forEach>
         <tbody>

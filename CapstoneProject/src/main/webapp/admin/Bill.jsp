@@ -26,7 +26,7 @@
         		<div class="text">Bill Page</div>
         <h2 class = "banner ">Bill History Table</h2>
         <div class = "banner">
-			<a href="<%=request.getContextPath()%>/showAddBill" class="button-search" role="button">Add Bill</a>
+			<a href="billcreate" class="button-search" role="button">Add Bill</a>
 			<a href="<%=request.getContextPath()%>/showAddBillAvailable" class="button-search" role="button">Add Bill (Available Product)</a>
 		</div>
           <c:url value="/SearchInventory" var="SearchInventory"/>
@@ -46,10 +46,20 @@
         </form:form>
 <br>
 <br>
-<div class="table-wrapper">
-    <table class="fl-table">
-        <thead>
-        <tr>
+<div class="table-wrapper" style="position: relative;
+								  width:90%;
+								  z-index: 1;
+								  overflow: auto;
+								  height: 350px;">
+    <table class="fl-table" style="	  width: 100%;
+									  margin: auto;
+									  border-collapse: separate;
+									  border-spacing: 0;">
+        <thead style="
+				  position: -webkit-sticky;
+				  position: sticky;
+				  top: 0;">
+        <tr >
             <th>STT</th>
             <th>Tên hóa đơn</th>
             <th>Nhà cung cấp</th>

@@ -9,12 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nguyenhuuhongphuc.bean.Product;
-import com.nguyenhuuhongphuc.bean.ProductInventory;
 import com.nguyenhuuhongphuc.bean.ProductType;
 import com.nguyenhuuhongphuc.bean.Supplier;
-import com.nguyenhuuhongphuc.dao.SupplierDAO;
 import com.nguyenhuuhongphuc.service.InventoryService;
-import com.nguyenhuuhongphuc.service.ProductInventoryService;
 import com.nguyenhuuhongphuc.service.SupplierService;
 
 @Controller
@@ -25,9 +22,6 @@ public class InventoryController {
 	
 	@Autowired
 	SupplierService supplierService;
-	
-	@Autowired
-	ProductInventoryService productInventoryService;
 	
 	@RequestMapping("inventory")
 	public String showInventory(Model model) {
@@ -41,8 +35,11 @@ public class InventoryController {
 		List<Supplier> supplierList = supplierService.getSupplier();
 		model.addAttribute("supplierList", supplierList);
 		
-		List<ProductInventory> productInventoryList = productInventoryService.getProductInventory();
-		model.addAttribute("productInventoryList", productInventoryList);
+		/*
+		 * List<ProductInventory> productInventoryList =
+		 * productInventoryService.getProductInventory();
+		 * model.addAttribute("productInventoryList", productInventoryList);
+		 */
 		
 		return "admin/Inventory";
 	}
@@ -63,8 +60,11 @@ public class InventoryController {
 		List<Supplier> supplierList = supplierService.getSupplier();
 		model.addAttribute("supplierList", supplierList);
 		
-		List<ProductInventory> productInventoryList = productInventoryService.getProductInventory();
-		model.addAttribute("productInventoryList", productInventoryList);
+		/*
+		 * List<ProductInventory> productInventoryList =
+		 * productInventoryService.getProductInventory();
+		 * model.addAttribute("productInventoryList", productInventoryList);
+		 */
 		
 		return "admin/Inventory";
 	}
@@ -84,8 +84,11 @@ public class InventoryController {
 		List<Supplier> supplierList = supplierService.getSupplier();
 		model.addAttribute("supplierList", supplierList);
 		
-		List<ProductInventory> productInventoryList = productInventoryService.getProductInventory();
-		model.addAttribute("productInventoryList", productInventoryList);
+		/*
+		 * List<ProductInventory> productInventoryList =
+		 * productInventoryService.getProductInventory();
+		 * model.addAttribute("productInventoryList", productInventoryList);
+		 */
 		
 		return "admin/Inventory";
 	}

@@ -30,7 +30,7 @@ public class InventoryDAO {
 				product.setIdProductType(rs.getInt("IDProductType"));
 				product.setIdSupplier(rs.getInt("IDSupplier"));
 				product.setPrice(rs.getInt("Price"));
-				product.setIdProductInventory(rs.getInt("IDProductInventory"));
+				product.setStock(rs.getInt("Stock"));
 				
 				//System.out.println(product.getId()+"-"+product.getProductName()+"-"+product.getIdProductType()+"-"+product.getIdSupplier()+"-"+product.getPrice()+"-"+product.getIdProductInventory());
 				return product;
@@ -68,7 +68,7 @@ public class InventoryDAO {
 				product.setIdProductType(rs.getInt("IDProductType"));
 				product.setIdSupplier(rs.getInt("IDSupplier"));
 				product.setPrice(rs.getInt("Price"));
-				product.setIdProductInventory(rs.getInt("IDProductInventory"));
+				product.setStock(rs.getInt("Stock"));
 				
 				//System.out.println(product.getId()+"-"+product.getProductName()+"-"+product.getIdProductType()+"-"+product.getIdSupplier()+"-"+product.getPrice()+"-"+product.getIdProductInventory());
 				return product;
@@ -89,7 +89,7 @@ public class InventoryDAO {
 				product.setIdProductType(rs.getInt("IDProductType"));
 				product.setIdSupplier(rs.getInt("IDSupplier"));
 				product.setPrice(rs.getInt("Price"));
-				product.setIdProductInventory(rs.getInt("IDProductInventory"));
+				product.setStock(rs.getInt("Stock"));
 				
 				//System.out.println(product.getId()+"-"+product.getProductName()+"-"+product.getIdProductType()+"-"+product.getIdSupplier()+"-"+product.getPrice()+"-"+product.getIdProductInventory());
 				return product;

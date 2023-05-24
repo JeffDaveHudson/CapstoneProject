@@ -1,4 +1,4 @@
-<!DOCTYPE hibernate-configuration PUBLIC 
+<!-- <!DOCTYPE hibernate-configuration PUBLIC 
 "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">	
 <hibernate-configuration>
@@ -13,7 +13,7 @@
       <property name="show_sql">true</property>
       <property name="format_sql">true</property>
    
-      <!-- <property name = "hibernate.dialect">
+      <property name = "hibernate.dialect">
          org.hibernate.dialect.MySQLDialect
       </property>
       
@@ -36,7 +36,7 @@
       </property>
       
       List of XML mapping files
-      <mapping resource = "Employee.hbm.xml"/> -->
+      <mapping resource = "Employee.hbm.xml"/>
       
    </session-factory>
-</hibernate-configuration>
+</hibernate-configuration> -->
