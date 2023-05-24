@@ -19,7 +19,7 @@
 	function confirm_decision(user_id) {
 		if (confirm("you want to delete the user?")) // this will pop up confirmation box and if yes is clicked it call servlet else return to page
 		{
-			window.location = "staffdelete?id=" + user_id;
+			window.location = "supplierdelete?id=" + user_id;
 		} else {
 			return false;
 		}
@@ -103,7 +103,7 @@
 							href="staffupdateform?id=${stafflist.id}"></a> &nbsp &nbsp 
 							<a class="bx bxs-trash bx-xs"
 							style="text-decoration: none; color: red"
-							<%-- href="staffdelete?id=${stafflist.idStaff}" --%> onclick="confirm_decision('${stafflist.id}')"></a></td>
+							<%-- href="staffdelete?id=${stafflist.idStaff}" --%> onclick="confirm_decision('${supplierlist.id}')"></a></td>
 					</tr>
 					</c:forEach>
 				<tbody>

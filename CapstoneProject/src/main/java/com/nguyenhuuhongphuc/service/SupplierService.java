@@ -23,4 +23,14 @@ public class SupplierService {
 		return supplierDAO.getSupplierType();
 	}
 
+	public List<Supplier> getSupplierById(int id) {
+		return supplierDAO.getSupplierById(id);
+	}
+
+	public void deleteSupplier(int id) {
+		supplierDAO.deleteSupplier(id);
+		
+	}
+
+
 }

@@ -52,4 +52,27 @@ public class SupplierDAO {
 		});
 		return supplierTypeList;
 	}
+
+	public List<Supplier> getSupplierById(int id) {
+		String sql = "SELECT * FROM supplier WHERE ID = "+id;
+		List<Supplier> supplierList = jdbcTemplate.query(sql, new RowMapper<Supplier>() {
+			
+			public Supplier mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Supplier supplier = new Supplier();
+				
+				supplier.setId(rs.getInt("ID"));
+				supplier.setSupplierName(rs.getString("SupplierName"));
+				supplier.setIdSupplierType(rs.getInt("IDSupplierType"));
+				
+				//System.out.println("dao: "+supplier.getId()+"-"+supplier.getSupplierName()+"-"+supplier.getIdSupplierType());
+				return supplier;
+			}
+		});
+		return supplierList;
+	}
+
+	public void deleteSupplier(int id) {
+		String sql = "DELETE FROM Supplier WHERE ID = " + id;
+        jdbcTemplate.update(sql);
+	}
 }
