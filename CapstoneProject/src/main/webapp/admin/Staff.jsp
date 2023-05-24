@@ -105,8 +105,8 @@
 						<td><a class="bx bxs-edit bx-xs"
 							<%-- style="text-decoration: none; color: green" href="staffupdate/${stafflist.idStaff}"></a> &nbsp --%>
 							style="text-decoration: none; color: green"
-							href="staffupdateform?id=${stafflist.id}"></a> &nbsp &nbsp <a
-							class="bx bxs-trash bx-xs"
+							href="staffupdateform?id=${stafflist.id}"></a> &nbsp &nbsp 
+							<a class="bx bxs-trash bx-xs"
 							style="text-decoration: none; color: red"
 							<%-- href="staffdelete?id=${stafflist.idStaff}" --%> onclick="confirm_decision('${stafflist.id}')"></a></td>
 					</tr>

@@ -89,11 +89,16 @@
 			
 			<td>${billlist.total}</td>
 			<td>${billlist.dateTransfer}</td>
-			<td></td>
             <%-- <td>
             <a class = "bx bxs-trash bx-xs" style="text-decoration:none; color: red " href = "<%=request.getContextPath()%>/deleteBillDetail?id=<c:out value="${item.id}-${item.bill.id}" />">
   					</a>
   					</td> --%>
+  			<td>
+  				<a class="bx bxs-detail bx-xs"
+							<%-- style="text-decoration: none; color: green" href="staffupdate/${stafflist.idStaff}"></a> &nbsp --%>
+							style="text-decoration: none; color: green"
+							href="billshowdetail?id=${billlist.id}"></a>
+  			</td>
         </tr>
         </c:forEach>
         <tbody>

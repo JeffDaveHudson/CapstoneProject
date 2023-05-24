@@ -93,6 +93,28 @@ public class BillDAO {
         });
         return billList;
     }
+	
+	public List<Bill> getBillById(int id) {
+        String sql = "SELECT * FROM Bill WHERE ID = "+ id;
+        List<Bill> billList = jdbcTemplate.query(sql, new RowMapper<Bill>() {
+
+            public Bill mapRow(ResultSet rs, int rowNum) throws SQLException {
+            	Bill bill = new Bill();
+
+            	bill.setId(rs.getInt("ID"));
+            	bill.setBillName(rs.getString("BillName"));
+            	bill.setIdSupplier(rs.getInt("IDSupplier"));
+            	bill.setIdStaff(rs.getInt("IDStaff"));
+            	bill.setTotal(rs.getInt("Total"));
+            	bill.setDateTransfer(rs.getDate("DateTransfer"));
+
+            	//System.out.println("DAOLastestbill: "+bill.getId()+"-"+bill.getBillName()+"-"+bill.getIdSupplier()+"-"+bill.getIdStaff()+"-"+bill.getTotal()+"-"+bill.getDateTransfer());
+            	return bill;
+
+            }
+        });
+        return billList;
+    }
 
 	public void createNewBillDetail(BillDetail billDetail) {
 		String sql = "INSERT INTO BillDetail (IDProduct, IDBill, Price, Quantity) VALUES ('"
@@ -141,6 +163,11 @@ public class BillDAO {
         });
         return billDetailList;
     }
+	
+	public void updateToTalWhenCreating(int total, int idBill) {
+		String sql = "UPDATE Bill SET Total = "+total+" WHERE ID = "+idBill;
+		jdbcTemplate.update(sql);
+	}
 	
 	public List<Bill> getTotalInBill(int idBill) {
 		String sql = "SELECT SUM(Price*Quantity) AS TotalBillDetail FROM billdetail WHERE IDBill = "+idBill;

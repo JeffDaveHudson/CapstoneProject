@@ -136,6 +136,7 @@ public class BillController {
 		for (Bill bill2 : getTotelBill) {
 			total = bill2.getTotal();
 		}
+		billService.updateToTalWhenCreating(total, bill.getId());
 		model.addAttribute("total", total);
 		
 		model.addAttribute("billDetailListWhenCreating", billDetailListWhenCreating);
@@ -144,5 +145,33 @@ public class BillController {
 		return "admin/BillDetailCreate";
 	}
 	
+	@RequestMapping("billshowdetail")
+	public String billShowDetail(@RequestParam("id") int idBill, Model model){
+		
+		System.out.println("idBillShowDetail: "+idBill);
+		
+		List<Bill> billById = billService.getBillById(idBill);
+		model.addAttribute("lastestBill", billById);
+		
+		List<Staff> staffList = staffService.getStaffList();
+		model.addAttribute("staffList", staffList);
+		
+		List<Supplier> supplierList = supplierService.getSupplier();
+		model.addAttribute("supplierList", supplierList);
+		
+		
+		
+		List<BillDetail> billDetailListWhenCreating = billService.getBillDetailWhenCreating(idBill);
+		model.addAttribute("billDetailListWhenCreating", billDetailListWhenCreating);
+		
+		for (BillDetail billDetail : billDetailListWhenCreating) {
+			System.out.println("show: "+"-"+billDetail.getIdBill()+"-"+billDetail.getIdProduct()+"-"+billDetail.getPrice()+"-"+billDetail.getQuantity());
+		}
+		
+		List<Product> productList = inventoryService.getInventory();
+		model.addAttribute("productList", productList);
+		
+		return "admin/BillShowDetail";
+	}
 	
 }

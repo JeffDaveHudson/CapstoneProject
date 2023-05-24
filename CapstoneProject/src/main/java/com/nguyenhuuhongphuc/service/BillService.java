@@ -52,4 +52,12 @@ public class BillService {
 	public void updateProductStock(int newQuantity, int idProduct) {
 		billDAO.updateProductStock(newQuantity, idProduct);
 	}
+	
+	public List<Bill> getBillById(int id){
+		return billDAO.getBillById(id);
+	}
+	
+	public void updateToTalWhenCreating(int total, int idBill) {
+		billDAO.updateToTalWhenCreating(total, idBill);
+	}
 }
