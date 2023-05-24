@@ -1,0 +1,37 @@
+package com.nguyenhuuhongphuc.dao;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
+
+import com.nguyenhuuhongphuc.bean.ProductType;
+import com.nguyenhuuhongphuc.bean.Supplier;
+
+@Repository
+public class SupplierDAO {
+
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+	
+	public List<Supplier> getSupplier() {
+		String sql = "SELECT * FROM producttype";
+		List<Supplier> supplierList = jdbcTemplate.query(sql, new RowMapper<Supplier>() {
+			
+			public Supplier mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Supplier supplier = new Supplier();
+				
+				supplier.setId(rs.getInt("ID"));
+				supplier.setSupplierType(rs.getString("SupplierType"));
+				
+				System.out.println("dao: "+productType.getId()+"-"+productType.getProductType());
+				return productType;
+			}
+		});
+		return supplierList;
+	}
+}

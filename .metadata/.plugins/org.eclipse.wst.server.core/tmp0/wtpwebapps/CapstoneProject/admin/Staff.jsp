@@ -61,10 +61,20 @@
 			<button style="margin-left: 70px" class="button-search">Thêm
 				NV</button>
 		</a>
-		<div class="table-wrapper" style="height: 50vh; overflow: auto">
-			<table class="fl-table">
-				<thead>
-					<tr>
+		<div class="table-wrapper" style="position: relative;
+								  width:90%;
+								  z-index: 1;
+								  overflow: auto;
+								  height: 350px;">
+			<table class="fl-table" style=" width: 100%;
+							   margin: auto;
+							   border-collapse: separate;
+							   border-spacing: 0;">
+				<thead style="
+							  position: -webkit-sticky;
+							  position: sticky;
+							  top: 0;">
+					<tr >
 						<th>Mã NV</th>
 						<th>Tên NV</th>
 						<th>Lương</th>
@@ -95,8 +105,8 @@
 						<td><a class="bx bxs-edit bx-xs"
 							<%-- style="text-decoration: none; color: green" href="staffupdate/${stafflist.idStaff}"></a> &nbsp --%>
 							style="text-decoration: none; color: green"
-							href="staffupdateform?id=${stafflist.id}"></a> &nbsp &nbsp <a
-							class="bx bxs-trash bx-xs"
+							href="staffupdateform?id=${stafflist.id}"></a> &nbsp &nbsp 
+							<a class="bx bxs-trash bx-xs"
 							style="text-decoration: none; color: red"
 							<%-- href="staffdelete?id=${stafflist.idStaff}" --%> onclick="confirm_decision('${stafflist.id}')"></a></td>
 					</tr>

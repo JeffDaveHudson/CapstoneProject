@@ -6,9 +6,24 @@ public class Product {
 	private int idProductType;
 	private int idSupplier;
 	private int price;
-	private int idProductInventory;
+	private int stock;
 	public int getId() {
 		return id;
+	}
+	public Product(int id, String productName, int idProductType, int idSupplier, int price, int stock) {
+		super();
+		this.id = id;
+		this.productName = productName;
+		this.idProductType = idProductType;
+		this.idSupplier = idSupplier;
+		this.price = price;
+		this.stock = stock;
+	}
+	public int getStock() {
+		return stock;
+	}
+	public void setStock(int stock) {
+		this.stock = stock;
 	}
 	public void setId(int id) {
 		this.id = id;
@@ -36,20 +51,6 @@ public class Product {
 	}
 	public void setPrice(int price) {
 		this.price = price;
-	}
-	public int getIdProductInventory() {
-		return idProductInventory;
-	}
-	public void setIdProductInventory(int idProductInventory) {
-		this.idProductInventory = idProductInventory;
-	}
-	public Product(int id, String productName, int idProductType, int idSupplier, int price, int idProductInventory) {
-		this.id = id;
-		this.productName = productName;
-		this.idProductType = idProductType;
-		this.idSupplier = idSupplier;
-		this.price = price;
-		this.idProductInventory = idProductInventory;
 	}
 	
 	public Product() {

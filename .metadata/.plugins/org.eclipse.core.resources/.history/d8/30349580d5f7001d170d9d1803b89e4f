@@ -1,0 +1,26 @@
+package com.nguyenhuuhongphuc.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.nguyenhuuhongphuc.bean.Product;
+import com.nguyenhuuhongphuc.bean.ProductType;
+import com.nguyenhuuhongphuc.dao.InventoryDAO;
+
+@Service
+public class InventoryService {
+	
+	@Autowired
+	InventoryDAO inventoryDAO;
+	
+	public List<Product> getInventory(){
+		return inventoryDAO.getInventory();
+	}
+	
+	public List<ProductType> getProductType(){
+		return inventoryDAO.getProductType();
+	}
+	
+}
