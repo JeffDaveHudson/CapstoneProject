@@ -83,4 +83,11 @@ public class SupplierDAO {
 		String sql = "UPDATE Supplier SET SupplierName = '" +supplier.getSupplierName() + "', IDSupplierType = " + supplier.getIdSupplierType() + " WHERE ID = " + supplier.getId();
 		jdbcTemplate.update(sql);
 	}
+
+	public void createSupplier(Supplier supplier) {
+		String sql = "INSERT INTO Supplier (SupplierName, IDSupplierType) VALUES ('"
+                + supplier.getSupplierName()+"',"
+                + supplier.getIdSupplierType()+ ")";
+        jdbcTemplate.update(sql);
+	}
 }

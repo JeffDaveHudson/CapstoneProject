@@ -76,7 +76,24 @@ public class SupplierController {
 		supplier.setIdSupplierType(Integer.parseInt(supplierTypeClicked));
 		supplierService.updateSupplier(supplier);
 		return "redirect:/supplier";
-		//staff
+	}
+	
+	@RequestMapping("suppliercreateform")
+	public String showSupplierCreateForm(Model model) {
+		List<SupplierType> supplierTypeList = supplierService.getSupplierType();
+		model.addAttribute("supplierTypeList",supplierTypeList);
+		model.addAttribute("supplier", new Supplier());
+		return "admin/SupplierCreate";
+	}
+	
+	@PostMapping("suppliercreate")
+	public String processStaffCreate(Model model, @ModelAttribute("supplier") Supplier supplier, @RequestParam("supplierTypeClicked") String supplierTypeClicked) {
+		int idSupplierType = Integer.parseInt(supplierTypeClicked);
+		supplier.setIdSupplierType(idSupplierType);
+		supplierService.createSupplier(supplier);
+		
+		return "redirect:/supplier";
+		
 	}
 	
 }

@@ -37,5 +37,9 @@ public class SupplierService {
 		
 	}
 
+	public void createSupplier(Supplier supplier) {
+		supplierDAO.createSupplier(supplier);
+	}
+
 
 }
