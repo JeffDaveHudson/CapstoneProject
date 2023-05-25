@@ -80,6 +80,7 @@
             <!-- <th>Nhà Cung Cấp</th> -->
             <th>Giá (VND)</th>
             <th>Số Lượng Trong Kho (Cái)</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -100,6 +101,13 @@
             </c:forEach> --%>
             <td>${productlist.price}</td>
             <td>${productlist.stock}</td>
+            <td><a class="bx bxs-edit bx-xs"
+								<%-- style="text-decoration: none; color: green" href="staffupdate/${stafflist.idStaff}"></a> &nbsp --%>
+							style="text-decoration: none; color: green"
+								href="productupdateform?id=${productlist.id}"></a> &nbsp &nbsp <a
+								class="bx bxs-trash bx-xs"
+								style="text-decoration: none; color: red"
+								<%-- href="staffdelete?id=${stafflist.idStaff}" --%> onclick="confirm_decision('${productlist.id}')"></a></td>
         </tr>
         </c:forEach>
         <tbody>
