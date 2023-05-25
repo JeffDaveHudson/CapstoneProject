@@ -30,5 +30,9 @@ public class InventoryService {
 	public List<Product> getInventoryByAttribute(int idProductType, int idSupplier) {
 		return inventoryDAO.getInventoryByAttribute(idProductType, idSupplier);
 	}
+
+	public void createProduct(Product product) {
+		inventoryDAO.createProduct(product);
+	}
 	
 }

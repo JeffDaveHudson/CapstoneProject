@@ -32,6 +32,8 @@
 			<a href="bill" class="btn btn-info button-search" role="button" style="text-decoration: none">View Bill</a>
 		</div>
           <c:url value="/SearchInventory" var="SearchInventory"/>
+          
+        <%-- --------------------------KHÔNG ĐƯỢC XÓA---------------------
  		<form:form class = "searchform" action="inventorysearchbyattribute" method="post">
 					<p class = "text2" >Tìm kiếm theo: </p>
     								<select name="inventoryProductTypeClicked" class="select">
@@ -45,7 +47,7 @@
       									</c:forEach>
     								</select>
     								<button class = "button-search" type = "submit">OK</button>
-    	</form:form>
+    	</form:form> --%>
         <form:form id="form2" action="inventorysearch">
   						<div class="searchbar"><input name="searchInventoryString" type="search" placeholder='Search' /></div>
   						<button class = "button-search" type = "submit">Search</button>
@@ -54,6 +56,10 @@
         
 <br>
 <br>
+			<a href="productcreateform">
+				<button style="margin-left: 70px" class="button-search">Thêm
+					Sản Phẩm</button>
+			</a>
 <div class="table-wrapper"  style="position: relative;
 								  width:90%;
 								  z-index: 1;
@@ -71,7 +77,7 @@
             <th>Mã Sản Phẩm</th>
             <th>Tên Sản Phẩm</th>
             <th>Loại Sản Phẩm</th>
-            <th>Nhà Cung Cấp</th>
+            <!-- <th>Nhà Cung Cấp</th> -->
             <th>Giá (VND)</th>
             <th>Số Lượng Trong Kho (Cái)</th>
         </tr>
@@ -80,28 +86,20 @@
         <c:forEach items="${productList}" var="productlist">
         <tr>
             <td>${productlist.id}</td>
-            <td>${productlist.productName}
-            	<%-- &nbsp &nbsp
-  				<a class = "bx bxs-box bx-xs" style="text-decoration:none; color: blue " href = "<%=request.getContextPath()%>/viewProduct?id=<c:out value="${item.id}-${item.name}" />">
-  					</a> --%></td>
+            <td>${productlist.productName}</td>
   			<c:forEach items="${productTypeList}" var="producttypelist">
   				<c:if test="${productlist.idProductType==producttypelist.id}">
             		<td>${producttypelist.productType}</td>
             	</c:if>
             </c:forEach>
             
-            <c:forEach items="${supplierList}" var="supplierlist">
+            <%-- <c:forEach items="${supplierList}" var="supplierlist">
             	<c:if test="${productlist.idSupplier==supplierlist.id}">
            			<td>${supplierlist.supplierName}</td>
             	</c:if>
-            </c:forEach>
-            <td>${productlist.price}</td>
-            
-            <%-- <c:forEach items="${productInventoryList }" var="productinventorylist">
-            	<c:if test="${productlist.idProductInventory==productinventorylist.id }"> --%>
-            		<td>${productlist.stock}</td>
-            	<%-- </c:if>
             </c:forEach> --%>
+            <td>${productlist.price}</td>
+            <td>${productlist.stock}</td>
         </tr>
         </c:forEach>
         <tbody>

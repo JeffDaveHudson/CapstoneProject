@@ -97,4 +97,12 @@ public class InventoryDAO {
 		});
 		return productList;
 	}
+
+	public void createProduct(Product product) {
+		String sql = "INSERT INTO Product (ProductName, IDProductType, Price, Stock) VALUES ('"
+                + product.getProductName()+"',"
+                + product.getIdProductType()+", 0, 0)";
+        jdbcTemplate.update(sql);
+		
+	}
 }
