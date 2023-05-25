@@ -24,11 +24,11 @@
 
     <section class="home">
         		<div class="text">Bill Page</div>
-        <h2 class = "banner ">Bill History Table</h2>
-        <div class = "banner">
-			<a href="billcreate" class="button-search" role="button">Add Bill</a>
+        <h2 class = "banner ">Bill Table</h2>
+        <%-- <div class = "banner">
+			
 			<a href="<%=request.getContextPath()%>/showAddBillAvailable" class="button-search" role="button">Add Bill (Available Product)</a>
-		</div>
+		</div> --%>
           <c:url value="/SearchInventory" var="SearchInventory"/>
  		<%-- <form:form class = "searchform" action="SearchBillDetail" method="post">
 					<p class = "text2" >Search Information by:</p>
@@ -42,7 +42,9 @@
         </form:form> --%>
         <form:form id="searchForm" action="billsearch">
   			<div class="searchbar"><input name="searchString" type="search" placeholder='Search' /></div>
-  			<button class = "button-search" type = "submit">Search</button>
+  			<button class = "button-search" type = "submit">Tìm Kiếm</button>
+  			<a href="billcreate" class="button-search" role="button" style="text-decoration: none; padding-top: 12px; padding-bottom: 12px;">Thêm Mới</a>
+  			<a href="inventory" class="button-search" role="button" style="text-decoration: none; padding-top: 12px; padding-bottom: 12px;">Quay Lại</a>
         </form:form>
 <br>
 <br>

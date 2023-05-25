@@ -28,8 +28,8 @@
         		<div class="text">Inventory Page</div>
         <h2 class = "banner "  style="margin-top: -70px">Inventory Management Table</h2>
         <div class = "banner">
-			<a href="<%=request.getContextPath()%>/viewSupplier" class="btn btn-info button-search" role="button">View Supplier</a>
-			<a href="bill" class="btn btn-info button-search" role="button">View Bill</a>
+			<a href="supplier" class="btn btn-info button-search" role="button" style="text-decoration: none">View Supplier</a>
+			<a href="bill" class="btn btn-info button-search" role="button" style="text-decoration: none">View Bill</a>
 		</div>
           <c:url value="/SearchInventory" var="SearchInventory"/>
  		<form:form class = "searchform" action="inventorysearchbyattribute" method="post">
