@@ -43,4 +43,8 @@ public class InventoryService {
 		inventoryDAO.updateProduct(product);
 		
 	}
+
+	public void deleteProduct(int id) {
+		inventoryDAO.deleteProduct(id);
+	}
 }

@@ -20,6 +20,18 @@
 }
 
 </style>
+<script type="text/javascript">
+	function confirm_decision(user_id) {
+		if (confirm("you want to delete the user?")) // this will pop up confirmation box and if yes is clicked it call servlet else return to page
+		{
+			window.location = "productdelete?id=" + user_id;
+		} else {
+			return false;
+		}
+		return true;
+	}
+</script>
+
 </head>
 <body>
 <jsp:include page="navbar.jsp" />
@@ -104,10 +116,9 @@
             <td><a class="bx bxs-edit bx-xs"
 								<%-- style="text-decoration: none; color: green" href="staffupdate/${stafflist.idStaff}"></a> &nbsp --%>
 							style="text-decoration: none; color: green"
-								href="productupdateform?id=${productlist.id}"></a> &nbsp &nbsp <a
-								class="bx bxs-trash bx-xs"
-								style="text-decoration: none; color: red"
-								<%-- href="staffdelete?id=${stafflist.idStaff}" --%> onclick="confirm_decision('${productlist.id}')"></a></td>
+								href="productupdateform?id=${productlist.id}"></a> &nbsp &nbsp 
+								<a class="bx bxs-trash bx-xs" style="text-decoration: none; color: red"
+								onclick="confirm_decision('${productlist.id}')"></a></td>
         </tr>
         </c:forEach>
         <tbody>

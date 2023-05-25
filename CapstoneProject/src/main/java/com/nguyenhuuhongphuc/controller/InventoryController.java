@@ -142,5 +142,18 @@ public class InventoryController {
 		return "redirect:/inventory"; // staff
 
 	}
+	
+	@GetMapping(value = "productdelete")
+	public String deleteProduct(@RequestParam("id") int id) {
+		//System.out.println("delete: "+id);
+		
+		List<Product> productList = inventoryService.getProductById(id);
+		Product product = new Product();
+		for (Product productlist : productList) {
+			product.setProductName(productlist.getProductName());
+		}
+		inventoryService.deleteProduct(id);
+		return "redirect:/inventory";
+	}
 
 }

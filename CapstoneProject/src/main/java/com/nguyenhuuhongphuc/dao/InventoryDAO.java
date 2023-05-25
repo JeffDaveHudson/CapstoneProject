@@ -133,4 +133,9 @@ public class InventoryDAO {
 				+ " WHERE ID = " + product.getId();
 		jdbcTemplate.update(sql);
 	}
+
+	public void deleteProduct(int id) {
+		String sql = "DELETE FROM Product WHERE ID = " + id;
+        jdbcTemplate.update(sql);
+	}
 }
