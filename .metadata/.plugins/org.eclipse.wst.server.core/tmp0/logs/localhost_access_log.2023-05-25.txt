@@ -487,3 +487,12 @@
 0:0:0:0:0:0:0:1 - - [25/May/2023:16:20:29 +0700] "POST /CapstoneProject/processupdateproduct HTTP/1.1" 302 -
 0:0:0:0:0:0:0:1 - - [25/May/2023:16:20:29 +0700] "GET /CapstoneProject/inventory HTTP/1.1" 200 14657
 0:0:0:0:0:0:0:1 - - [25/May/2023:16:20:29 +0700] "GET /resources/css/style-page-admin.css HTTP/1.1" 404 715
+0:0:0:0:0:0:0:1 - - [25/May/2023:16:41:56 +0700] "GET /CapstoneProject/inventory HTTP/1.1" 200 14657
+0:0:0:0:0:0:0:1 - - [25/May/2023:16:41:56 +0700] "GET /resources/css/style-page-admin.css HTTP/1.1" 404 715
+0:0:0:0:0:0:0:1 - - [25/May/2023:16:43:26 +0700] "GET /CapstoneProject/inventory HTTP/1.1" 200 14845
+0:0:0:0:0:0:0:1 - - [25/May/2023:16:43:26 +0700] "GET /resources/css/style-page-admin.css HTTP/1.1" 404 715
+0:0:0:0:0:0:0:1 - - [25/May/2023:16:43:32 +0700] "GET /CapstoneProject/productdelete?id=15 HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [25/May/2023:16:43:32 +0700] "GET /CapstoneProject/inventory HTTP/1.1" 200 14280
+0:0:0:0:0:0:0:1 - - [25/May/2023:16:43:32 +0700] "GET /resources/css/style-page-admin.css HTTP/1.1" 404 715
+0:0:0:0:0:0:0:1 - - [25/May/2023:16:43:45 +0700] "GET /CapstoneProject/productcreateform HTTP/1.1" 200 4209
+0:0:0:0:0:0:0:1 - - [25/May/2023:16:43:45 +0700] "GET /resources/css/style-page-admin.css HTTP/1.1" 404 715
