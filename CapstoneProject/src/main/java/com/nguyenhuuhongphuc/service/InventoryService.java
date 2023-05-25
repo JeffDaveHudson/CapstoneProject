@@ -30,5 +30,21 @@ public class InventoryService {
 	public List<Product> getInventoryByAttribute(int idProductType, int idSupplier) {
 		return inventoryDAO.getInventoryByAttribute(idProductType, idSupplier);
 	}
-	
+
+	public void createProduct(Product product) {
+		inventoryDAO.createProduct(product);
+	}
+
+	public List<Product> getProductById(int id) {
+		return inventoryDAO.getProductById(id);
+	}
+
+	public void updateProduct(Product product) {
+		inventoryDAO.updateProduct(product);
+		
+	}
+
+	public void deleteProduct(int id) {
+		inventoryDAO.deleteProduct(id);
+	}
 }

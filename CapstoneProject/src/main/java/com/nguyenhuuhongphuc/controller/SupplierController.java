@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.nguyenhuuhongphuc.bean.Product;
 import com.nguyenhuuhongphuc.bean.Staff;
 import com.nguyenhuuhongphuc.bean.StaffType;
 import com.nguyenhuuhongphuc.bean.Supplier;
 import com.nguyenhuuhongphuc.bean.SupplierType;
+import com.nguyenhuuhongphuc.service.InventoryService;
 import com.nguyenhuuhongphuc.service.SupplierService;
 
 @Controller
@@ -104,5 +106,7 @@ public class SupplierController {
 		model.addAttribute("supplierTypeList", supplierTypeList);
 		return "admin/Supplier";
 	}
+	
+	
 	
 }
