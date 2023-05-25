@@ -42,8 +42,8 @@
         </form:form> --%>
         <form:form id="searchForm" action="billsearch">
   			<div class="searchbar"><input name="searchString" type="search" placeholder='Search' /></div>
-  			<button class = "button-search" type = "submit">Search</button>
-  			<a href="billcreate" class="button-search" role="button" style="text-decoration: none; padding-top: 12px; padding-bottom: 12px;">Add Bill</a>
+  			<button class = "button-search" type = "submit">Tìm Kiếm</button>
+  			<a href="billcreate" class="button-search" role="button" style="text-decoration: none; padding-top: 12px; padding-bottom: 12px;">Thêm Mới</a>
   			<a href="inventory" class="button-search" role="button" style="text-decoration: none; padding-top: 12px; padding-bottom: 12px;">Quay Lại</a>
         </form:form>
 <br>

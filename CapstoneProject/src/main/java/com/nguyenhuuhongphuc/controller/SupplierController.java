@@ -94,6 +94,15 @@ public class SupplierController {
 		
 		return "redirect:/supplier";
 		
+	} 
+	
+	@PostMapping("suppliersearch")
+	public String showSupplierSearch(Model model, @RequestParam("searchString") String searchString) {
+		List<Supplier> supplierSeach = supplierService.getSupplierSearch(searchString);
+		List<SupplierType> supplierTypeList = supplierService.getSupplierType();
+		model.addAttribute("supplierList", supplierSeach);
+		model.addAttribute("supplierTypeList", supplierTypeList);
+		return "admin/Supplier";
 	}
 	
 }

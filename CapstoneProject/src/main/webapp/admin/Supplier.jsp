@@ -34,13 +34,14 @@
 		<div class="text">Supplier Page</div>
 		<h2 class="banner ">Supplier Management</h2>
 
-		<form class="searchform" action="staffsearch" method="post">
+		<form class="searchform" action="suppliersearch" method="post">
 
 			<p class="text2">Type here:</p>
 			<div class="searchbar">
 				<input type="search" name="searchString" placeholder='Search'>
 			</div>
 			<button class="button-search" type="submit">Search</button>
+			<a href="inventory" class="button-search" style="text-decoration: none; padding: 11px 18px 11px 18px;">Quay Lại</a>
 
 		</form>
 		

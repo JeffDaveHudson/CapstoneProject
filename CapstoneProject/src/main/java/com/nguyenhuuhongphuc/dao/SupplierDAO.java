@@ -80,14 +80,33 @@ public class SupplierDAO {
 	}
 
 	public void updateSupplier(Supplier supplier) {
-		String sql = "UPDATE Supplier SET SupplierName = '" +supplier.getSupplierName() + "', IDSupplierType = " + supplier.getIdSupplierType() + " WHERE ID = " + supplier.getId();
+		String sql = "UPDATE Supplier SET SupplierName = '" + supplier.getSupplierName() + "', IDSupplierType = "
+				+ supplier.getIdSupplierType() + " WHERE ID = " + supplier.getId();
 		jdbcTemplate.update(sql);
 	}
 
 	public void createSupplier(Supplier supplier) {
-		String sql = "INSERT INTO Supplier (SupplierName, IDSupplierType) VALUES ('"
-                + supplier.getSupplierName()+"',"
-                + supplier.getIdSupplierType()+ ")";
-        jdbcTemplate.update(sql);
+		String sql = "INSERT INTO Supplier (SupplierName, IDSupplierType) VALUES ('" + supplier.getSupplierName() + "',"
+				+ supplier.getIdSupplierType() + ")";
+		jdbcTemplate.update(sql);
+	}
+
+	public List<Supplier> getSupplierSearch(String searchString) {
+		String sql = "SELECT * FROM Supplier WHERE SupplierName LIKE '%" + searchString + "%'";
+		List<Supplier> supplierList = jdbcTemplate.query(sql, new RowMapper<Supplier>() {
+
+			public Supplier mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Supplier supplier = new Supplier();
+
+				supplier.setId(rs.getInt("ID"));
+				supplier.setSupplierName(rs.getString("SupplierName"));
+				supplier.setIdSupplierType(rs.getInt("IDSupplierType"));
+
+				// System.out.println("dao:
+				// "+supplier.getId()+"-"+supplier.getSupplierName()+"-"+supplier.getIdSupplierType());
+				return supplier;
+			}
+		});
+		return supplierList;
 	}
 }

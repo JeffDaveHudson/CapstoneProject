@@ -16,6 +16,23 @@
 	rel="stylesheet" type="text/css">
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'
 	rel='stylesheet'>
+<style type="text/css">
+.home table tbody input{
+	width: 80%;
+	background-color: #fff;
+	border: 1px solid;
+	border-radius: 10px;
+}
+
+.home table tbody select{
+	padding-top: 7px;
+	padding-bottom: 7px;
+	width: 50%;
+	background-color: #fff;
+	border: 1px solid;
+	border-radius: 10px;
+}
+</style>
 </head>
 <body>
 
@@ -35,7 +52,6 @@
 							<th>Mã NV</th>
 							<th>Tên NV</th>
 							<th>Lương</th>
-							<th>Hợp đồng</th>
 							<th>Loại nhân viên</th>
 							<th>Username</th>
 						</tr>
