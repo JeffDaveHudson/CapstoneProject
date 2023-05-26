@@ -42,10 +42,10 @@
 <body>
 	<jsp:include page="navbar.jsp" />
 	<section class="home">
-		<div class="text">Staff Page</div>
-		<h2 class="banner ">Staff Management Table</h2>
+		<div class="text">Contract Page</div>
+		<h2 class="banner ">Contract Management Table</h2>
 
-		<form class="searchform" action="staffsearch" method="post">
+		<form class="searchform" action="contractsearch" method="post">
 			<div class="searchbar">
 				<input type="search" name="searchString" placeholder='Search'>
 			</div>

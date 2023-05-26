@@ -17,4 +17,8 @@ public class ContractService {
 	public List<Contract> getContract() {
 		return contractDAO.getContract();
 	}
+	
+	public List<Contract> getContractBySearch(String searchString){
+		return contractDAO.getContractBySearch(searchString);
+	}
 }
