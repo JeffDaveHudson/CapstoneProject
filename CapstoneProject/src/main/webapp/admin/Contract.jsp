@@ -134,10 +134,14 @@
 							</c:forEach>
 
 
-							<td><a class="bx bxs-edit bx-xs"
-								<%-- style="text-decoration: none; color: green" href="staffupdate/${stafflist.idStaff}"></a> &nbsp --%>
+							<td>
+							<a class="bx bxs-detail bx-xs"
 							style="text-decoration: none; color: green"
-								href="staffupdateform?id=${stafflist.id}"></a> &nbsp &nbsp <a
+							href="contractshowprocess?id=${contractlist.id}"></a>
+							
+							<a class="bx bxs-edit bx-xs"
+							style="text-decoration: none; color: green"
+							href="staffupdateform?id=${stafflist.id}"></a> <a
 								class="bx bxs-trash bx-xs"
 								style="text-decoration: none; color: red"
 								<%-- href="staffdelete?id=${stafflist.idStaff}" --%> onclick="confirm_decision('${stafflist.id}')"></a></td>

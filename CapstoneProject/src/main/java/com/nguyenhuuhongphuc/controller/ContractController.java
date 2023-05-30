@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nguyenhuuhongphuc.bean.Contract;
 import com.nguyenhuuhongphuc.bean.Customer;
+import com.nguyenhuuhongphuc.bean.Processs;
 import com.nguyenhuuhongphuc.bean.Staff;
 import com.nguyenhuuhongphuc.service.ContractService;
 import com.nguyenhuuhongphuc.service.CustomerService;
+import com.nguyenhuuhongphuc.service.ProcesssService;
 import com.nguyenhuuhongphuc.service.StaffService;
 
 @Controller
@@ -26,6 +28,9 @@ public class ContractController {
 	
 	@Autowired
 	StaffService staffService;
+	
+	@Autowired
+	ProcesssService processsService;
 	
 	@RequestMapping("contract")
 	public String showContract(Model model) {
@@ -53,5 +58,22 @@ public class ContractController {
 		model.addAttribute("staffList", staffList);
 		
 		return "admin/Contract";
+	}
+	
+	@RequestMapping("contractshowprocess")
+	public String showProcess(Model model, @RequestParam("id") int idContract) {
+		List<Contract> contractList = contractService.getContractById(idContract);
+		model.addAttribute("contractList", contractList);
+		
+		List<Customer> customerList = customerService.getCustomer();
+		model.addAttribute("customerList", customerList);
+		
+		List<Staff> staffList = staffService.getStaffList();
+		model.addAttribute("staffList", staffList);
+		
+		List<Processs> processsList = processsService.showProcess(idContract);
+		model.addAttribute("processList", processsList);
+		
+		return "admin/ContractShowProcess";
 	}
 }

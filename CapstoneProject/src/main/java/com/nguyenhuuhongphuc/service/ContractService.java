@@ -21,4 +21,8 @@ public class ContractService {
 	public List<Contract> getContractBySearch(String searchString){
 		return contractDAO.getContractBySearch(searchString);
 	}
+	
+	public List<Contract> getContractById(int id) {
+		return contractDAO.getContractById(id);
+	}
 }
