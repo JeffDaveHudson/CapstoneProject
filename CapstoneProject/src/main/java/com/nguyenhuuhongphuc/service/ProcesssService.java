@@ -25,4 +25,12 @@ public class ProcesssService {
 	public void removeProcess(int id) {
 		processsDAO.removeProcess(id);
 	}
+	
+	public List<Processs> getProcessById(int id){
+		return processsDAO.getProcessById(id);
+	}
+
+	public void updateProcess(Processs processs) {
+		processsDAO.updateProcess(processs);
+	}
 }
