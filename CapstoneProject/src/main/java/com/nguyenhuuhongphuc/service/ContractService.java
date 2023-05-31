@@ -25,4 +25,8 @@ public class ContractService {
 	public List<Contract> getContractById(int id) {
 		return contractDAO.getContractById(id);
 	}
+
+	public void removeContract(int id) {
+		contractDAO.removeContract(id);
+	}
 }

@@ -83,4 +83,9 @@ public class ContractDAO {
 		});
 		return contractList;
 	}
+
+	public void removeContract(int id) {
+		String sql = "DELETE FROM Contract WHERE ID = " + id;
+        jdbcTemplate.update(sql);
+	}
 }

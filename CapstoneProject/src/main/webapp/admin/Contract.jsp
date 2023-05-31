@@ -18,9 +18,9 @@
 	rel='stylesheet'>
 <script type="text/javascript">
 	function confirm_decision(user_id) {
-		if (confirm("you want to delete the user?")) // this will pop up confirmation box and if yes is clicked it call servlet else return to page
+		if (confirm("you want to delete?")) // this will pop up confirmation box and if yes is clicked it call servlet else return to page
 		{
-			window.location = "staffdelete?id=" + user_id;
+			window.location = "contractremove?id=" + user_id;
 		} else {
 			return false;
 		}
@@ -143,8 +143,7 @@
 							style="text-decoration: none; color: green"
 							href="staffupdateform?id=${stafflist.id}"></a> <a
 								class="bx bxs-trash bx-xs"
-								style="text-decoration: none; color: red"
-								<%-- href="staffdelete?id=${stafflist.idStaff}" --%> onclick="confirm_decision('${stafflist.id}')"></a></td>
+								style="text-decoration: none; color: red" onclick="confirm_decision('${contractlist.id}')"></a></td>
 						</tr>
 					</c:forEach>
 				<tbody>
