@@ -1,10 +1,13 @@
 package com.nguyenhuuhongphuc.controller;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,16 +36,16 @@ public class ProcesssController {
 	@Autowired
 	ProcesssService processsService;
 	
-	Processs processsId = new Processs();
+	
+	Processs processsIdContract = new Processs();
 	
 	
 	@RequestMapping("contractshowprocess")
-	public String showProcess(Model model,
-			@RequestParam("id") int idContract/* , @ModelAttribute("process") Processs processs */) {
+	public String showProcess(Model model, @RequestParam("id") int idContract) {
 		List<Contract> contractList = contractService.getContractById(idContract);
 		model.addAttribute("contractList", contractList);
 		
-		processsId.setIdContract(idContract);
+		processsIdContract.setIdContract(idContract);
 		
 		List<Customer> customerList = customerService.getCustomer();
 		model.addAttribute("customerList", customerList);
@@ -58,14 +61,14 @@ public class ProcesssController {
 		return "admin/ContractShowProcess";
 	}
 	
-
+	
 	@RequestMapping("processaddnewprocess")
 	public String processProcess(Model model, @ModelAttribute("process") Processs processs) {
-		processs.setIdContract(processsId.getIdContract());
+		processs.setIdContract(processsIdContract.getIdContract());
 		//System.out.println("what: "+processsId.getIdContract());
-		System.out.println("lhllss: "+processs.getDetail()+processs.getStartDate()+processs.getEndDate()+"==="+processs.getIdContract());
+		//System.out.println("lhllss: "+processs.getDetail()+processs.getStartDate()+processs.getEndDate()+"==="+processs.getIdContract());
 		
-		List<Contract> contractList = contractService.getContractById(processsId.getIdContract());
+		List<Contract> contractList = contractService.getContractById(processsIdContract.getIdContract());
 		model.addAttribute("contractList", contractList);
 		
 		List<Customer> customerList = customerService.getCustomer();
@@ -78,8 +81,31 @@ public class ProcesssController {
 		
 		processsService.createNewProcess(processs);
 		
-		List<Processs> processsList = processsService.showProcess(processsId.getIdContract());
+		List<Processs> processsList = processsService.showProcess(processsIdContract.getIdContract());
 		model.addAttribute("processList", processsList);
+		
+		return "admin/ContractShowProcess";
+	}
+	
+	@GetMapping(value = "processremove")
+	public String removeProcess(@RequestParam(value = "idProcess", required=true) int idd, Model model) {
+		//System.out.println("delete: "+id);
+		
+		processsService.removeProcess(idd);
+		List<Contract> contractList = contractService.getContractById(processsIdContract.getIdContract());
+		model.addAttribute("contractList", contractList);
+		
+		
+		List<Customer> customerList = customerService.getCustomer();
+		model.addAttribute("customerList", customerList);
+		
+		List<Staff> staffList = staffService.getStaffList();
+		model.addAttribute("staffList", staffList);
+		
+		List<Processs> processsList = processsService.showProcess(processsIdContract.getIdContract());
+		model.addAttribute("processList", processsList);
+		
+		model.addAttribute("process", new Processs());
 		
 		return "admin/ContractShowProcess";
 	}

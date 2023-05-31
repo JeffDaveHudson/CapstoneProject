@@ -21,4 +21,8 @@ public class ProcesssService {
 	public void createNewProcess(Processs processs) {
 		processsDAO.createNewProcess(processs);
 	}
+
+	public void removeProcess(int id) {
+		processsDAO.removeProcess(id);
+	}
 }

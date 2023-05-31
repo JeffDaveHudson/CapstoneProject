@@ -54,4 +54,9 @@ public class ProcesssDAO {
 		
 		 jdbcTemplate.update(sql);
 	}
+
+	public void removeProcess(int id) {
+		String sql = "DELETE FROM Process WHERE ID = " + id;
+        jdbcTemplate.update(sql);
+	}
 }

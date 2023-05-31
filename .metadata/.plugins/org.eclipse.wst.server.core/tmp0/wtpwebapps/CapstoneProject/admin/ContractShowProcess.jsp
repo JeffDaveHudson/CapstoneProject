@@ -37,6 +37,16 @@
 	function setInitialCount() {
 		<%count=1;%>
 	}
+	
+	function confirm_decision(user_id) {
+		if (confirm("you want to delete?")) // this will pop up confirmation box and if yes is clicked it call servlet else return to page
+		{
+			window.location = "processremove?idProcess=" + user_id;
+		} else {
+			return false;
+		}
+		return true;
+	}
 </script>
 </head>
 <body>
@@ -137,10 +147,12 @@
 				<table class="fl-table" style="width: 100%; margin: auto; border-collapse: separate; border-spacing: 0;">
 				<thead style="position: -webkit-sticky; position: sticky; top: 0;">
 						<tr>
+							<th>ID</th>
 							<th>Giai Đoạn</th>
 							<th>Chi Tiết</th>
 							<th>Ngày Bắt Đầu</th>
 							<th>Ngày Kết Thúc</th>
+							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -153,6 +165,8 @@
 										<td>${productlist.productName}</td>
 									</c:if>
 								</c:forEach> --%>
+								<td>${processlist.id}</td>
+								
 								<td><%=count %></td>
 								<% count++; %>
 								
@@ -162,9 +176,17 @@
 								
 								<td>${processlist.endDate}</td>
 								
+								<td><a class="bx bxs-edit bx-xs"
+								style="text-decoration: none; color: green"
+								href="#"></a> &nbsp &nbsp <a
+								class="bx bxs-trash bx-xs"
+								style="text-decoration: none; color: red" onclick="confirm_decision('${processlist.id}')"></a></td>
+								
 							</tr>
 						</c:forEach>
 						<tr>
+						
+							<td></td>
 							<td>
 								
 							</td>
