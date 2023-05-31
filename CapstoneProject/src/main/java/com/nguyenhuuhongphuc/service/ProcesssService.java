@@ -17,4 +17,8 @@ public class ProcesssService {
 	public List<Processs> showProcess(int id){
 		return processsDAO.showProcess(id);
 	}
+
+	public void createNewProcess(Processs processs) {
+		processsDAO.createNewProcess(processs);
+	}
 }

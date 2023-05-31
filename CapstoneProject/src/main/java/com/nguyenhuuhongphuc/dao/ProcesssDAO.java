@@ -12,31 +12,46 @@ import com.nguyenhuuhongphuc.bean.Processs;
 
 @Repository
 public class ProcesssDAO {
-	
+
 	@Autowired
 	JdbcTemplate jdbcTemplate;
-	
-	public List<Processs> showProcess(int id){
-		String sql = "SELECT * FROM Process WHERE IDContract = "+ id;
-        List<Processs> processsList = jdbcTemplate.query(sql, new RowMapper<Processs>() {
 
-            public Processs mapRow(ResultSet rs, int rowNum) throws SQLException {
-            	Processs process = new Processs();
+	public List<Processs> showProcess(int id) {
+		String sql = "SELECT * FROM Process WHERE IDContract = " + id +" ORDER BY EndDate";
+		List<Processs> processsList = jdbcTemplate.query(sql, new RowMapper<Processs>() {
 
-            	process.setId(rs.getInt("ID"));
-            	process.setDetail(rs.getString("Detail"));
-            	process.setStartDate(rs.getDate("StartDate"));
-            	process.setEndDate(rs.getDate("EndDate"));
-            	process.setIdContract(rs.getInt("IDContract"));
+			public Processs mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Processs process = new Processs();
 
-            	//System.out.println("DAOLastestbill: "+bill.getId()+"-"+bill.getBillName()+"-"+bill.getIdSupplier()+"-"+bill.getIdStaff()+"-"+bill.getTotal()+"-"+bill.getDateTransfer());
-            	System.out.println("dd: "+process.getEndDate());
-            	
-            	
-            	return process;
+				process.setId(rs.getInt("ID"));
+				process.setDetail(rs.getString("Detail"));
+				process.setStartDate(rs.getDate("StartDate"));
+				process.setEndDate(rs.getDate("EndDate"));
+				process.setIdContract(rs.getInt("IDContract"));
 
-            }
-        });
-        return processsList;
+				// System.out.println("DAOLastestbill:
+				// "+bill.getId()+"-"+bill.getBillName()+"-"+bill.getIdSupplier()+"-"+bill.getIdStaff()+"-"+bill.getTotal()+"-"+bill.getDateTransfer());
+				// System.out.println("dd: "+process.getEndDate());
+
+				return process;
+
+			}
+		});
+		return processsList;
+	}
+
+	public void createNewProcess(Processs processs) {
+		//System.out.println("DAO: "+processs.getDetail()+processs.getStartDate()+processs.getEndDate()+"==="+processs.getIdContract());
+		/*
+		 * String sql =
+		 * "INSERT INTO Process (Detail, StartDate, EndDate, IDContract) VALUES ('" +
+		 * processs.getDetail() + "', " +processs.getStartDate() + "," +
+		 * processs.getEndDate() + ", " + processs.getIdContract() + ")";
+		 */
+		String sql = "INSERT INTO Process (Detail, StartDate, EndDate, IDContract) VALUES ('"
+                + processs.getDetail() + "', '" +processs.getStartDate() + "', '"
+                + processs.getEndDate() + "', " + processs.getIdContract() + ")";
+		
+		 jdbcTemplate.update(sql);
 	}
 }

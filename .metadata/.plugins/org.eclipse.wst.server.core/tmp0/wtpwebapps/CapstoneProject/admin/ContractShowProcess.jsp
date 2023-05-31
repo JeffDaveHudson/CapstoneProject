@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page isELIgnored="false"%>
+<%@ page import="java.util.Date"%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,6 +33,11 @@
 }
 
 </style>
+<script type="text/javascript">
+	function setInitialCount() {
+		<%count=1;%>
+	}
+</script>
 </head>
 <body>
 	<jsp:include page="navbar.jsp" />
@@ -125,22 +131,22 @@
 
 		</div>
 
-		<div class="table-wrapper">
-			<!-- action="processbillcreate -->
-			<form:form modelAttribute="process" action="showprocess"
+		<div class="table-wrapper" style="position: relative; width: 90%; z-index: 1; overflow: auto; height: 350px;">
+			<form:form modelAttribute="process" action="processaddnewprocess"
 				id="billCreateForm2">
-				<table class="fl-table">
-					<thead>
+				<table class="fl-table" style="width: 100%; margin: auto; border-collapse: separate; border-spacing: 0;">
+				<thead style="position: -webkit-sticky; position: sticky; top: 0;">
 						<tr>
-							<th>STT</th>
+							<th>Giai Đoạn</th>
 							<th>Chi Tiết</th>
 							<th>Ngày Bắt Đầu</th>
 							<th>Ngày Kết Thúc</th>
 						</tr>
 					</thead>
 					<tbody>
-						<%! static int count = 1; %>
+						
 						<c:forEach items="${processList}" var="processlist">
+						<%! int count = 1; %>
 							<tr>
 								<%-- <c:forEach items="${productList}" var="productlist">
 									<c:if test="${billdetaillist.idProduct==productlist.id}">
@@ -155,24 +161,44 @@
 								<td>${processlist.startDate}</td>
 								
 								<td>${processlist.endDate}</td>
+								
 							</tr>
 						</c:forEach>
-						<%-- <tr>
-							<td><form:select path="idProduct" name="productClicked">
-									<c:forEach items="${productList}" var="productlist">
-										<option value="${productlist.id}">${productlist.productName}</option>
-									</c:forEach>
-								</form:select>
+						<tr>
+							<td>
+								
 							</td>
-							<td><form:input path="price" placeholder="0" style="border: 1px solid; border-radius: 10px"/></td>
 							
-							<td><form:input path="quantity" placeholder="0" style="border: 1px solid; border-radius: 10px"/></td>
-						</tr> --%>
+							<td><form:input path="detail" placeholder=" " style=" padding-top: 1px;
+																					padding-bottom: 1px;
+																					width: 80%;
+																					background-color: #fff;
+																					border: 1px solid;
+																					border-radius: 10px;
+																				" /></td>
+							
+							<td><form:input path="startDate" type="date" style=" padding-top: 3px;
+																					padding-bottom: 3px;
+																					width: 60%;
+																					background-color: #fff;
+																					border: 1px solid;
+																					border-radius: 10px;
+																				" /></td>
+							
+							<td><form:input path="endDate" type="date" style=" padding-top: 3px;
+																					padding-bottom: 3px;
+																					width: 60%;
+																					background-color: #fff;
+																					border: 1px solid;
+																					border-radius: 10px;
+																				" /></td>
+							
+						</tr>
 					<tbody>
 				</table>
 				<br>
-				<a href="contract" class="button-search" style="text-decoration: none; padding: 11px 18px 11px 18px;">Quay Lại</a>
-				
+				<button class="button-search" type="submit" onclick="setInitialCount()">Thêm</button>
+				<a href="contract" class="button-search" style="text-decoration: none; padding: 11px 18px 11px 18px;">Xong</a>
 			</form:form>
 		</div>
 	</section>
