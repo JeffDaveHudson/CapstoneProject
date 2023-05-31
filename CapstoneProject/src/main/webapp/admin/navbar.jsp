@@ -28,7 +28,7 @@
 						class='bx bx-box icon'></i> <span class="text nav-text">Quản
 							lý kho</span>
 				</a></li>
-				<li class="nav-link"><a href="#"> <i
+				<li class="nav-link"><a href="contract"> <i
 						class="bx bxs-coupon icon <c:out value='${param.navToggle == "tickets" ? "active" : ""}' />"></i> <span class="text nav-text">Quản
 							lý đặt lịch</span>
 				</a></li>

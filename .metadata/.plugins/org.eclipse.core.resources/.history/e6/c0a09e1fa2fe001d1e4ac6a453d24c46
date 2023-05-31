@@ -1,0 +1,40 @@
+package com.nguyenhuuhongphuc.dao;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Service;
+
+import com.nguyenhuuhongphuc.bean.Bill;
+
+@Service
+public class ProcessDAO {
+	
+	@Autowired
+	JdbcTemplate jdbcTemplate;
+	
+	public List<Process> showProcess(int id){
+		String sql = "SELECT * FROM Process WHERE IDContract = "+ id;
+        List<Process> processList = jdbcTemplate.query(sql, new RowMapper<Process>() {
+
+            public com.nguyenhuuhongphuc.bean.Process mapRow(ResultSet rs, int rowNum) throws SQLException {
+            	com.nguyenhuuhongphuc.bean.Process process = new com.nguyenhuuhongphuc.bean.Process();
+
+            	process.setId(rs.getInt("ID"));
+            	process.setDetail(rs.getString("Detail"));
+            	process.setStartDate(rs.getDate("StartDate"));
+            	process.setStartDate(rs.getDate("EndDate"));
+            	process.setIdContract(rs.getInt("IDContract"));
+
+            	//System.out.println("DAOLastestbill: "+bill.getId()+"-"+bill.getBillName()+"-"+bill.getIdSupplier()+"-"+bill.getIdStaff()+"-"+bill.getTotal()+"-"+bill.getDateTransfer());
+            	return process;
+
+            }
+        });
+        return billList;
+	}
+}

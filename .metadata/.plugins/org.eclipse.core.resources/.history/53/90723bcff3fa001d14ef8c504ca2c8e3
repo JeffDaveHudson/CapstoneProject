@@ -1,0 +1,20 @@
+package com.nguyenhuuhongphuc.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.nguyenhuuhongphuc.bean.Contract;
+import com.nguyenhuuhongphuc.dao.ContractDAO;
+
+@Controller
+public class ContractController {
+	
+	@Autowired
+	ContractDAO contractDAO;
+	
+	public List<Contract> getContract() {
+		return contractDAO.getContract();
+	}
+}
