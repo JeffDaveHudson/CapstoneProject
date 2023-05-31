@@ -83,6 +83,11 @@ public class ProcesssDAO {
 		String sql = "DELETE FROM Process WHERE ID = " + id;
         jdbcTemplate.update(sql);
 	}
+	
+	public void removeProcessWhenRemovingContract(int id) {
+		String sql = "DELETE FROM Process WHERE IDContract = " + id;
+        jdbcTemplate.update(sql);
+	}
 
 	public void updateProcess(Processs processs) {
 		String sql = "UPDATE Process SET "

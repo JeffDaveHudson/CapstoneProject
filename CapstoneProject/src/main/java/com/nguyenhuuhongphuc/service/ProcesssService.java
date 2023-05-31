@@ -34,5 +34,7 @@ public class ProcesssService {
 		processsDAO.updateProcess(processs);
 	}
 
-	
+	public void removeProcessWhenRemovingContract(int id) {
+		processsDAO.removeProcessWhenRemovingContract(id);
+	}
 }

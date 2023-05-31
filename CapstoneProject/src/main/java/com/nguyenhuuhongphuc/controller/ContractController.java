@@ -65,6 +65,8 @@ public class ContractController {
 	@GetMapping(value = "contractremove")
 	public String removeContract(@RequestParam(value = "id", required=true) int id, Model model) {
 		//System.out.println("delete: "+id);
+
+		processsService.removeProcessWhenRemovingContract(id);
 		
 		contractService.removeContract(id);
 		
