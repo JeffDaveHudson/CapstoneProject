@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ page isELIgnored = "false" %>
+<%@ page isELIgnored="false"%>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -17,14 +17,14 @@
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'
 	rel='stylesheet'>
 <style type="text/css">
-.home table tbody input{
+.home table tbody input {
 	width: 80%;
 	background-color: #fff;
 	border: 1px solid;
 	border-radius: 10px;
 }
 
-.home table tbody select{
+.home table tbody select {
 	padding-top: 7px;
 	padding-bottom: 7px;
 	width: 50%;
@@ -36,13 +36,14 @@
 </head>
 <body>
 
-	<jsp:include page="navbar.jsp"/>
+	<jsp:include page="navbar.jsp" />
 
 	<section class="home">
 		<div class="text">Staff Updating Page</div>
 		<h2 class="banner ">Staff Updating</h2>
-		<form:form modelAttribute="staffupdate" class="searchform" action="processupdatestaff" method="post">
-			
+		<form:form modelAttribute="staffupdate" class="searchform"
+			action="processupdatestaff" method="post">
+
 			<button style="" class="button-search">Cập Nhật</button>
 
 			<div class="table-wrapper" style="height: 50vh; overflow: auto">
@@ -57,28 +58,30 @@
 						</tr>
 					</thead>
 					<tbody>
-					<c:forEach items="${staffList}" var="stafflist" >
-					<tr>
-						<td><form:input type="text" path="id" value = "${stafflist.id}" readonly="true"/></td>
-						<td><form:input type="text" path="staffName" value="${stafflist.staffName}"/></td>
-						<td><form:input type="text" path="salary" value="${stafflist.salary}"/></td>
-				
-						<td>
-						<select name="staffTypeClicked">
-						<c:forEach items="${staffTypeList}" var="stafftypelist">
-						<c:if test="${stafflist.id == stafftypelist.id}">
-						<option value="${stafftypelist.id}" selected >${stafftypelist.staffType}</option>
-						</c:if>
-						<option value="${stafftypelist.id}">${stafftypelist.staffType}</option>
+						<c:forEach items="${staffList}" var="stafflist">
+							<tr>
+								<td><form:input type="text" path="id"
+										value="${stafflist.id}" readonly="true" /></td>
+								<td><form:input type="text" path="staffName"
+										value="${stafflist.staffName}" /></td>
+								<td><form:input type="text" path="salary"
+										value="${stafflist.salary}" /></td>
+
+								<td><select name="staffTypeClicked">
+										<c:forEach items="${staffTypeList}" var="stafftypelist">
+											<c:if test="${stafflist.id == stafftypelist.id}">
+												<option value="${stafftypelist.id}" selected>${stafftypelist.staffType}</option>
+											</c:if>
+											<option value="${stafftypelist.id}">${stafftypelist.staffType}</option>
+										</c:forEach>
+								</select></td>
+
+								<td><form:input type="text" path="userName"
+										value="${stafflist.userName}" /></td>
+
+							</tr>
 						</c:forEach>
-						</select>
-						</td>
-						
-						<td><form:input type="text" path="userName" value="${stafflist.userName}"/></td>
-						
-					</tr>
-					</c:forEach>
-				<tbody>
+					<tbody>
 				</table>
 			</div>
 		</form:form>

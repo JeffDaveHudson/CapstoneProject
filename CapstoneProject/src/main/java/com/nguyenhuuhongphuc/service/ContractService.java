@@ -29,4 +29,8 @@ public class ContractService {
 	public void removeContract(int id) {
 		contractDAO.removeContract(id);
 	}
+
+	public void updateContract(Contract contract) {
+		contractDAO.updateContract(contract);
+	}
 }

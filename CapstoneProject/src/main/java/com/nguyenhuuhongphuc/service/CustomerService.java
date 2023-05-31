@@ -17,4 +17,8 @@ public class CustomerService {
 	public List<Customer> getCustomer() {
 		return customerDAO.getCustomer();
 	}
+
+	public void updateCustomerWhenUpdatingContract(Customer customerUpdateContract) {
+		customerDAO.updateCustomerWhenUpdatingContract(customerUpdateContract);
+	}
 }

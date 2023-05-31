@@ -141,7 +141,7 @@
 							
 							<a class="bx bxs-edit bx-xs"
 							style="text-decoration: none; color: green"
-							href="staffupdateform?id=${stafflist.id}"></a> <a
+							href="contractupdateform?id=${contractlist.id}"></a> <a
 								class="bx bxs-trash bx-xs"
 								style="text-decoration: none; color: red" onclick="confirm_decision('${contractlist.id}')"></a></td>
 						</tr>

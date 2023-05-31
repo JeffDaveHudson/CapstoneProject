@@ -88,4 +88,14 @@ public class ContractDAO {
 		String sql = "DELETE FROM Contract WHERE ID = " + id;
         jdbcTemplate.update(sql);
 	}
+
+	public void updateContract(Contract contract) {
+		String sql = "UPDATE Contract SET "
+				+ "Detail =     '" + contract.getDetail()      + "', "
+				+ "SigningDate ='" + contract.getSigningDate() + "', "
+				+ "Price =       " + contract.getPrice()       + " , "
+				+ "IDStaff =     " + contract.getIdStaff()     + " "
+				+ "WHERE ID =    " + contract.getId();
+		jdbcTemplate.update(sql);
+	}
 }

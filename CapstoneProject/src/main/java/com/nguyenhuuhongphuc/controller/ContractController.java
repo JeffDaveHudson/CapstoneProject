@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -73,6 +74,57 @@ public class ContractController {
 		
 		return "redirect:/contract";
 	}
+	
+	int idCustomerContract;
+	
+	@GetMapping( value =  "contractupdateform")
+	public String showContractUpdate(@RequestParam("id") int id, Model model) {
+		System.out.println("update: "+id);
+		List<Contract> contractList = contractService.getContractById(id);
+		model.addAttribute("contractList",contractList);
+		
+		for (Contract contract : contractList) {
+			idCustomerContract = contract.getIdCustomer();
+		}
+		
+		List<Customer> customerList = customerService.getCustomer();
+		model.addAttribute("customerList", customerList);
+		
+		List<Staff> staffList = staffService.getStaffList();
+		model.addAttribute("staffList", staffList);
+		
+		model.addAttribute("contractupdate", new Contract());
+		return "admin/ContractUpdate";
+	}
+	
+	@PostMapping("processupdatecontract")
+	public String processUpdateContract(Model model, @ModelAttribute("contractupdate") Contract contract,
+			@RequestParam("customerName") String customerName, 
+			@RequestParam("phone")        String phone       , 
+			@RequestParam("address")      String address     , 
+			@RequestParam("email")        String email        ) {
+		
+		System.out.println("updateContract: "+contract.getId()+" - "+contract.getDetail()+" - "+idCustomerContract+" - "+contract.getSigningDate()+" - "+contract.getPrice()+" - "+contract.getIdStaff());
+		System.out.println("updateContract--: "+customerName+" - "+Integer.parseInt(phone)+" - "+address+" - "+email);
+		
+		Customer customerUpdateContract = new Customer();
+		customerUpdateContract.setId(idCustomerContract);
+		customerUpdateContract.setCustomerName(customerName);
+		customerUpdateContract.setPhone(Integer.parseInt(phone));
+		customerUpdateContract.setAddress(address);
+		customerUpdateContract.setEmail(email);
+		
+		//System.out.println("updateContract--: "+customerUpdateContract.getCustomerName()+" - "+customerUpdateContract.getPhone()+" - "+customerUpdateContract.getAddress()+" - "+customerUpdateContract.getEmail());
+
+		customerService.updateCustomerWhenUpdatingContract(customerUpdateContract);
+		
+		contractService.updateContract(contract);
+		
+		
+		return "redirect:/contract";
+		//staff
+	}
+	
 	
 	/*
 	 * @RequestMapping("contractshowprocess") public String showProcess(Model

@@ -36,4 +36,14 @@ public class CustomerDAO {
 		});
 		return customerList;
 	}
+
+	public void updateCustomerWhenUpdatingContract(Customer customerUpdateContract) {
+		String sql = "UPDATE Customer SET "
+				+ "CustomerName = '" + customerUpdateContract.getCustomerName()      + "', "
+				+ "Phone =         " + customerUpdateContract.getPhone()             + " , "
+				+ "Address =      '" + customerUpdateContract.getAddress()           + "', "
+				+ "Email =        '" + customerUpdateContract.getEmail()             + "'  "
+				+ "WHERE ID =      " + customerUpdateContract.getId();
+		jdbcTemplate.update(sql);
+	}
 }
