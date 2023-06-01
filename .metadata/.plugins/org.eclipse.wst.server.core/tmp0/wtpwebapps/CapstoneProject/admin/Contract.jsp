@@ -53,21 +53,9 @@
 
 		</form>
 
-		<%-- <div style="margin-left: 30%; margin-top: 15px" class="nvtbp">
-			<form action="staffbydepartment" method="post" >
-				<p class="text2">Nhân Viên Theo Bộ Phận:</p>
-				<select name="staffTypeClicked">
-					<c:forEach items="${staffTypeList}" var="stafftypelist">
-						<option value="${stafftypelist.id}">${stafftypelist.staffType}</option>
-					</c:forEach>
-				</select>
-				<button class="button-search" type="submit">OK</button>
-			</form>
-		</div> --%>
-
-		<br> <br> <a href="staffcreateform">
+		<br> <br> <a href="contractcreateform">
 			<button style="margin-left: 70px" class="button-search">Thêm
-				NV</button>
+				Hợp Đồng</button>
 		</a>
 		<div class="table-wrapper"
 			style="position: relative; width: 90%; z-index: 1; overflow: auto; height: 350px;">

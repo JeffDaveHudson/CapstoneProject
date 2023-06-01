@@ -33,4 +33,8 @@ public class ContractService {
 	public void updateContract(Contract contract) {
 		contractDAO.updateContract(contract);
 	}
+
+	public void createContract(Contract contract) {
+		contractDAO.createContract(contract);
+	}
 }

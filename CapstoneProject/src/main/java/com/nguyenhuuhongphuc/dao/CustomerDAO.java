@@ -46,4 +46,33 @@ public class CustomerDAO {
 				+ "WHERE ID =      " + customerUpdateContract.getId();
 		jdbcTemplate.update(sql);
 	}
+
+	public void createCustomerWhenUpdatingContract(Customer customer) {
+		String sql = "INSERT INTO Customer (CustomerName, Phone, Address, Email) VALUES ('"
+					+ customer.getCustomerName() +"', "
+					+ customer.getPhone()        +" ,'"
+					+ customer.getAddress()      +"','"
+					+ customer.getEmail()        +"')";
+		jdbcTemplate.update(sql);
+	}
+	
+	public List<Customer> getLastestCustomer() {
+		String sql = "SELECT * FROM Customer ORDER BY ID DESC LIMIT 1";
+		List<Customer> customerList = jdbcTemplate.query(sql, new RowMapper<Customer>() {
+
+			public Customer mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Customer customer = new Customer();
+
+				customer.setId(rs.getInt("ID"));
+				customer.setCustomerName(rs.getString("CustomerName"));
+				customer.setPhone(rs.getInt("Phone"));
+				customer.setAddress(rs.getString("Address"));
+				customer.setEmail(rs.getString("Email"));
+
+				// System.out.println(product.getId()+"-"+product.getProductName()+"-"+product.getIdProductType()+"-"+product.getIdSupplier()+"-"+product.getPrice()+"-"+product.getIdProductInventory());
+				return customer;
+			}
+		});
+		return customerList;
+	}
 }

@@ -104,8 +104,8 @@ public class ContractController {
 			@RequestParam("address")      String address     , 
 			@RequestParam("email")        String email        ) {
 		
-		System.out.println("updateContract: "+contract.getId()+" - "+contract.getDetail()+" - "+idCustomerContract+" - "+contract.getSigningDate()+" - "+contract.getPrice()+" - "+contract.getIdStaff());
-		System.out.println("updateContract--: "+customerName+" - "+Integer.parseInt(phone)+" - "+address+" - "+email);
+		//System.out.println("updateContract: "+contract.getId()+" - "+contract.getDetail()+" - "+idCustomerContract+" - "+contract.getSigningDate()+" - "+contract.getPrice()+" - "+contract.getIdStaff());
+		//System.out.println("updateContract--: "+customerName+" - "+Integer.parseInt(phone)+" - "+address+" - "+email);
 		
 		Customer customerUpdateContract = new Customer();
 		customerUpdateContract.setId(idCustomerContract);
@@ -122,7 +122,47 @@ public class ContractController {
 		
 		
 		return "redirect:/contract";
-		//staff
+	}
+	
+	@GetMapping( value =  "contractcreateform")
+	public String showContractCreate( Model model) {
+		List<Staff> staffList = staffService.getStaffList();
+		model.addAttribute("staffList", staffList);
+		
+		model.addAttribute("contract", new Contract());
+		return "admin/ContractCreate";
+	}
+	
+	@PostMapping("contractcreate")
+	public String processCreateContract(Model model, @ModelAttribute("contract") Contract contract,
+			@RequestParam("customerName") String customerName, 
+			@RequestParam("phone")        String phone       , 
+			@RequestParam("address")      String address     , 
+			@RequestParam("email")        String email        ) {
+		
+		//System.out.println("Contract: "+contract.getDetail()+" - "+contract.getSigningDate()+" - "+contract.getPrice()+" - "+contract.getIdStaff());
+		//System.out.println("Contract--: "+customerName+" - "+Integer.parseInt(phone)+" - "+address+" - "+email);
+		
+		Customer customerCreateContract = new Customer();
+		customerCreateContract.setId(idCustomerContract);
+		customerCreateContract.setCustomerName(customerName);
+		customerCreateContract.setPhone(Integer.parseInt(phone));
+		customerCreateContract.setAddress(address);
+		customerCreateContract.setEmail(email);
+		
+		//System.out.println("cContract--: "+customerCreateContract.getCustomerName()+" - "+customerCreateContract.getPhone()+" - "+customerCreateContract.getAddress()+" - "+customerCreateContract.getEmail());
+
+		customerService.createCustomerWhenUpdatingContract(customerCreateContract);
+		
+		List<Customer> customerList = customerService.getLastestCustomer();
+		for (Customer customer : customerList) {
+			contract.setIdCustomer(customer.getId());
+		}
+		
+		contractService.createContract(contract);
+		
+		
+		return "redirect:/contract";
 	}
 	
 	

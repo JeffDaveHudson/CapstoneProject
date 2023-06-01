@@ -21,4 +21,12 @@ public class CustomerService {
 	public void updateCustomerWhenUpdatingContract(Customer customerUpdateContract) {
 		customerDAO.updateCustomerWhenUpdatingContract(customerUpdateContract);
 	}
+
+	public void createCustomerWhenUpdatingContract(Customer customerCreateContract) {
+		customerDAO.createCustomerWhenUpdatingContract(customerCreateContract);
+	}
+	
+	public List<Customer> getLastestCustomer() {
+		return customerDAO.getLastestCustomer();
+	}
 }
