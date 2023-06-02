@@ -45,4 +45,8 @@ public class CustomerService {
 	public void updateIsSignedCustomer(int idExistedCustomer) {
 		customerDAO.updateIsSignedCustomer(idExistedCustomer);
 	}
+
+	public void removeIsNotSignCustomer(int id) {
+		customerDAO.removeIsNotSignCustomer(id);
+	}
 }

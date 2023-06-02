@@ -134,4 +134,9 @@ public class CustomerDAO {
 				+ "WHERE ID =      " + idExistedCustomer;
 		jdbcTemplate.update(sql);
 	}
+
+	public void removeIsNotSignCustomer(int id) {
+		String sql = "DELETE FROM Customer WHERE ID = " + id;
+        jdbcTemplate.update(sql);
+	}
 }

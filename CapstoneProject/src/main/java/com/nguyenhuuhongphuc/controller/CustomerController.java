@@ -38,5 +38,11 @@ public class CustomerController {
 		return "customer/Schedule";
 	}
 	
-	
+	@GetMapping("customerisnotsignedremove")
+	public String removeIsNotSignCustomer(Model model, @RequestParam("id") int id) {
+		
+		customerService.removeIsNotSignCustomer(id);
+		
+		return "redirect:/home";
+	}
 }
