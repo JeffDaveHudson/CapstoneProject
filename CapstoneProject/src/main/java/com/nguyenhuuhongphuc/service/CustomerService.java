@@ -49,4 +49,8 @@ public class CustomerService {
 	public void removeIsNotSignCustomer(int id) {
 		customerDAO.removeIsNotSignCustomer(id);
 	}
+
+	public List<Customer> searchCustomerIsNotSigned(String searchString) {
+		return customerDAO.searchCustomerIsNotSigned(searchString);
+	}
 }

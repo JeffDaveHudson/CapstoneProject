@@ -139,4 +139,24 @@ public class CustomerDAO {
 		String sql = "DELETE FROM Customer WHERE ID = " + id;
         jdbcTemplate.update(sql);
 	}
+
+	public List<Customer> searchCustomerIsNotSigned(String searchString) {
+		 String sql = "SELECT * FROM Customer WHERE CustomerName LIKE '%" + searchString + "%' AND IsSigned = false";
+		 List<Customer> customerList = jdbcTemplate.query(sql, new RowMapper<Customer>() {
+
+				public Customer mapRow(ResultSet rs, int rowNum) throws SQLException {
+					Customer customer = new Customer();
+
+					customer.setId(rs.getInt("ID"));
+					customer.setCustomerName(rs.getString("CustomerName"));
+					customer.setPhone(rs.getInt("Phone"));
+					customer.setAddress(rs.getString("Address"));
+					customer.setEmail(rs.getString("Email"));
+
+					// System.out.println(product.getId()+"-"+product.getProductName()+"-"+product.getIdProductType()+"-"+product.getIdSupplier()+"-"+product.getPrice()+"-"+product.getIdProductInventory());
+					return customer;
+				}
+			});
+			return customerList;
+	}
 }

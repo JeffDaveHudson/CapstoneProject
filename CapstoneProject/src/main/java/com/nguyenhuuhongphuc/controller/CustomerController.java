@@ -30,12 +30,19 @@ public class CustomerController {
 	
 	@RequestMapping("customerschedule")
 	public String customerShedule(Model model, @ModelAttribute("customer") Customer customer) {
-		
-		System.out.println("--- "+customer.getCustomerName()+"-"+customer.getPhone()+"-"+customer.getEmail()+"-"+customer.getAddress());
-		
+				
 		customerService.createCustomerIsNotSigned(customer);
 		
 		return "customer/Schedule";
+	}
+	
+	@RequestMapping("customerisnotsignedsearch")
+	public String customerIsNotSignedSearch(Model model, @RequestParam("searchString") String searchString) {
+				
+		List<Customer> customerList = customerService.searchCustomerIsNotSigned(searchString);
+		model.addAttribute("customerList", customerList);
+		
+		return "admin/index";
 	}
 	
 	@GetMapping("customerisnotsignedremove")
