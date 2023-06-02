@@ -63,6 +63,8 @@ public class ContractController {
 		return "admin/Contract";
 	}
 	
+
+	
 	@GetMapping(value = "contractremove")
 	public String removeContract(@RequestParam(value = "id", required=true) int id, Model model) {
 		//System.out.println("delete: "+id);
@@ -164,7 +166,35 @@ public class ContractController {
 		
 		return "redirect:/contract";
 	}
+
 	
+	static int idExistedCustomer;
+	@GetMapping(value = "createcontractwithcustomerform")
+	public String showContractFormWithCustomer(@RequestParam("id") int id, Model model) {
+		idExistedCustomer = id;
+				
+		List<Customer> customerWithContract = customerService.getCustomerWithContract(id);
+		model.addAttribute("customerList", customerWithContract);
+		
+		List<Staff> staffList = staffService.getStaffList();
+		model.addAttribute("staffList", staffList);
+		
+		model.addAttribute("contract", new Contract());
+		
+		return "admin/ContractCreate2";
+	}
+	
+	@PostMapping("contractcreatewithexistedcustomer")
+	public String processCreateContractWithExistedCustomer(Model model, @ModelAttribute("contract") Contract contract) {
+		
+		
+		
+		contract.setIdCustomer(idExistedCustomer);
+		contractService.createContract(contract);
+		customerService.updateIsSignedCustomer(idExistedCustomer);
+		
+		return "redirect:/contract";
+	}
 	
 	/*
 	 * @RequestMapping("contractshowprocess") public String showProcess(Model

@@ -1,0 +1,33 @@
+package com.nguyenhuuhongphuc.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.nguyenhuuhongphuc.bean.Customer;
+import com.nguyenhuuhongphuc.service.CustomerService;
+
+@Controller
+public class CustomerController {
+	
+	@Autowired
+	CustomerService customerService;
+	
+	@GetMapping("home")
+	public String showIsNotSignCustomer(Model model) {
+		return "";
+	}
+	
+	@RequestMapping("customerschedule")
+	public String customerShedule(Model model, @ModelAttribute("customer") Customer customer) {
+		
+		System.out.println("--- "+customer.getCustomerName()+"-"+customer.getPhone()+"-"+customer.getEmail()+"-"+customer.getAddress());
+		
+		customerService.createCustomerIsNotSigned(customer);
+		
+		return "customer/Schedule";
+	}
+}

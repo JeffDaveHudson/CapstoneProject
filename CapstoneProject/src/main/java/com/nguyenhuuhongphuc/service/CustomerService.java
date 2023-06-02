@@ -29,4 +29,20 @@ public class CustomerService {
 	public List<Customer> getLastestCustomer() {
 		return customerDAO.getLastestCustomer();
 	}
+
+	public void createCustomerIsNotSigned(Customer customer) {
+		customerDAO.createCustomerIsNotSigned(customer);
+	}
+	
+	public List<Customer> getIsNotSignedCustomer(){
+		return customerDAO.getIsNotSignedCustomer();
+	}
+
+	public List<Customer> getCustomerWithContract(int id) {
+		return customerDAO.getCustomerWithContract(id);
+	}
+
+	public void updateIsSignedCustomer(int idExistedCustomer) {
+		customerDAO.updateIsSignedCustomer(idExistedCustomer);
+	}
 }

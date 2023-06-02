@@ -6,6 +6,21 @@ public class Customer {
 	private int phone;
 	private String address;
 	private String email;
+	private boolean isSigned;
+	public Customer(int id, String customerName, int phone, String address, String email, boolean isSigned) {
+		this.id = id;
+		this.customerName = customerName;
+		this.phone = phone;
+		this.address = address;
+		this.email = email;
+		this.isSigned = isSigned;
+	}
+	public boolean getIsSigned() {
+		return isSigned;
+	}
+	public void setIsSigned(boolean isSigned) {
+		this.isSigned = isSigned;
+	}
 	public int getId() {
 		return id;
 	}
@@ -48,6 +63,7 @@ public class Customer {
 		this.address = address;
 		this.email = email;
 	}
+	
 	
 	
 }

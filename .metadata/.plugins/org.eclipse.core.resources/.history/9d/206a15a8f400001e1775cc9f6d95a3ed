@@ -1,0 +1,21 @@
+package com.nguyenhuuhongphuc.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+
+import com.nguyenhuuhongphuc.bean.Customer;
+import com.nguyenhuuhongphuc.service.CustomerService;
+
+@Controller
+public class CustomerController {
+	
+	@Autowired
+	CustomerService customerService;
+	
+	public String customerShedule(Model model, @ModelAttribute("customer") Customer customer) {
+		
+		return "customer/Shedule";
+	}
+}

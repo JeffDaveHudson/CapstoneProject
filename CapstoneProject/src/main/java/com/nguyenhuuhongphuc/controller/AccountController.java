@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nguyenhuuhongphuc.bean.Account;
+import com.nguyenhuuhongphuc.bean.Customer;
 import com.nguyenhuuhongphuc.service.AccountService;
 
 @Controller
@@ -53,7 +54,8 @@ public class AccountController {
 	}
 	
 	@RequestMapping("schedule")
-	public String schedule() {
+	public String schedule(Model model) {
+		model.addAttribute("customer", new Customer());
 		return "customer/Schedule";
 	}
 	

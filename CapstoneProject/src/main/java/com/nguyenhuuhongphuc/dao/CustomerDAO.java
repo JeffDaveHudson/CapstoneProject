@@ -29,6 +29,7 @@ public class CustomerDAO {
 				customer.setPhone(rs.getInt("Phone"));
 				customer.setAddress(rs.getString("Address"));
 				customer.setEmail(rs.getString("Email"));
+				customer.setIsSigned(rs.getBoolean("IsSigned"));
 
 				// System.out.println(product.getId()+"-"+product.getProductName()+"-"+product.getIdProductType()+"-"+product.getIdSupplier()+"-"+product.getPrice()+"-"+product.getIdProductInventory());
 				return customer;
@@ -74,5 +75,63 @@ public class CustomerDAO {
 			}
 		});
 		return customerList;
+	}
+
+	public void createCustomerIsNotSigned(Customer customer) {
+		String sql = "INSERT INTO Customer (CustomerName, Phone, Address, Email, IsSigned) VALUES ('"
+				+ customer.getCustomerName() +"', "
+				+ customer.getPhone()        +" ,'"
+				+ customer.getAddress()      +"','"
+				+ customer.getEmail()        +"', "
+				+ "false )";
+		jdbcTemplate.update(sql);
+	}
+	
+	public List<Customer> getIsNotSignedCustomer() {
+		String sql = "SELECT * FROM Customer WHERE IsSigned = false";
+		List<Customer> customerList = jdbcTemplate.query(sql, new RowMapper<Customer>() {
+
+			public Customer mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Customer customer = new Customer();
+
+				customer.setId(rs.getInt("ID"));
+				customer.setCustomerName(rs.getString("CustomerName"));
+				customer.setPhone(rs.getInt("Phone"));
+				customer.setAddress(rs.getString("Address"));
+				customer.setEmail(rs.getString("Email"));
+				customer.setIsSigned(rs.getBoolean("IsSigned"));
+
+				// System.out.println(product.getId()+"-"+product.getProductName()+"-"+product.getIdProductType()+"-"+product.getIdSupplier()+"-"+product.getPrice()+"-"+product.getIdProductInventory());
+				return customer;
+			}
+		});
+		return customerList;
+	}
+
+	public List<Customer> getCustomerWithContract(int id) {
+		String sql = "SELECT * FROM Customer WHERE ID = "+id;
+		List<Customer> customerList = jdbcTemplate.query(sql, new RowMapper<Customer>() {
+
+			public Customer mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Customer customer = new Customer();
+
+				customer.setId(rs.getInt("ID"));
+				customer.setCustomerName(rs.getString("CustomerName"));
+				customer.setPhone(rs.getInt("Phone"));
+				customer.setAddress(rs.getString("Address"));
+				customer.setEmail(rs.getString("Email"));
+
+				// System.out.println(product.getId()+"-"+product.getProductName()+"-"+product.getIdProductType()+"-"+product.getIdSupplier()+"-"+product.getPrice()+"-"+product.getIdProductInventory());
+				return customer;
+			}
+		});
+		return customerList;
+	}
+
+	public void updateIsSignedCustomer(int idExistedCustomer) {
+		String sql = "UPDATE Customer SET "
+				+ "IsSigned = true "
+				+ "WHERE ID =      " + idExistedCustomer;
+		jdbcTemplate.update(sql);
 	}
 }
