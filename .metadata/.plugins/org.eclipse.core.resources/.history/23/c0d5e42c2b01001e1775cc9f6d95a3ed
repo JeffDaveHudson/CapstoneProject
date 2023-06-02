@@ -186,10 +186,32 @@ public class ContractController {
 	
 	@PostMapping("contractcreatewithexistedcustomer")
 	public String processCreateContractWithExistedCustomer(Model model, @ModelAttribute("contract") Contract contract) {
+		
+		
+		
 		contract.setIdCustomer(idExistedCustomer);
 		contractService.createContract(contract);
 		customerService.updateIsSignedCustomer(idExistedCustomer);
 		
 		return "redirect:/contract";
 	}
+	
+	/*
+	 * @RequestMapping("contractshowprocess") public String showProcess(Model
+	 * model, @RequestParam("id") int idContract, @ModelAttribute("process")
+	 * Processs processs) { List<Contract> contractList =
+	 * contractService.getContractById(idContract);
+	 * model.addAttribute("contractList", contractList);
+	 * 
+	 * List<Customer> customerList = customerService.getCustomer();
+	 * model.addAttribute("customerList", customerList);
+	 * 
+	 * List<Staff> staffList = staffService.getStaffList();
+	 * model.addAttribute("staffList", staffList);
+	 * 
+	 * List<Processs> processsList = processsService.showProcess(idContract);
+	 * model.addAttribute("processList", processsList);
+	 * 
+	 * return "admin/ContractShowProcess"; }
+	 */
 }

@@ -186,10 +186,14 @@ public class ContractController {
 	
 	@PostMapping("contractcreatewithexistedcustomer")
 	public String processCreateContractWithExistedCustomer(Model model, @ModelAttribute("contract") Contract contract) {
+		
+		
+		
 		contract.setIdCustomer(idExistedCustomer);
 		contractService.createContract(contract);
 		customerService.updateIsSignedCustomer(idExistedCustomer);
 		
 		return "redirect:/contract";
 	}
+	
 }
