@@ -53,4 +53,8 @@ public class CustomerService {
 	public List<Customer> searchCustomerIsNotSigned(String searchString) {
 		return customerDAO.searchCustomerIsNotSigned(searchString);
 	}
+	
+	public List<Customer> getCustomerContractByPhone(int phone){
+		return customerDAO.getCustomerContractByPhone(phone);
+	}
 }

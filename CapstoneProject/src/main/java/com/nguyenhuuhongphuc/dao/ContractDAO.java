@@ -106,6 +106,27 @@ public class ContractDAO {
 				+ contract.getSigningDate() +"', "
 				+ contract.getPrice()       +" , "
 				+ contract.getIdStaff()     +" ) ";
-	jdbcTemplate.update(sql);
+		jdbcTemplate.update(sql);
+	}
+	
+	public List<Contract> getCustomerContract(int searchString) {
+		String sql = "select * from customer cu join contract co on cu.ID = co.IDCustomer where Phone = " + searchString ;
+		List<Contract> contractList = jdbcTemplate.query(sql, new RowMapper<Contract>() {
+
+			public Contract mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Contract contract = new Contract();
+
+				contract.setId(rs.getInt("ID"));
+				contract.setDetail(rs.getString("Detail"));
+				contract.setIdCustomer(rs.getInt("IDCustomer"));
+				contract.setSigningDate(rs.getDate("SigningDate"));
+				contract.setPrice(rs.getInt("Price"));
+				contract.setIdStaff(rs.getInt("IDStaff"));
+
+				// System.out.println(product.getId()+"-"+product.getProductName()+"-"+product.getIdProductType()+"-"+product.getIdSupplier()+"-"+product.getPrice()+"-"+product.getIdProductInventory());
+				return contract;
+			}
+		});
+		return contractList;
 	}
 }

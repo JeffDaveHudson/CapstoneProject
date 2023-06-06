@@ -65,6 +65,12 @@ public class AccountController {
 		return "customer/Login";
 	}
 	
+	@RequestMapping("processPage")
+	public String processPage(Model model) {
+		model.addAttribute("customer", new Customer());
+		return "customer/Process";
+	}
+	
 //	-----------------------------------------------------information detail------------------------------------------------
 	
 	@RequestMapping("informationdragonfly")

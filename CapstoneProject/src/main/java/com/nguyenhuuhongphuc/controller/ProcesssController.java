@@ -143,4 +143,12 @@ public class ProcesssController {
 		return "admin/Process";
 		//staff
 	}
+	
+	/*
+	 * @RequestMapping("customerprocess") public String showCustomerProcess(Model
+	 * model, @RequestParam("phone") String phone) {
+	 * 
+	 * 
+	 * return "customer/Process"; }
+	 */
 }

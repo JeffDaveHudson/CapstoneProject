@@ -2,6 +2,8 @@ package com.nguyenhuuhongphuc.controller;
 
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaBuilder.In;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -192,4 +194,28 @@ public class ContractController {
 		
 		return "redirect:/contract";
 	}
+	
+	//-customer
+	@PostMapping("customercontract")
+	public String showCustomerContract(Model model, @RequestParam("phone") String phone) {
+		
+		List<Customer> customerByPhone = customerService.getCustomerContractByPhone(Integer.parseInt(phone));
+		model.addAttribute("customerList", customerByPhone);
+//		for (Customer customer : customerByPhone) {
+//			System.out.println(customer.getId()+" - "+customer.getCustomerName()+" - "+customer.getPhone()+" - "+customer.getEmail()+" - "+customer.getAddress());
+//		}
+		
+		List<Contract> contractByCustomer = contractService.getCustomerContract(Integer.parseInt(phone));
+		model.addAttribute("contractList", contractByCustomer);
+//		for (Contract contract : contractByCustomer) {
+//			System.out.println(contract.getId()+" - "+contract.getDetail()+" - "+contract.getSigningDate()+" - "+contract.getIdCustomer()+" - "+contract.getPrice()+" - "+contract.getIdCustomer());
+//		}
+		
+		List<Staff> staffList = staffService.getStaffList();
+		model.addAttribute("staffList", staffList);
+		
+		return "customer/ProcessContract";
+	}
+	
+	
 }

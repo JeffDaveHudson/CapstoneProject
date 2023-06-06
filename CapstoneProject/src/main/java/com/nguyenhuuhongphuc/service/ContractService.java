@@ -37,4 +37,8 @@ public class ContractService {
 	public void createContract(Contract contract) {
 		contractDAO.createContract(contract);
 	}
+	
+	public List<Contract> getCustomerContract(int searchString) {
+		return contractDAO.getCustomerContract(searchString);
+	}
 }

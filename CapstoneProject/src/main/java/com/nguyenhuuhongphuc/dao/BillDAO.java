@@ -184,7 +184,7 @@ public class BillDAO {
 	}
 	
 	public void updateProductStock(int newQuantity, int idProduct) {
-		System.out.println("\n\n\n"+"stock: "+newQuantity+"-"+idProduct);
+		//System.out.println("\n\n\n"+"stock: "+newQuantity+"-"+idProduct);
 		String sql = "update product set Stock = Stock + "+newQuantity+" where id="+idProduct;
 		jdbcTemplate.update(sql);
 	}

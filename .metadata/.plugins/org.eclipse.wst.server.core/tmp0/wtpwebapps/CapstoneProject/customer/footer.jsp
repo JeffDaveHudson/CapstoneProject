@@ -17,7 +17,8 @@
 					<h4>Mã Số Doanh Nghiệp: 09876543567</h4>
 					<h4>Email: phuc3851@gmail.com</h4>
 					<h4>Hotline: 1900 0000</h4>
-					<h4><a href="loginPage">Login</a> </h4>
+					<h4><a href="loginPage">Quản Lý</a> </h4>
+					<h4><a href="processPage">Tra Cứu</a> </h4>
 				</div>
 				<div class="col2">
 					<h4>Thông Tin</h4>
