@@ -39,7 +39,7 @@
 	<jsp:include page="navbar.jsp"/>
 
 	<section class="home">
-		<div class="text">Trang Thêm Hợp Đồng</div>
+		<div class="text">Hợp Đồng</div>
 		<h2 class="banner ">Tạo Hợp Đồng</h2>
 		<form:form modelAttribute="contract" class="searchform" action="contractcreatewithexistedcustomer" method="post">
 			

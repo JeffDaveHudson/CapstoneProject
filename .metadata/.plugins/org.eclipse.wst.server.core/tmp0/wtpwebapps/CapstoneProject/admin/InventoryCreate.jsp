@@ -39,8 +39,8 @@
 	<jsp:include page="navbar.jsp" />
 
 	<section class="home">
-		<div class="text">Staff Creating Page</div>
-		<h2 class="banner ">Staff Creating</h2>
+		<div class="text">Kho</div>
+		<h2 class="banner ">Tạo Mới Sản Phẩm</h2>
 		<form:form modelAttribute="product" class="searchform"
 			action="productcreate" method="post">
 

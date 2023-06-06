@@ -73,6 +73,7 @@
 
 </head>
 <body>
+	<jsp:include page="header.jsp"></jsp:include>
 	<section class="home">
 		<h2 class="banner " style="">Hợp Đồng</h2>
 		<%-- <div class="text">Contract Page</div>
@@ -159,7 +160,7 @@
 							<td>
 							<a class="bx bxs-detail bx-xs"
 							style="text-decoration: none; color: green"
-							href="contractshowprocess?id=${contractlist.id}"></a>
+							href="customerpage-contractshowprocess?id=${contractlist.id}"></a>
 							
 							<%-- <a class="bx bxs-edit bx-xs"
 							style="text-decoration: none; color: green"

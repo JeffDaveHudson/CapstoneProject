@@ -53,8 +53,8 @@
 	<jsp:include page="navbar.jsp" />
 
 	<section class="home">
-		<div class="text">Process Page</div>
-		<h2 class="banner ">Detail Process</h2>
+		<div class="text">Trang Tiến Trình</div>
+		<h2 class="banner ">Tiến Trình Xử Lý</h2>
 		<div class="table-wrapper">
 
 			<form:form modelAttribute="bill" id="billCreateForm" action="">

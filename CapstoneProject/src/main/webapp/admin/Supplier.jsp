@@ -31,8 +31,8 @@
 <body>
 	<jsp:include page="navbar.jsp" />
 	<section class="home">
-		<div class="text">Supplier Page</div>
-		<h2 class="banner ">Supplier Management</h2>
+		<div class="text">Nhà Cung Cấp</div>
+		<h2 class="banner ">Danh Sách</h2>
 
 		<form class="searchform" action="suppliersearch" method="post">
 

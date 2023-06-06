@@ -42,8 +42,8 @@
 <body>
 	<jsp:include page="navbar.jsp" />
 	<section class="home">
-		<div class="text">Staff Page</div>
-		<h2 class="banner ">Staff Management Table</h2>
+		<div class="text">Nhân Viên</div>
+		<h2 class="banner ">Danh Sách Nhân Viên</h2>
 
 		<form class="searchform" action="staffsearch" method="post">
 			<div class="searchbar">

@@ -42,8 +42,8 @@
 <body>
 	<jsp:include page="navbar.jsp" />
 	<section class="home">
-		<div class="text">Contract Page</div>
-		<h2 class="banner ">Contract Management Table</h2>
+		<div class="text">Hợp Đồng</div>
+		<h2 class="banner ">Danh Sách Hợp Đồng</h2>
 
 		<form class="searchform" action="contractsearch" method="post">
 			<div class="searchbar">

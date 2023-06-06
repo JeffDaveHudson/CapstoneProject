@@ -144,6 +144,27 @@ public class ProcesssController {
 		//staff
 	}
 	
+	@RequestMapping("customerpage-contractshowprocess")
+	public String showProcessCustomerPage(Model model, @RequestParam("id") int idContract) {
+		List<Contract> contractList = contractService.getContractById(idContract);
+		model.addAttribute("contractList", contractList);
+		
+		processsIdContract.setIdContract(idContract);
+		
+		List<Customer> customerList = customerService.getCustomer();
+		model.addAttribute("customerList", customerList);
+		
+		List<Staff> staffList = staffService.getStaffList();
+		model.addAttribute("staffList", staffList);
+		
+		List<Processs> processsList = processsService.showProcess(idContract);
+		model.addAttribute("processList", processsList);
+		
+		model.addAttribute("process", new Processs());
+		
+		return "customer/ProcessContractDetailFrame";
+	}
+	
 	/*
 	 * @RequestMapping("customerprocess") public String showCustomerProcess(Model
 	 * model, @RequestParam("phone") String phone) {

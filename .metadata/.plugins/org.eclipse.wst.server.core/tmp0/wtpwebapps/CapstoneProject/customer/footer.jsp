@@ -6,6 +6,29 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="resources/css/style-customer-footer.css">
+<style type="text/css">
+
+.footer-section1 .div1 .col1 h4 a{
+	text-decoration: none;
+	color: black;
+	font-size: 14px;
+	border: 1px solid #528B8B;
+	width: 80px;
+	height: 25px;	
+	text-align: center;
+	display: inline-block;
+    line-height:25px;
+    border-radius: 20px;
+    background-color: #AFEEEE; 	
+}
+
+.footer-section1 .div1 .col1 h4 a:hover {
+	background-color: #528B8B;
+	color: white;
+	transition: 0.5s;
+	border: 1px solid #AFEEEE;
+}
+</style>
 </head>
 <body>
 	<footer>

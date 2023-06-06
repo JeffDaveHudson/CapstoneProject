@@ -110,7 +110,9 @@ public class ContractDAO {
 	}
 	
 	public List<Contract> getCustomerContract(int searchString) {
-		String sql = "select * from customer cu join contract co on cu.ID = co.IDCustomer where Phone = " + searchString ;
+		String sql = "select cu.CustomerName, cu.Phone, cu.Address, cu.Email, cu.IsSigned, "
+				+ "co.ID, co.Detail, co.IDCustomer, co.SigningDate, co.Price, co.IDStaff "
+				+ "from customer cu join contract co on cu.ID = co.IDCustomer where Phone = " + searchString ;
 		List<Contract> contractList = jdbcTemplate.query(sql, new RowMapper<Contract>() {
 
 			public Contract mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -124,6 +126,7 @@ public class ContractDAO {
 				contract.setIdStaff(rs.getInt("IDStaff"));
 
 				// System.out.println(product.getId()+"-"+product.getProductName()+"-"+product.getIdProductType()+"-"+product.getIdSupplier()+"-"+product.getPrice()+"-"+product.getIdProductInventory());
+				System.out.println("cus: "+contract.getId());
 				return contract;
 			}
 		});

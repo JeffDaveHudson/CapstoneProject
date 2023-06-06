@@ -37,8 +37,8 @@
 	<jsp:include page="navbar.jsp" />
 
 	<section class="home">
-		<div class="text">Bill Page</div>
-		<h2 class="banner ">Detail Bill</h2>
+		<div class="text">Hóa Đơn</div>
+		<h2 class="banner ">Chi Tiết Hóa Đơn</h2>
 		<div class="table-wrapper">
 
 			<form:form modelAttribute="bill" id="billCreateForm" action="">

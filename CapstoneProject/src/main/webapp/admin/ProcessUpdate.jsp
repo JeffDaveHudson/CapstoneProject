@@ -39,8 +39,8 @@
 	<jsp:include page="navbar.jsp"/>
 
 	<section class="home">
-		<div class="text">Process Updating Page</div>
-		<h2 class="banner ">Process Updating</h2>
+		<div class="text">Trang Cập Nhật Tiến Trình</div>
+		<h2 class="banner ">Cập Nhật Tiến Trình</h2>
 		<form:form modelAttribute="processupdate" class="searchform" action="processupdateprocess" method="post">
 			
 			<button style="" class="button-search">Cập Nhật</button>

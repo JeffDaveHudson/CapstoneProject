@@ -37,8 +37,8 @@
 <jsp:include page="navbar.jsp" />
 
     <section class="home">
-        		<div class="text">Inventory Page</div>
-        <h2 class = "banner "  style="margin-top: -70px">Inventory Management Table</h2>
+        		<div class="text">Kho</div>
+        <h2 class = "banner "  style="margin-top: -70px">Quản Lý Kho</h2>
         <div class = "banner">
 			<a href="supplier" class="btn btn-info button-search" role="button" style="text-decoration: none">View Supplier</a>
 			<a href="bill" class="btn btn-info button-search" role="button" style="text-decoration: none">View Bill</a>

@@ -39,8 +39,8 @@
 	<jsp:include page="navbar.jsp" />
 
 	<section class="home">
-		<div class="text">Supplier Updating Page</div>
-		<h2 class="banner ">Supplier Updating</h2>
+		<div class="text">Nhà Cung Cấp</div>
+		<h2 class="banner ">Cập Nhật Nhà Cung Cấp</h2>
 		<form:form modelAttribute="supplierupdate" class="searchform"
 			action="processupdatesupplier" method="post">
 
