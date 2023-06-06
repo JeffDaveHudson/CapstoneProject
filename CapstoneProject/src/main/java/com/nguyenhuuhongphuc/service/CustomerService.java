@@ -17,4 +17,40 @@ public class CustomerService {
 	public List<Customer> getCustomer() {
 		return customerDAO.getCustomer();
 	}
+
+	public void updateCustomerWhenUpdatingContract(Customer customerUpdateContract) {
+		customerDAO.updateCustomerWhenUpdatingContract(customerUpdateContract);
+	}
+
+	public void createCustomerWhenUpdatingContract(Customer customerCreateContract) {
+		customerDAO.createCustomerWhenUpdatingContract(customerCreateContract);
+	}
+	
+	public List<Customer> getLastestCustomer() {
+		return customerDAO.getLastestCustomer();
+	}
+
+	public void createCustomerIsNotSigned(Customer customer) {
+		customerDAO.createCustomerIsNotSigned(customer);
+	}
+	
+	public List<Customer> getIsNotSignedCustomer(){
+		return customerDAO.getIsNotSignedCustomer();
+	}
+
+	public List<Customer> getCustomerWithContract(int id) {
+		return customerDAO.getCustomerWithContract(id);
+	}
+
+	public void updateIsSignedCustomer(int idExistedCustomer) {
+		customerDAO.updateIsSignedCustomer(idExistedCustomer);
+	}
+
+	public void removeIsNotSignCustomer(int id) {
+		customerDAO.removeIsNotSignCustomer(id);
+	}
+
+	public List<Customer> searchCustomerIsNotSigned(String searchString) {
+		return customerDAO.searchCustomerIsNotSigned(searchString);
+	}
 }

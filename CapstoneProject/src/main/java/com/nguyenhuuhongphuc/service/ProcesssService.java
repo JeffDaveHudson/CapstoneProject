@@ -33,4 +33,8 @@ public class ProcesssService {
 	public void updateProcess(Processs processs) {
 		processsDAO.updateProcess(processs);
 	}
+
+	public void removeProcessWhenRemovingContract(int id) {
+		processsDAO.removeProcessWhenRemovingContract(id);
+	}
 }

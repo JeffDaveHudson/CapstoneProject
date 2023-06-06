@@ -18,9 +18,9 @@
 	rel='stylesheet'>
 <script type="text/javascript">
 	function confirm_decision(user_id) {
-		if (confirm("you want to delete the user?")) // this will pop up confirmation box and if yes is clicked it call servlet else return to page
+		if (confirm("you want to delete?")) // this will pop up confirmation box and if yes is clicked it call servlet else return to page
 		{
-			window.location = "staffdelete?id=" + user_id;
+			window.location = "contractremove?id=" + user_id;
 		} else {
 			return false;
 		}
@@ -53,21 +53,9 @@
 
 		</form>
 
-		<%-- <div style="margin-left: 30%; margin-top: 15px" class="nvtbp">
-			<form action="staffbydepartment" method="post" >
-				<p class="text2">Nhân Viên Theo Bộ Phận:</p>
-				<select name="staffTypeClicked">
-					<c:forEach items="${staffTypeList}" var="stafftypelist">
-						<option value="${stafftypelist.id}">${stafftypelist.staffType}</option>
-					</c:forEach>
-				</select>
-				<button class="button-search" type="submit">OK</button>
-			</form>
-		</div> --%>
-
-		<br> <br> <a href="staffcreateform">
+		<br> <br> <a href="contractcreateform">
 			<button style="margin-left: 70px" class="button-search">Thêm
-				NV</button>
+				Hợp Đồng</button>
 		</a>
 		<div class="table-wrapper"
 			style="position: relative; width: 90%; z-index: 1; overflow: auto; height: 350px;">
@@ -141,10 +129,9 @@
 							
 							<a class="bx bxs-edit bx-xs"
 							style="text-decoration: none; color: green"
-							href="staffupdateform?id=${stafflist.id}"></a> <a
+							href="contractupdateform?id=${contractlist.id}"></a> <a
 								class="bx bxs-trash bx-xs"
-								style="text-decoration: none; color: red"
-								<%-- href="staffdelete?id=${stafflist.idStaff}" --%> onclick="confirm_decision('${stafflist.id}')"></a></td>
+								style="text-decoration: none; color: red" onclick="confirm_decision('${contractlist.id}')"></a></td>
 						</tr>
 					</c:forEach>
 				<tbody>

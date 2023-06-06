@@ -1,6 +1,6 @@
 package com.nguyenhuuhongphuc.bean;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Contract {
 	private int id;

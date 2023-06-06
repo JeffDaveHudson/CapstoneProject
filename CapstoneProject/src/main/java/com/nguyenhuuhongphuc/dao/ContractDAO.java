@@ -83,4 +83,29 @@ public class ContractDAO {
 		});
 		return contractList;
 	}
+
+	public void removeContract(int id) {
+		String sql = "DELETE FROM Contract WHERE ID = " + id;
+        jdbcTemplate.update(sql);
+	}
+
+	public void updateContract(Contract contract) {
+		String sql = "UPDATE Contract SET "
+				+ "Detail =     '" + contract.getDetail()      + "', "
+				+ "SigningDate ='" + contract.getSigningDate() + "', "
+				+ "Price =       " + contract.getPrice()       + " , "
+				+ "IDStaff =     " + contract.getIdStaff()     + " "
+				+ "WHERE ID =    " + contract.getId();
+		jdbcTemplate.update(sql);
+	}
+
+	public void createContract(Contract contract) {
+		String sql = "INSERT INTO Contract (Detail, IDCustomer, SigningDate, Price, IDStaff) VALUES ('"
+				+ contract.getDetail() 		+"', "
+				+ contract.getIdCustomer()  +" ,'"
+				+ contract.getSigningDate() +"', "
+				+ contract.getPrice()       +" , "
+				+ contract.getIdStaff()     +" ) ";
+	jdbcTemplate.update(sql);
+	}
 }

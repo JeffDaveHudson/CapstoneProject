@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -138,27 +140,13 @@ body{
 			<img src="https://res.cloudinary.com/dedbfm0dk/image/upload/v1682305437/capstoneproject/schedule/schedule_kjqwkj.jpg">
 		</div>
 		<div class="form">
-			<form action="">
-				<div class="text"><input type="text" placeholder="Họ tên..."></div>
-				<div class="text"><input type="text" placeholder="Email..."></div>
-				<div class="text"><input type="text" placeholder="SĐT..."></div>
-				<div class="text"><input type="text" placeholder="Ghi chú..."></div>
-				<div class="button"><input type="submit" value="TƯ VẤN"></div>
-				<!-- <table>
-					<tr>
-						<td><input type="text" placeholder="Họ tên..."></td>
-					</tr>
-					<tr>
-						<td><input type="text" placeholder="Email..."></td>
-					</tr>
-					<tr>
-						<td><input type="text" placeholder="SĐT..."></td>
-					</tr>
-					<tr>
-						<td><input type="text" placeholder="Ghi chú..."></td>
-					</tr>
-				</table> -->
-			</form>
+			<form:form action="customerschedule" modelAttribute="customer">
+				<div class="text"><form:input type="text" path="customerName" placeholder="Họ tên..." /></div>
+				<div class="text"><form:input type="text" path="email" 		  placeholder="Email..."  /></div>
+				<div class="text"><form:input type="text" path="phone" 		  placeholder="SĐT..."    /></div>
+				<div class="text"><form:input type="text" path="address" 	  placeholder="Địa chỉ..."/></div>
+				<div class="button"><input type="submit" value="TƯ VẤN"/></div>
+			</form:form>
 		</div>
 	</div>
 </section>
