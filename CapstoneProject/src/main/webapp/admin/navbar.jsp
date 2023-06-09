@@ -12,6 +12,7 @@
 				src='<c:url value="https://res.cloudinary.com/dedbfm0dk/image/upload/v1681377407/capstoneproject/icon-enterprise_k6msh8.png"></c:url>'>
 			</span>
 			<div class="text logo-text">
+			<%= session.getAttribute("username")%>
 				<span class="name"></span> <span class="profession">Admin
 					Site</span>
 			</div>
@@ -46,7 +47,7 @@
 			</ul>
 		</div>
 		<div class="bottom-content">
-			<li class=""><a href="${myContext}/logout"> <i class='bx bx-log-out icon'></i>
+			<li class=""><a href="logout"> <i class='bx bx-log-out icon'></i>
 					<span class="text nav-text">Logout</span>
 			</a></li>
 			<li class="mode">

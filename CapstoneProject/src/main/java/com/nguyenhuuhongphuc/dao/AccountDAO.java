@@ -26,6 +26,16 @@ public class AccountDAO {
 		return account;
 	}
 	
+	public Account loginAccount2(String userName, String passWord) {
+		String query = "SELECT * FROM Account WHERE Username = '" + userName + "' AND Pass = '"+ passWord+"'";
+		Account account = new Account();
+		try {
+			account =   jdbcTemplate.query(query, new AccountMapper()).get(0);
+		} catch (Exception e) {
+		}
+		return account;
+	}
+	
 	public class AccountMapper implements org.springframework.jdbc.core.RowMapper<Account> {
 		public Account mapRow(ResultSet rs, int rowNum) throws SQLException {
 			Account a = new Account();

@@ -43,7 +43,7 @@
 	<jsp:include page="navbar.jsp" />
 	<section class="home">
 		<div class="text">Nhân Viên</div>
-		<h2 class="banner ">Danh Sách Nhân Viên</h2>
+		<h2 class="banner ">Danh Sách Nhân Viên</h2>${username}
 
 		<form class="searchform" action="staffsearch" method="post">
 			<div class="searchbar">

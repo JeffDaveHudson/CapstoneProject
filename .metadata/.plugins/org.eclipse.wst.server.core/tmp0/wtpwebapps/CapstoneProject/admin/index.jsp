@@ -43,6 +43,7 @@
 	<jsp:include page="navbar.jsp" />
 	<section class="home">
 		<div class="text">Danh Sách Khách Hàng Yêu Cầu Được Tư Vấn</div>
+		${username}
 		<h2 class="banner "></h2>
 
 		<form class="searchform" action="customerisnotsignedsearch" method="post">

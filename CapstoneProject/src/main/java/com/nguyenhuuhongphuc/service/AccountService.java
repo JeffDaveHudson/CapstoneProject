@@ -22,6 +22,32 @@ public class AccountService {
 	
 	public void deleteAccountThroughDeleteStaff(String userName) {
 		accountDAO.deleteAccountThroughDeleteStaff(userName);
-		System.out.println("s: "+userName);
+	}
+	
+//	public Account loginAccount(String userName, String passWord) {
+//		Account a = accountDAO.loginAccount2(userName, passWord);
+//		System.out.println("login22: "+a.getUserName()+" - "+a.getPass());
+//		return a;
+//	}
+	
+	public int loginAccount(String username, String password) {
+		Account account;
+		try {
+			account = accountDAO.getAccount(username);
+		} catch (Exception e) {
+			account = null;
+		}
+		int check = 0;
+		if (account != null) {
+			try {
+				if (account.getPass().equals(password) || account.getPass().equals(null)) {
+					check = 1;
+				} 
+				else check = -1;
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		} 
+		return check;
 	}
 }
