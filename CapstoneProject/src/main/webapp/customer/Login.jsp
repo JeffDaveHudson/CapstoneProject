@@ -192,13 +192,13 @@ body {
 		<div class="form">
 		<form:form action="login" modelAttribute="account" method="post">
 			<h1>ADMINISTRATION</h1>
-			<span id="error" style="color: #eb1c26; margin-top: 10px;"><%-- <%= request.getAttribute("error")%> --%></span>
+			<span id="error" style="color: black; margin-top: 10px;"><%= request.getAttribute("error")%></span>
 				
 				<div class="text">
 				<form:input type="text" path="userName" placeholder="Username" name="username"/></div>
 				<div class="text">
 				<form:input type="text" path="pass" placeholder="Password" name="password"/></div>
-				<div class="button"><input type="submit" value="Đăng Nhập"></div>
+				<div class="button"><input type="submit" value="Đăng Nhập" onclick="return(checkLogin());"></div>
 				
 		</form:form>
 		</div>
@@ -212,5 +212,11 @@ function back() {
 	window.history.back();
 
 	}
+
+function checkLogin() {
+	 document.getElementById("error").style.color = "#eb1c26";
+	<%-- var msg = '<%= request.getAttribute("error")%>';
+	alert(msg); --%>
+}
 </script>
 </html>
