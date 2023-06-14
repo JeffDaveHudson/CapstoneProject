@@ -40,7 +40,7 @@
 				<li class="nav-link"><a href="#"> <i
 						class='bx bx-history icon'></i> <span class="text nav-text">Lịch sử bán vé</span>
 				</a></li>
-				<li class="nav-link"><a href="Revenue.jsp"> <i
+				<li class="nav-link"><a href="revenue"> <i
 						class='bx bx-pie-chart-alt icon'></i> <span class="text nav-text">Doanh
 							thu</span>
 				</a></li>

@@ -132,4 +132,212 @@ public class ContractDAO {
 		});
 		return contractList;
 	}
+
+	public List<Contract> getRevenueEachContractByMonth(String year, String month) {
+		String sql = "SELECT * FROM contract WHERE year(SigningDate) = '"+ year +"' AND month(SigningDate)='"+ month +"'" ;
+		List<Contract> contractList = jdbcTemplate.query(sql, new RowMapper<Contract>() {
+
+			public Contract mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Contract contract = new Contract();
+
+				contract.setId(rs.getInt("ID"));
+				contract.setDetail(rs.getString("Detail"));
+				contract.setIdCustomer(rs.getInt("IDCustomer"));
+				contract.setSigningDate(rs.getDate("SigningDate"));
+				contract.setPrice(rs.getInt("Price"));
+				contract.setIdStaff(rs.getInt("IDStaff"));
+
+				// System.out.println(product.getId()+"-"+product.getProductName()+"-"+product.getIdProductType()+"-"+product.getIdSupplier()+"-"+product.getPrice()+"-"+product.getIdProductInventory());
+				System.out.println("get: "+contract.getId()+" - "+contract.getDetail()+" - "+contract.getIdCustomer()+" - "+contract.getIdStaff()+" - "+contract.getPrice()+" - "+contract.getSigningDate());
+				return contract;
+			}
+		});
+		return contractList;
+	}
+	
+	public int getTotalRevenueByMonth(String year, String month) {
+		String sql = "SELECT sum(Price) As Total FROM contract WHERE year(SigningDate) = '"+ year +"' AND month(SigningDate)='"+ month +"'" ;
+		try {
+			return jdbcTemplate.queryForObject(sql, int.class);
+		} catch (Exception e) {
+			return 0;
+		}
+	}
+
+	public int getRevenueBetween2Times(String startDate, String endDate) {
+		String sql = "SELECT sum(Price) As Total FROM contract WHERE SigningDate BETWEEN '"+startDate+"' AND '"+endDate+"'" ;
+		try {
+			return jdbcTemplate.queryForObject(sql, int.class);
+		} catch (Exception e) {
+			return 0;
+		}
+	}
+
+	public int getTotalRevenueByQuarter1(String year) {
+		String sql = "SELECT sum(Price) As Total FROM contract WHERE SigningDate BETWEEN  '"+year+"-01-01' AND '"+year+"-03-31'" ;
+		try {
+			return jdbcTemplate.queryForObject(sql, int.class);
+		} catch (Exception e) {
+			return 0;
+		}
+	}
+	
+	public int getTotalRevenueByQuarter2(String year) {
+		String sql = "SELECT sum(Price) As Total FROM contract WHERE SigningDate BETWEEN  '"+year+"-04-01' AND '"+year+"-06-30'" ;
+		try {
+			return jdbcTemplate.queryForObject(sql, int.class);
+		} catch (Exception e) {
+			return 0;
+		}
+	}
+	
+	public int getTotalRevenueByQuarter3(String year) {
+		String sql = "SELECT sum(Price) As Total FROM contract WHERE SigningDate BETWEEN  '"+year+"-07-01' AND '"+year+"-09-30'" ;
+		try {
+			return jdbcTemplate.queryForObject(sql, int.class);
+		} catch (Exception e) {
+			return 0;
+		}
+	}
+	
+	public int getTotalRevenueByQuarter4(String year) {
+		String sql = "SELECT sum(Price) As Total FROM contract WHERE SigningDate BETWEEN  '"+year+"-10-01' AND '"+year+"-12-31'" ;
+		try {
+			return jdbcTemplate.queryForObject(sql, int.class);
+		} catch (Exception e) {
+			return 0;
+		}
+	}
+
+	public List<Contract> getRevenueDetailByCurrentMonth(String year, String month) {
+		String sql = "SELECT * FROM contract WHERE year(SigningDate) = '"+ year +"' AND month(SigningDate)='"+ month +"'" ;
+		List<Contract> contractList = jdbcTemplate.query(sql, new RowMapper<Contract>() {
+
+			public Contract mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Contract contract = new Contract();
+
+				contract.setId(rs.getInt("ID"));
+				contract.setDetail(rs.getString("Detail"));
+				contract.setIdCustomer(rs.getInt("IDCustomer"));
+				contract.setSigningDate(rs.getDate("SigningDate"));
+				contract.setPrice(rs.getInt("Price"));
+				contract.setIdStaff(rs.getInt("IDStaff"));
+
+				// System.out.println(product.getId()+"-"+product.getProductName()+"-"+product.getIdProductType()+"-"+product.getIdSupplier()+"-"+product.getPrice()+"-"+product.getIdProductInventory());
+				System.out.println("get: "+contract.getId()+" - "+contract.getDetail()+" - "+contract.getIdCustomer()+" - "+contract.getIdStaff()+" - "+contract.getPrice()+" - "+contract.getSigningDate());
+				return contract;
+			}
+		});
+		return contractList;
+	}
+
+	public List<Contract> getRevenueDetailByQuarter1(String year) {
+		String sql = "SELECT * FROM contract WHERE SigningDate BETWEEN  '"+year+"-01-01' AND '"+year+"-03-31'" ;
+		List<Contract> contractList = jdbcTemplate.query(sql, new RowMapper<Contract>() {
+
+			public Contract mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Contract contract = new Contract();
+
+				contract.setId(rs.getInt("ID"));
+				contract.setDetail(rs.getString("Detail"));
+				contract.setIdCustomer(rs.getInt("IDCustomer"));
+				contract.setSigningDate(rs.getDate("SigningDate"));
+				contract.setPrice(rs.getInt("Price"));
+				contract.setIdStaff(rs.getInt("IDStaff"));
+
+				// System.out.println(product.getId()+"-"+product.getProductName()+"-"+product.getIdProductType()+"-"+product.getIdSupplier()+"-"+product.getPrice()+"-"+product.getIdProductInventory());
+				System.out.println("get: "+contract.getId()+" - "+contract.getDetail()+" - "+contract.getIdCustomer()+" - "+contract.getIdStaff()+" - "+contract.getPrice()+" - "+contract.getSigningDate());
+				return contract;
+			}
+		});
+		return contractList;
+	}
+	
+	public List<Contract> getRevenueDetailByQuarter2(String year) {
+		String sql = "SELECT * FROM contract WHERE SigningDate BETWEEN  '"+year+"-04-01' AND '"+year+"-06-30'" ;
+		List<Contract> contractList = jdbcTemplate.query(sql, new RowMapper<Contract>() {
+
+			public Contract mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Contract contract = new Contract();
+
+				contract.setId(rs.getInt("ID"));
+				contract.setDetail(rs.getString("Detail"));
+				contract.setIdCustomer(rs.getInt("IDCustomer"));
+				contract.setSigningDate(rs.getDate("SigningDate"));
+				contract.setPrice(rs.getInt("Price"));
+				contract.setIdStaff(rs.getInt("IDStaff"));
+
+				// System.out.println(product.getId()+"-"+product.getProductName()+"-"+product.getIdProductType()+"-"+product.getIdSupplier()+"-"+product.getPrice()+"-"+product.getIdProductInventory());
+				System.out.println("get: "+contract.getId()+" - "+contract.getDetail()+" - "+contract.getIdCustomer()+" - "+contract.getIdStaff()+" - "+contract.getPrice()+" - "+contract.getSigningDate());
+				return contract;
+			}
+		});
+		return contractList;
+	}
+	
+	public List<Contract> getRevenueDetailByQuarter3(String year) {
+		String sql = "SELECT * FROM contract WHERE SigningDate BETWEEN  '"+year+"-07-01' AND '"+year+"-09-30'" ;
+		List<Contract> contractList = jdbcTemplate.query(sql, new RowMapper<Contract>() {
+
+			public Contract mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Contract contract = new Contract();
+
+				contract.setId(rs.getInt("ID"));
+				contract.setDetail(rs.getString("Detail"));
+				contract.setIdCustomer(rs.getInt("IDCustomer"));
+				contract.setSigningDate(rs.getDate("SigningDate"));
+				contract.setPrice(rs.getInt("Price"));
+				contract.setIdStaff(rs.getInt("IDStaff"));
+
+				// System.out.println(product.getId()+"-"+product.getProductName()+"-"+product.getIdProductType()+"-"+product.getIdSupplier()+"-"+product.getPrice()+"-"+product.getIdProductInventory());
+				System.out.println("get: "+contract.getId()+" - "+contract.getDetail()+" - "+contract.getIdCustomer()+" - "+contract.getIdStaff()+" - "+contract.getPrice()+" - "+contract.getSigningDate());
+				return contract;
+			}
+		});
+		return contractList;
+	}
+	
+	public List<Contract> getRevenueDetailByQuarter4(String year) {
+		String sql = "SELECT * FROM contract WHERE SigningDate BETWEEN  '"+year+"-10-01' AND '"+year+"-12-31'" ;
+		List<Contract> contractList = jdbcTemplate.query(sql, new RowMapper<Contract>() {
+
+			public Contract mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Contract contract = new Contract();
+
+				contract.setId(rs.getInt("ID"));
+				contract.setDetail(rs.getString("Detail"));
+				contract.setIdCustomer(rs.getInt("IDCustomer"));
+				contract.setSigningDate(rs.getDate("SigningDate"));
+				contract.setPrice(rs.getInt("Price"));
+				contract.setIdStaff(rs.getInt("IDStaff"));
+
+				// System.out.println(product.getId()+"-"+product.getProductName()+"-"+product.getIdProductType()+"-"+product.getIdSupplier()+"-"+product.getPrice()+"-"+product.getIdProductInventory());
+				System.out.println("get: "+contract.getId()+" - "+contract.getDetail()+" - "+contract.getIdCustomer()+" - "+contract.getIdStaff()+" - "+contract.getPrice()+" - "+contract.getSigningDate());
+				return contract;
+			}
+		});
+		return contractList;
+	}
+
+	public List<Contract> getRevenueDetailBetween2Times(String startDate, String endDate) {
+		String sql = "SELECT * FROM contract WHERE SigningDate BETWEEN '"+startDate+"' AND '"+endDate+"'" ;
+		List<Contract> contractList = jdbcTemplate.query(sql, new RowMapper<Contract>() {
+
+			public Contract mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Contract contract = new Contract();
+
+				contract.setId(rs.getInt("ID"));
+				contract.setDetail(rs.getString("Detail"));
+				contract.setIdCustomer(rs.getInt("IDCustomer"));
+				contract.setSigningDate(rs.getDate("SigningDate"));
+				contract.setPrice(rs.getInt("Price"));
+				contract.setIdStaff(rs.getInt("IDStaff"));
+
+				// System.out.println(product.getId()+"-"+product.getProductName()+"-"+product.getIdProductType()+"-"+product.getIdSupplier()+"-"+product.getPrice()+"-"+product.getIdProductInventory());
+				System.out.println("get: "+contract.getId()+" - "+contract.getDetail()+" - "+contract.getIdCustomer()+" - "+contract.getIdStaff()+" - "+contract.getPrice()+" - "+contract.getSigningDate());
+				return contract;
+			}
+		});
+		return contractList;
+	}
 }

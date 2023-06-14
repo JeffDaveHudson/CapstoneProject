@@ -1,0 +1,50 @@
+<%@page import="java.time.LocalDateTime"%>
+<%@page import="java.time.format.DateTimeFormatter"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+    <%@ page isELIgnored = "false" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Inventory Management page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='<c:url value="/resources/css/style-page-admin.css" />' rel="stylesheet" type ="text/css"> 
+ <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<style type="text/css">
+#form2{
+	text-align: center;
+	margin-top: 20px;
+}
+
+</style>
+
+
+</head>
+<body>
+<jsp:include page="navbar.jsp" />
+
+    <section class="home">
+        		<div class="text">Doanh Thu</div>
+        <h2 class = "banner "  style="margin-top: -70px">Quản Lý Doanh Thu</h2>
+        <div class = "banner">
+					</div>
+		<%  DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM-yyyy");  
+		 	LocalDateTime now = LocalDateTime.now();
+		 	String date = dtf.format(now).toString(); %>
+        Doanh thu tháng <%=date %>:   ${revenueByMonth }  
+        
+        <br> <br> <br>
+        
+        <form action="revenuebetween2times">
+        	 Doanh thu từ <input type="date" name="startDate" value="<%=date %>"> đến <input type="date" name="endDate" onchange="this.form.submit()">
+        </form>
+       
+    </section>
+</body>
+<script src='<c:url value="/resources/js/js-page-admin.js" />'></script>
+</html>
