@@ -37,9 +37,9 @@
 						class='bx bx-user icon'></i> <span class="text nav-text">Quản
 							lý nhân viên</span>
 				</a></li>
-				<li class="nav-link"><a href="#"> <i
+				<!-- <li class="nav-link"><a href="#"> <i
 						class='bx bx-history icon'></i> <span class="text nav-text">Lịch sử bán vé</span>
-				</a></li>
+				</a></li> -->
 				<li class="nav-link"><a href="revenue"> <i
 						class='bx bx-pie-chart-alt icon'></i> <span class="text nav-text">Doanh
 							thu</span>

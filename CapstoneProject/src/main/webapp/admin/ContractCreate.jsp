@@ -62,7 +62,7 @@
 																					
 							<td><form:input type="date" path="signingDate"/></td>
 							
-							<td><form:input type="text" path="price"/></td>
+							<td><form:input type="text" path="price" pattern="[0-9]+" title="Vui lòng nhập đúng định dạng số"/></td>
 							
 							<td><form:select path="idStaff">
 									<c:forEach items="${staffList}" var="stafflist">
@@ -91,11 +91,11 @@
 						<tr>
 							<td><input type="text" name="customerName"/></td>
 																					
-							<td><input type="text" name="phone"/></td>
+							<td><input type="text" name="phone" pattern="[0][0-9]{9}" title="SĐT bắt đầu bằng 0 và phải có 10 chữ số"/></td>
 							
 							<td><input type="text" name="address"/></td>
 																					
-							<td><input type="text" name="email"/></td>
+							<td><input type="text" name="email" pattern="[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*" title="Email phải có @ và đuôi phía sau"/></td>
 						</tr>
 					<tbody>
 				</table>

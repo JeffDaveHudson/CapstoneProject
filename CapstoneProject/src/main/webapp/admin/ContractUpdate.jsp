@@ -77,7 +77,7 @@
 							
 							<c:forEach items="${customerList}" var="customerlist">
 								<c:if test="${contractlist.idCustomer == customerlist.id}">
-									<td><input type="text" name="phone" value = "${customerlist.phone}"/></td>
+									<td><input type="text" name="phone" pattern="[0-9]+" title="Vui lòng nhập đúng định dạng số" value = "${customerlist.phone}"/></td>
 								</c:if>
 							</c:forEach>
 							
@@ -95,7 +95,7 @@
 							
 							<td><form:input type="date" path="signingDate" value = "${contractlist.signingDate}"/></td>
 							
-							<td><form:input type="text" path="price" value = "${contractlist.price}"/></td>
+							<td><form:input type="text" path="price" pattern="[0-9]+" title="Vui lòng nhập đúng định dạng số" value = "${contractlist.price}"/></td>
 							
 							<%-- <c:forEach items="${staffList}" var="stafflist">
 								<c:if test="${contractlist.idStaff == stafflist.id}">

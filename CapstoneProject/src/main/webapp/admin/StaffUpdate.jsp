@@ -64,7 +64,7 @@
 										value="${stafflist.id}" readonly="true" /></td>
 								<td><form:input type="text" path="staffName"
 										value="${stafflist.staffName}" /></td>
-								<td><form:input type="text" path="salary"
+								<td><form:input type="text" path="salary" pattern="[0-9]+" title="Vui lòng nhập đúng định dạng số"
 										value="${stafflist.salary}" /></td>
 
 								<td><select name="staffTypeClicked">

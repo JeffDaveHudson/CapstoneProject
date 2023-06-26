@@ -192,7 +192,7 @@ body {
 		<div class="form">
 		<form:form action="login" modelAttribute="account" method="post">
 			<h1>ADMINISTRATION</h1>
-			<span id="error" style="color: black; margin-top: 10px;"><%= request.getAttribute("error")%></span>
+			<span id="error" style="color: black; margin-top: 10px;"><%-- <%= request.getAttribute("error")%> --%></span>
 				
 				<div class="text">
 				<form:input type="text" path="userName" placeholder="Username" name="username"/></div>

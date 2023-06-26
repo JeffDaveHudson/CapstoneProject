@@ -122,9 +122,9 @@
 									</c:forEach>
 								</form:select>
 							</td>
-							<td><form:input path="price" placeholder="0" style="border: 1px solid; border-radius: 10px"/></td>
+							<td><form:input path="price" placeholder="0" pattern="[0-9]+" title="Vui lòng nhập đúng định dạng số" style="border: 1px solid; border-radius: 10px"/></td>
 							
-							<td><form:input path="quantity" placeholder="0" style="border: 1px solid; border-radius: 10px"/></td>
+							<td><form:input path="quantity" placeholder="0" pattern="[0-9]+" title="Vui lòng nhập đúng định dạng số" style="border: 1px solid; border-radius: 10px"/></td>
 						</tr>
 					<tbody>
 				</table>

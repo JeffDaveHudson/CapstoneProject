@@ -33,7 +33,7 @@ public class CustomerController {
 				
 		customerService.createCustomerIsNotSigned(customer);
 		
-		return "customer/Schedule";
+		return "customer/ScheduleSuccessfully";
 	}
 	
 	@RequestMapping("customerisnotsignedsearch")
@@ -52,4 +52,10 @@ public class CustomerController {
 		
 		return "redirect:/home";
 	}
+	
+//	@GetMapping("schedulesuccessfully")
+//	public String scheduleSuccessfully(Model model) {
+//				
+//		return "customer/ScheduleSuccessfully";
+//	}
 }

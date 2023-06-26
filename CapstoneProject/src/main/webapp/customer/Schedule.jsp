@@ -142,8 +142,8 @@ body{
 		<div class="form">
 			<form:form action="customerschedule" modelAttribute="customer">
 				<div class="text"><form:input type="text" path="customerName" placeholder="Họ tên..." /></div>
-				<div class="text"><form:input type="text" path="email" 		  placeholder="Email..."  /></div>
-				<div class="text"><form:input type="text" path="phone" 		  placeholder="SĐT..."    /></div>
+				<div class="text"><form:input type="text" path="email"  pattern="[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*" 		  placeholder="Email..." title="Email phải có @ và đuôi phía sau" /></div>
+				<div class="text"><form:input type="text" path="phone" 	pattern="[0][0-9]{9}"	  placeholder="SĐT..."   title="SĐT bắt đầu bằng 0 và phải có 10 chữ số" /></div>
 				<div class="text"><form:input type="text" path="address" 	  placeholder="Địa chỉ..."/></div>
 				<div class="button"><input type="submit" value="TƯ VẤN"/></div>
 			</form:form>

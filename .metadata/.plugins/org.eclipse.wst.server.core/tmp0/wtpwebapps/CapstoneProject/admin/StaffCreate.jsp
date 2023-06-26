@@ -62,7 +62,7 @@
 						<tr>
 							<!-- <th><input type="text"></th> -->
 							<td><form:input type="text" path="staffName"/></td>
-							<td><form:input type="text" path="salary"/></td>
+							<td><form:input type="text" path="salary" pattern="[0-9]+" title="Vui lòng nhập đúng định dạng số"/></td>
 							<td>
 							
 							<select name="staffTypeClicked">
