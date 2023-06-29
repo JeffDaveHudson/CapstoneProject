@@ -83,6 +83,7 @@
 						<th>SĐT</th>
 						<th>Địa Chỉ</th>
 						<th>Email</th>
+						<th>Vấn Đề Gặp Phải</th>
 						<th>Action</th>
 					</tr>
 				</thead>
@@ -97,7 +98,12 @@
 							<td>${customerlist.phone}</td>
 							<td>${customerlist.address}</td>
 							<td>${customerlist.email}</td>
+							<c:forEach items="${problemList}" var="problemlist">
+								<c:if test="${customerlist.id == problemlist.idCustomer}">
 
+									<td>${problemlist.detail}</td>
+								</c:if>
+							</c:forEach>
 
 							<td><a class="bx bxs-edit bx-xs"
 								<%-- style="text-decoration: none; color: green" href="staffupdate/${stafflist.idStaff}"></a> &nbsp --%>

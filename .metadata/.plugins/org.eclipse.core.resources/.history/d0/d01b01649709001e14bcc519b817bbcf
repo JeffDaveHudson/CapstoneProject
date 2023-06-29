@@ -1,6 +1,0 @@
-package com.nguyenhuuhongphuc.controller;
-
-public class T {
-	int a;
-	Integer v;
-}

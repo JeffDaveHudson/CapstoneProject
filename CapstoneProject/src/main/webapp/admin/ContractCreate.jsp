@@ -39,8 +39,8 @@
 	<jsp:include page="navbar.jsp"/>
 
 	<section class="home">
-		<div class="text">Trang Thêm Hợp Đồng</div>
-		<h2 class="banner ">Tạo Hợp Đồng</h2>
+		<div class="text">Trang Thêm Thỏa Thuận</div>
+		<h2 class="banner ">Tạo Thỏa Thuận</h2>
 		<form:form modelAttribute="contract" class="searchform" action="contractcreate" method="post">
 			
 			<button style="" class="button-search">Thêm Mới</button>
@@ -49,7 +49,7 @@
 				<table class="fl-table">
 					<thead>
 						<tr>
-							<th>Tên Hợp Đồng</th>
+							<th>Tên Thỏa Thuận</th>
 							<th>Ngày Ký</th>
 							<th>Số Tiền</th>
 							<th>Nhân Viên Đại Diện Phụ Trách</th>

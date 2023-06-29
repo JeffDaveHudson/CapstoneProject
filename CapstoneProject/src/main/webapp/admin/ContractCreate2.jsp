@@ -39,8 +39,8 @@
 	<jsp:include page="navbar.jsp"/>
 
 	<section class="home">
-		<div class="text">Hợp Đồng</div>
-		<h2 class="banner ">Tạo Hợp Đồng</h2>
+		<div class="text">Thỏa Thuận</div>
+		<h2 class="banner ">Tạo Thỏa Thuận</h2>
 		<form:form modelAttribute="contract" class="searchform" action="contractcreatewithexistedcustomer" method="post">
 			
 			<button style="" class="button-search">Thêm Mới</button>
@@ -49,7 +49,7 @@
 				<table class="fl-table">
 					<thead>
 						<tr>
-							<th>Tên Hợp Đồng</th>
+							<th>Tên Thỏa Thuận</th>
 							<th>Ngày Ký</th>
 							<th>Số Tiền</th>
 							<th>Nhân Viên Đại Diện Phụ Trách</th>
@@ -84,6 +84,7 @@
 							<th>SĐT</th>
 							<th>Địa Chỉ</th>
 							<th>Email</th>
+							<th>Vấn Đề Gặp Phải</th>
 						</tr>
 						
 					</thead>
@@ -94,6 +95,12 @@
 							<td>${customerlist.phone}</td>
 							<td>${customerlist.address}</td>
 							<td>${customerlist.email}</td>
+							<c:forEach items="${problemList}" var="problemlist">
+								<c:if test="${customerlist.id == problemlist.idCustomer}">
+
+									<td>${problemlist.detail}</td>
+								</c:if>
+							</c:forEach>
 						</tr>
 					</c:forEach>
 					<tbody>

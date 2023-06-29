@@ -1,0 +1,9 @@
+package com.nguyenhuuhongphuc.bean;
+
+public class Problem {
+	private int id;
+	private String description;
+	private int idCustomer;
+	
+	
+}

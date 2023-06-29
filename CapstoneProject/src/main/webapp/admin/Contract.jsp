@@ -42,8 +42,8 @@
 <body>
 	<jsp:include page="navbar.jsp" />
 	<section class="home">
-		<div class="text">Hợp Đồng</div>
-		<h2 class="banner ">Danh Sách Hợp Đồng</h2>
+		<div class="text">Thỏa Thuận</div>
+		<h2 class="banner ">Danh Sách Thỏa Thuận</h2>
 
 		<form class="searchform" action="contractsearch" method="post">
 			<div class="searchbar">
@@ -63,8 +63,8 @@
 				style="width: 100%; margin: auto; border-collapse: separate; border-spacing: 0;">
 				<thead style="position: -webkit-sticky; position: sticky; top: 0;">
 					<tr>
-						<th>Mã Hợp Đồng</th>
-						<th>Tên Hợp Đồng</th>
+						<th>Mã Thỏa Thuận</th>
+						<th>Tên Thỏa Thuận</th>
 						<th>Khách Hàng</th>
 						<th>SĐT</th>
 						<th>Địa Chỉ</th>

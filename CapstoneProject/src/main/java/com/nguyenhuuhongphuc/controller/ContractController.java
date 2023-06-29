@@ -17,10 +17,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nguyenhuuhongphuc.bean.Contract;
 import com.nguyenhuuhongphuc.bean.Customer;
+import com.nguyenhuuhongphuc.bean.Problem;
 import com.nguyenhuuhongphuc.bean.Processs;
 import com.nguyenhuuhongphuc.bean.Staff;
 import com.nguyenhuuhongphuc.service.ContractService;
 import com.nguyenhuuhongphuc.service.CustomerService;
+import com.nguyenhuuhongphuc.service.ProblemService;
 import com.nguyenhuuhongphuc.service.ProcesssService;
 import com.nguyenhuuhongphuc.service.StaffService;
 
@@ -38,6 +40,9 @@ public class ContractController {
 
 	@Autowired
 	ProcesssService processsService;
+	
+	@Autowired
+	ProblemService problemService;
 
 	@RequestMapping("contract")
 	public String showContract(Model model) {
@@ -187,6 +192,12 @@ public class ContractController {
 
 		List<Staff> staffList = staffService.getStaffList();
 		model.addAttribute("staffList", staffList);
+		
+		List<Problem> problemList = problemService.getProblemByIdCustomer(id);
+		for (Problem problem : problemList) {
+			System.out.println("ohyeah: "+problem.getId()+" - "+problem.getIdCustomer()+" - "+problem.getDetail()+" - "+problem.isSigned());
+		}
+		model.addAttribute("problemList", problemList);
 
 		model.addAttribute("contract", new Contract());
 

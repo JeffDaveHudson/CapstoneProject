@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nguyenhuuhongphuc.bean.Customer;
+import com.nguyenhuuhongphuc.bean.Problem;
 import com.nguyenhuuhongphuc.service.CustomerService;
+import com.nguyenhuuhongphuc.service.ProblemService;
 
 @Controller
 public class CustomerController {
@@ -19,19 +21,35 @@ public class CustomerController {
 	@Autowired
 	CustomerService customerService;
 	
+	@Autowired
+	ProblemService problemService;
+	
 	@GetMapping("home")
 	public String showIsNotSignCustomer(Model model) {
 		
 		List<Customer> customerList = customerService.getIsNotSignedCustomer();
 		model.addAttribute("customerList", customerList);
 		
+		List<Problem> problemList = problemService.getProblemIsNotSigned();
+		model.addAttribute("problemList", problemList);
+		
 		return "admin/index";
 	}
 	
+	//String problem ;
 	@RequestMapping("customerschedule")
-	public String customerShedule(Model model, @ModelAttribute("customer") Customer customer) {
-				
+	public String customerShedule(Model model, @ModelAttribute("customer") Customer customer, @RequestParam("problem") String problemm) {
+		System.out.println("show:: "+problemm);
 		customerService.createCustomerIsNotSigned(customer);
+		
+		List<Customer> customers = customerService.getLastestCustomer();
+		Problem problem = new Problem();
+		problem.setDetail(problemm);
+		for (Customer customer2 : customers) {
+			problem.setIdCustomer(customer2.getId());
+		}
+		
+		problemService.createProblem(problem);
 		
 		return "customer/ScheduleSuccessfully";
 	}
@@ -41,6 +59,7 @@ public class CustomerController {
 				
 		List<Customer> customerList = customerService.searchCustomerIsNotSigned(searchString);
 		model.addAttribute("customerList", customerList);
+		//model.addAttribute("problem", problem);
 		
 		return "admin/index";
 	}
