@@ -27,8 +27,10 @@ public class ProcesssDAO {
 				process.setDetail(rs.getString("Detail"));
 				process.setStartDate(rs.getDate("StartDate"));
 				process.setEndDate(rs.getDate("EndDate"));
+				process.setIdState(rs.getInt("IDState"));
 				process.setIdContract(rs.getInt("IDContract"));
-
+				
+				//System.out.println("idState: "+process.getId()+" - "+process.getDetail()+" - "+process.getIdState()+" - "+process.getEndDate()+" - "+process.getStartDate());
 				// System.out.println("DAOLastestbill:
 				// "+bill.getId()+"-"+bill.getBillName()+"-"+bill.getIdSupplier()+"-"+bill.getIdStaff()+"-"+bill.getTotal()+"-"+bill.getDateTransfer());
 				// System.out.println("dd: "+process.getEndDate());
@@ -51,6 +53,7 @@ public class ProcesssDAO {
 				process.setDetail(rs.getString("Detail"));
 				process.setStartDate(rs.getDate("StartDate"));
 				process.setEndDate(rs.getDate("EndDate"));
+				process.setIdState(rs.getInt("IDState"));
 				process.setIdContract(rs.getInt("IDContract"));
 
 				// System.out.println("DAOLastestbill:
@@ -72,9 +75,9 @@ public class ProcesssDAO {
 		 * processs.getDetail() + "', " +processs.getStartDate() + "," +
 		 * processs.getEndDate() + ", " + processs.getIdContract() + ")";
 		 */
-		String sql = "INSERT INTO Process (Detail, StartDate, EndDate, IDContract) VALUES ('"
+		String sql = "INSERT INTO Process (Detail, StartDate, EndDate, IDState, IDContract) VALUES ('"
                 + processs.getDetail() + "', '" +processs.getStartDate() + "', '"
-                + processs.getEndDate() + "', " + processs.getIdContract() + ")";
+                + processs.getEndDate() + "', "+ processs.getIdState()+"," + processs.getIdContract() + ")";
 		
 		 jdbcTemplate.update(sql);
 	}
@@ -93,7 +96,8 @@ public class ProcesssDAO {
 		String sql = "UPDATE Process SET "
 				+ "Detail = '" + processs.getDetail() + "', "
 				+ "StartDate ='" + processs.getStartDate() + "', "
-				+ "EndDate = '" + processs.getEndDate() + "' "
+				+ "EndDate = '" + processs.getEndDate() + "', "
+				+ "IDState = "  + processs.getIdState() +" "
 				+ "WHERE ID = " + processs.getId();
 		jdbcTemplate.update(sql);
 	}

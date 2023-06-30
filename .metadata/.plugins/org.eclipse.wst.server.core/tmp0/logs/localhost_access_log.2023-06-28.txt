@@ -35,3 +35,10 @@
 0:0:0:0:0:0:0:1 - - [28/Jun/2023:16:38:44 +0700] "GET /CapstoneProject/resources/css/style-customer-control.css HTTP/1.1" 200 2113
 0:0:0:0:0:0:0:1 - - [28/Jun/2023:16:38:48 +0700] "GET /CapstoneProject/controlmouse HTTP/1.1" 200 12290
 0:0:0:0:0:0:0:1 - - [28/Jun/2023:16:38:48 +0700] "GET /CapstoneProject/resources/css/style-customer-control-detail.css HTTP/1.1" 200 5069
+127.0.0.1 - - [28/Jun/2023:21:34:29 +0700] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [28/Jun/2023:21:34:33 +0700] "GET /CapstoneProject/ HTTP/1.1" 200 7113
+0:0:0:0:0:0:0:1 - - [28/Jun/2023:21:34:33 +0700] "GET /CapstoneProject/resources/css/style-customer-homepage.css HTTP/1.1" 200 4498
+0:0:0:0:0:0:0:1 - - [28/Jun/2023:21:34:34 +0700] "GET /favicon.ico HTTP/1.1" 404 684
+0:0:0:0:0:0:0:1 - - [28/Jun/2023:21:38:59 +0700] "GET /CapstoneProject/schedule HTTP/1.1" 200 7808
+0:0:0:0:0:0:0:1 - - [28/Jun/2023:21:42:04 +0700] "GET /CapstoneProject/schedule HTTP/1.1" 200 7901
+0:0:0:0:0:0:0:1 - - [28/Jun/2023:21:42:35 +0700] "GET /CapstoneProject/schedule HTTP/1.1" 200 7901

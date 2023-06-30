@@ -49,11 +49,12 @@
 				<table class="fl-table">
 					<thead>
 						<tr>
-							<th>ID</th>
+							<th style="width: 10%">ID</th>
 							<th>Chi Tiết</th>
 							<th>Ngày Bắt Đầu</th>
 							<th>Ngày Kết Thúc</th>
-							<th>Hợp Đồng</th>
+							<th style="width: 20%">Trạng Thái</th>
+							<th style="width: 10%">Hợp Đồng</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -68,7 +69,15 @@
 								
 								<td><form:input type="date" path="endDate" value="${processlist.endDate}"/></td>
 								
+								<td><form:select path="idState">
+									<c:forEach items="${stateList}" var="statelist">
+											<option value="${statelist.id}">${statelist.detail}</option>
+									</c:forEach>
+								</form:select>
+								
 								<td><form:input type="text" path="idContract" value = "${processlist.idContract}" readonly="true"/></td>
+								
+								
 							</tr>
 						</c:forEach>
 					

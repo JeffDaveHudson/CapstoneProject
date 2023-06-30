@@ -161,6 +161,7 @@
 							<th>Chi Tiết</th>
 							<th>Ngày Bắt Đầu</th>
 							<th>Ngày Kết Thúc</th>
+							<th>Trạng Thái</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -178,6 +179,13 @@
 								<td>${processlist.startDate}</td>
 								
 								<td>${processlist.endDate}</td>
+								
+								<c:forEach items="${stateList}" var="statelist">
+								<c:if test="${processlist.idState == statelist.id}">
+
+									<td>${statelist.detail}</td>
+								</c:if>
+							</c:forEach>
 								
 							</tr>
 						</c:forEach>

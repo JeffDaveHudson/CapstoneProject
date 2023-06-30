@@ -152,6 +152,7 @@
 							<th>Chi Tiết</th>
 							<th>Ngày Bắt Đầu</th>
 							<th>Ngày Kết Thúc</th>
+							<th>Trạng Thái</th>
 							<th>Action</th>
 						</tr>
 					</thead>
@@ -175,6 +176,13 @@
 								<td>${processlist.startDate}</td>
 								
 								<td>${processlist.endDate}</td>
+								
+								<c:forEach items="${stateList}" var="statelist">
+								<c:if test="${processlist.idState == statelist.id}">
+
+									<td>${statelist.detail}</td>
+								</c:if>
+							</c:forEach>
 								
 								<td><a class="bx bxs-edit bx-xs"
 								style="text-decoration: none; color: green"
@@ -214,7 +222,13 @@
 																					border: 1px solid;
 																					border-radius: 10px;
 																				" /></td>
-							
+						
+							<td><form:select path="idState">
+									<c:forEach items="${stateList}" var="statelist">
+											<option value="${statelist.id}">${statelist.detail}</option>
+									</c:forEach>
+								</form:select>
+							</td>
 						</tr>
 					<tbody>
 				</table>

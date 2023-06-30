@@ -18,10 +18,12 @@ import com.nguyenhuuhongphuc.bean.Customer;
 import com.nguyenhuuhongphuc.bean.Processs;
 import com.nguyenhuuhongphuc.bean.Staff;
 import com.nguyenhuuhongphuc.bean.StaffType;
+import com.nguyenhuuhongphuc.bean.State;
 import com.nguyenhuuhongphuc.service.ContractService;
 import com.nguyenhuuhongphuc.service.CustomerService;
 import com.nguyenhuuhongphuc.service.ProcesssService;
 import com.nguyenhuuhongphuc.service.StaffService;
+import com.nguyenhuuhongphuc.service.StateService;
 
 @Controller
 public class ProcesssController {
@@ -37,6 +39,9 @@ public class ProcesssController {
 	
 	@Autowired
 	ProcesssService processsService;
+	
+	@Autowired
+	StateService stateService;
 	
 	
 	Processs processsIdContract = new Processs();
@@ -57,6 +62,9 @@ public class ProcesssController {
 		
 		List<Processs> processsList = processsService.showProcess(idContract);
 		model.addAttribute("processList", processsList);
+		
+		List<State> stateList = stateService.getStateList();
+		model.addAttribute("stateList", stateList);
 		
 		model.addAttribute("process", new Processs());
 		
@@ -79,7 +87,8 @@ public class ProcesssController {
 		List<Staff> staffList = staffService.getStaffList();
 		model.addAttribute("staffList", staffList);
 		
-		
+		List<State> stateList = stateService.getStateList();
+		model.addAttribute("stateList", stateList);
 		
 		processsService.createNewProcess(processs);
 		
@@ -117,6 +126,10 @@ public class ProcesssController {
 		System.out.println("update: "+id);
 		List<Processs> processsList = processsService.getProcessById(id);
 		model.addAttribute("processList",processsList);
+		
+		List<State> stateList = stateService.getStateList();
+		model.addAttribute("stateList", stateList);
+		
 		model.addAttribute("processupdate", new Processs());
 		return "admin/ProcessUpdate";
 	}
@@ -134,6 +147,9 @@ public class ProcesssController {
 		
 		List<Staff> staffList = staffService.getStaffList();
 		model.addAttribute("staffList", staffList);
+		
+		List<State> stateList = stateService.getStateList();
+		model.addAttribute("stateList", stateList);
 		
 		List<Processs> processsList = processsService.showProcess(processsIdContract.getIdContract());
 		model.addAttribute("processList", processsList);
@@ -159,6 +175,9 @@ public class ProcesssController {
 		
 		List<Processs> processsList = processsService.showProcess(idContract);
 		model.addAttribute("processList", processsList);
+		
+		List<State> stateList = stateService.getStateList();
+		model.addAttribute("stateList", stateList);
 		
 		model.addAttribute("process", new Processs());
 		
