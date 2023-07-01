@@ -21,4 +21,8 @@ public class StepService {
 	public List<Step> getStepByIdProcess(int idProcess) {
 		return stepDAO.getStepByIdProcess(idProcess);
 	}
+
+	public void createStep(Step step) {
+		stepDAO.createStep(step);
+	}
 }

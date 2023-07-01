@@ -156,7 +156,7 @@
 							</tr>
 						</c:forEach>
 						
-						<%-- <tr>
+						<tr>
 						
 							<td></td>
 							<td>
@@ -171,15 +171,13 @@
 																					border-radius: 10px;
 																				" /></td>
 							
-							<td><form:input path="startDate" type="date" style=" padding-top: 3px;
-																					padding-bottom: 3px;
-																					width: 60%;
-																					background-color: #fff;
-																					border: 1px solid;
-																					border-radius: 10px;
-																				" /></td>
+							<td><form:select path="idProduct">
+									<c:forEach items="${productList}" var="productlist">
+											<option value="${productlist.id}">${productlist.productName}</option>
+									</c:forEach>
+								</form:select></td>
 							
-							<td><form:input path="endDate" type="date" style=" padding-top: 3px;
+							<td><form:input path="cost" type="text" style=" padding-top: 3px;
 																					padding-bottom: 3px;
 																					width: 60%;
 																					background-color: #fff;
@@ -193,7 +191,7 @@
 									</c:forEach>
 								</form:select>
 							</td>
-						</tr> --%>
+						</tr>
 					<tbody>
 				</table>
 				<br>

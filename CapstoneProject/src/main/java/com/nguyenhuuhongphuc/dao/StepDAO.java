@@ -58,4 +58,12 @@ public class StepDAO {
 		});
 		return stepList;
 	}
+
+	public void createStep(Step step) {
+		String sql = "INSERT INTO Step (Detail, IDProcess, IDProduct, Cost, IDState) VALUES ('"
+                + step.getDetail() + "', " +step.getIdProcess() + ", "
+                + step.getIdProduct() + ", "+ step.getCost()+"," + step.getIdState() + ")";
+		
+		 jdbcTemplate.update(sql);
+	}
 }

@@ -342,7 +342,7 @@ public class ContractDAO {
 
 	public void updatePrice(int cost, int idContract) {
 		String sql = "UPDATE Contract SET "
-				+ "Price =       " + cost      + " "
+				+ "Price = Price +  " + cost      + " "
 				+ "WHERE ID =    " + idContract;
 		jdbcTemplate.update(sql);
 	}

@@ -46,4 +46,8 @@ public class ProcesssService {
 	public int getProcessCost(int idProcess) {
 		return processsDAO.getProcessCost(idProcess);
 	}
+
+	public void updateProcessCost(int cost, int idProcess) {
+		processsDAO.updateProcessCost(cost, idProcess);
+	}
 }

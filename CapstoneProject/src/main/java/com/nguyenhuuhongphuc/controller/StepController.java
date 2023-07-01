@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nguyenhuuhongphuc.bean.Cost;
@@ -38,9 +40,11 @@ public class StepController {
 	@Autowired
 	ContractService contractService;
 	
+	static int staticIdProcess;
+	static int staticIdContract;
 	@GetMapping("processshowstep")
 	public String showStepOfProcess(Model model, @RequestParam("id") int idProcess) {
-		
+		staticIdProcess = idProcess;
 		List<Product> productList = inventoryService.getInventory();
 		model.addAttribute("productList", productList);
 		
@@ -59,8 +63,38 @@ public class StepController {
 //		int cost = processsService.getProcessCost(idProcess);
 //		model.addAttribute("cost", cost);
 
-//		int idContract = contractService.getIdContractByIdProcess(idProcess);
-//		contractService.updatePrice(cost, idContract);
+		staticIdContract = contractService.getIdContractByIdProcess(idProcess);
+		//contractService.updatePrice(cost, idContract);
+		
+		model.addAttribute("step", new Step());
+		
+		return "admin/Step";
+	}
+	
+	@PostMapping("stepaddnewstep")
+	public String stepAddNewStep(Model model, @ModelAttribute("step") Step step) {
+		step.setIdProcess(staticIdProcess);
+		step.setIdProcess(staticIdProcess);
+		//System.out.println("step:: "+step.getDetail()+" - "+step.getIdProduct()+" - "+step.getCost()+" - "+step.getIdState());
+		
+		stepService.createStep(step);
+		processsService.updateProcessCost(step.getCost(), staticIdProcess);
+		contractService.updatePrice(step.getCost(), staticIdContract);
+		
+		List<Product> productList = inventoryService.getInventory();
+		model.addAttribute("productList", productList);
+		
+		List<State> stateList = stateService.getStateList();
+		model.addAttribute("stateList", stateList);
+		
+		List<Processs> processList = processsService.getProcessById(staticIdProcess);
+		model.addAttribute("processList", processList);
+		
+		List<Step> stepList = stepService.getStepByIdProcess(staticIdProcess);
+		model.addAttribute("stepList", stepList);
+		
+		
+		
 		
 		return "admin/Step";
 	}

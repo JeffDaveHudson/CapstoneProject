@@ -129,4 +129,11 @@ public class ProcesssDAO {
 			return 0;
 		}
 	}
+
+	public void updateProcessCost(int cost, int idProcess) {
+		String sql = "UPDATE Process SET "
+				+ "Cost = Cost +"  + cost +" "
+				+ "WHERE ID = " + idProcess;
+		jdbcTemplate.update(sql);
+	}
 }
