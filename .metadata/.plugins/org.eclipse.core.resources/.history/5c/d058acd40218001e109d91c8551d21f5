@@ -1,0 +1,17 @@
+package com.nguyenhuuhongphuc.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.nguyenhuuhongphuc.service.InventoryService;
+import com.nguyenhuuhongphuc.service.StateService;
+
+@Controller
+public class StepController {
+	
+	@Autowired
+	InventoryService inventoryService;
+	
+	@Autowired
+	StateService stateService;
+}

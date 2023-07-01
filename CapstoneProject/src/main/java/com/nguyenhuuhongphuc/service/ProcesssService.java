@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.nguyenhuuhongphuc.bean.Cost;
 import com.nguyenhuuhongphuc.bean.Processs;
 import com.nguyenhuuhongphuc.dao.ProcesssDAO;
 
@@ -36,5 +37,13 @@ public class ProcesssService {
 
 	public void removeProcessWhenRemovingContract(int id) {
 		processsDAO.removeProcessWhenRemovingContract(id);
+	}
+	
+//	public List<Cost> getProcessCost(int idProcess){
+//		return processsDAO.getProcessCost(idProcess);
+//	}
+	
+	public int getProcessCost(int idProcess) {
+		return processsDAO.getProcessCost(idProcess);
 	}
 }

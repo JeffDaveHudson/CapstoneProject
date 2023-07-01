@@ -10,7 +10,6 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.nguyenhuuhongphuc.bean.Contract;
-import com.nguyenhuuhongphuc.bean.Product;
 
 @Repository
 public class ContractDAO {
@@ -339,5 +338,21 @@ public class ContractDAO {
 			}
 		});
 		return contractList;
+	}
+
+	public void updatePrice(int cost, int idContract) {
+		String sql = "UPDATE Contract SET "
+				+ "Price =       " + cost      + " "
+				+ "WHERE ID =    " + idContract;
+		jdbcTemplate.update(sql);
+	}
+	
+	public int getIdContractByIdProcess(int idProcess) {
+		String sql = "Select IDContract from process WHERE id = "+idProcess ;
+		try {
+			return jdbcTemplate.queryForObject(sql, int.class);
+		} catch (Exception e) {
+			return 0;
+		}
 	}
 }

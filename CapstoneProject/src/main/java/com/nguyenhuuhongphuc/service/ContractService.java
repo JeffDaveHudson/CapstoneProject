@@ -89,4 +89,12 @@ public class ContractService {
 	public List<Contract> getRevenueDetailBetween2Times(String startDate, String endDate) {
 		return contractDAO.getRevenueDetailBetween2Times(startDate, endDate);
 	}
+	
+	public int getIdContractByIdProcess(int idProcess) {
+		return contractDAO.getIdContractByIdProcess(idProcess);
+	}
+
+	public void updatePrice(int cost, int idProcess) {
+		contractDAO.updatePrice(cost, idProcess);
+	}
 }

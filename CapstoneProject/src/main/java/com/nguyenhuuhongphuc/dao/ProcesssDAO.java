@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+
+import com.nguyenhuuhongphuc.bean.Bill;
+import com.nguyenhuuhongphuc.bean.Cost;
 import com.nguyenhuuhongphuc.bean.Processs;
 
 @Repository
@@ -27,6 +30,7 @@ public class ProcesssDAO {
 				process.setDetail(rs.getString("Detail"));
 				process.setStartDate(rs.getDate("StartDate"));
 				process.setEndDate(rs.getDate("EndDate"));
+				process.setCost(rs.getInt("Cost"));
 				process.setIdState(rs.getInt("IDState"));
 				process.setIdContract(rs.getInt("IDContract"));
 				
@@ -53,6 +57,7 @@ public class ProcesssDAO {
 				process.setDetail(rs.getString("Detail"));
 				process.setStartDate(rs.getDate("StartDate"));
 				process.setEndDate(rs.getDate("EndDate"));
+				process.setCost(rs.getInt("Cost"));
 				process.setIdState(rs.getInt("IDState"));
 				process.setIdContract(rs.getInt("IDContract"));
 
@@ -100,5 +105,28 @@ public class ProcesssDAO {
 				+ "IDState = "  + processs.getIdState() +" "
 				+ "WHERE ID = " + processs.getId();
 		jdbcTemplate.update(sql);
+	}
+	
+//	public List<Cost> getProcessCost(int idProcess) {
+//		String sql = "SELECT SUM(Cost) AS ProcessCost FROM Step WHERE IDProcess = "+idProcess;
+//		List<Cost> costList =  jdbcTemplate.query(sql, new RowMapper<Cost>() {
+//
+//            public Cost mapRow(ResultSet rs, int rowNum) throws SQLException {
+//            	Cost cost = new Cost();
+//            	cost.setCost(rs.getInt("ProcessCost"));
+//            	return cost;
+//            }
+//        });
+//        return costList;
+//		
+//	} 
+	
+	public int getProcessCost(int idProcess) {
+		String sql = "SELECT SUM(Cost) AS ProcessCost FROM Step WHERE IDProcess = "+idProcess;
+		try {
+			return jdbcTemplate.queryForObject(sql, int.class);
+		} catch (Exception e) {
+			return 0;
+		}
 	}
 }

@@ -1,0 +1,10 @@
+package com.nguyenhuuhongphuc.bean;
+
+public class Step {
+	private int id;
+	private String detail;
+	private int idProcess;
+	private int idProduct;
+	private int cost;
+	private int idState;
+}

@@ -10,7 +10,6 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.nguyenhuuhongphuc.bean.Problem;
-import com.nguyenhuuhongphuc.bean.Product;
 
 @Repository
 public class ProblemDAO {

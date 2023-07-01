@@ -2,7 +2,6 @@ package com.nguyenhuuhongphuc.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Repository;
 
 import com.nguyenhuuhongphuc.bean.Bill;
 import com.nguyenhuuhongphuc.bean.BillDetail;
-import com.nguyenhuuhongphuc.bean.Staff;
 
 @Repository
 public class BillDAO {

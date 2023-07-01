@@ -46,9 +46,10 @@ public class ProcesssController {
 	
 	Processs processsIdContract = new Processs();
 	
-	
+//	public static int staticIdContract;
 	@RequestMapping("contractshowprocess")
 	public String showProcess(Model model, @RequestParam("id") int idContract) {
+//		staticIdContract = idContract;
 		List<Contract> contractList = contractService.getContractById(idContract);
 		model.addAttribute("contractList", contractList);
 		
