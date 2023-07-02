@@ -162,6 +162,7 @@
 							<th>Ngày Bắt Đầu</th>
 							<th>Ngày Kết Thúc</th>
 							<th>Trạng Thái</th>
+							<th>Chi Tiết</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -181,12 +182,14 @@
 								<td>${processlist.endDate}</td>
 								
 								<c:forEach items="${stateList}" var="statelist">
-								<c:if test="${processlist.idState == statelist.id}">
-
-									<td>${statelist.detail}</td>
-								</c:if>
-							</c:forEach>
+									<c:if test="${processlist.idState == statelist.id}">
+										<td>${statelist.detail}</td>
+									</c:if>
+								</c:forEach>
 								
+								<td><a class="bx bxs-detail bx-xs"
+							style="text-decoration: none; color: green"
+							href="customerpage-processshowstep?id=${processlist.id}"></a></td>
 							</tr>
 						</c:forEach>
 					<tbody>

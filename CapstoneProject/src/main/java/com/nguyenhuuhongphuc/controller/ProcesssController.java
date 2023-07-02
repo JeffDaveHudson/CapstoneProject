@@ -192,4 +192,28 @@ public class ProcesssController {
 	 * 
 	 * return "customer/Process"; }
 	 */
+	
+//	@RequestMapping("customerpage-processshowstep")
+//	public String showStepCustomerPage(Model model, @RequestParam("id") int idContract) {
+//		List<Contract> contractList = contractService.getContractById(idContract);
+//		model.addAttribute("contractList", contractList);
+//		
+//		processsIdContract.setIdContract(idContract);
+//		
+//		List<Customer> customerList = customerService.getCustomer();
+//		model.addAttribute("customerList", customerList);
+//		
+//		List<Staff> staffList = staffService.getStaffList();
+//		model.addAttribute("staffList", staffList);
+//		
+//		List<Processs> processsList = processsService.showProcess(idContract);
+//		model.addAttribute("processList", processsList);
+//		
+//		List<State> stateList = stateService.getStateList();
+//		model.addAttribute("stateList", stateList);
+//		
+//		model.addAttribute("process", new Processs());
+//		
+//		return "customer/ProcessContractDetailFrame";
+//	}
 }

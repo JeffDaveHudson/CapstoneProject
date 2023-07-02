@@ -179,4 +179,33 @@ public class StepController {
 		
 		return "admin/Step";
 	}
+	
+	@GetMapping("customerpage-processshowstep")
+	public String showStepCustomerPage(Model model, @RequestParam("id") int idProcess) {
+		//staticIdProcess = idProcess;
+		List<Product> productList = inventoryService.getInventory();
+		model.addAttribute("productList", productList);
+		
+		List<State> stateList = stateService.getStateList();
+		model.addAttribute("stateList", stateList);
+		
+		List<Processs> processList = processsService.getProcessById(idProcess);
+		model.addAttribute("processList", processList);
+		
+		List<Step> stepList = stepService.getStepByIdProcess(idProcess);
+		model.addAttribute("stepList", stepList);
+		
+//		List<Cost> costList = processsService.getProcessCost(idProcess);
+//		model.addAttribute("costList",costList);
+		
+//		int cost = processsService.getProcessCost(idProcess);
+//		model.addAttribute("cost", cost);
+
+		//staticIdContract = contractService.getIdContractByIdProcess(idProcess);
+		//contractService.updatePrice(cost, idContract);
+		
+		//model.addAttribute("step", new Step());
+		
+		return "customer/ProcessContractStepDetailFrame";
+	}
 }
