@@ -12,6 +12,7 @@
 				src='<c:url value="https://res.cloudinary.com/dedbfm0dk/image/upload/v1681377407/capstoneproject/icon-enterprise_k6msh8.png"></c:url>'>
 			</span>
 			<div class="text logo-text">
+			<%= session.getAttribute("username")%>
 				<span class="name"></span> <span class="profession">Admin
 					Site</span>
 			</div>
@@ -36,17 +37,17 @@
 						class='bx bx-user icon'></i> <span class="text nav-text">Quản
 							lý nhân viên</span>
 				</a></li>
-				<li class="nav-link"><a href="#"> <i
+				<!-- <li class="nav-link"><a href="#"> <i
 						class='bx bx-history icon'></i> <span class="text nav-text">Lịch sử bán vé</span>
-				</a></li>
-				<li class="nav-link"><a href="Revenue.jsp"> <i
+				</a></li> -->
+				<li class="nav-link"><a href="revenue"> <i
 						class='bx bx-pie-chart-alt icon'></i> <span class="text nav-text">Doanh
 							thu</span>
 				</a></li>
 			</ul>
 		</div>
 		<div class="bottom-content">
-			<li class=""><a href="${myContext}/logout"> <i class='bx bx-log-out icon'></i>
+			<li class=""><a href="logout"> <i class='bx bx-log-out icon'></i>
 					<span class="text nav-text">Logout</span>
 			</a></li>
 			<li class="mode">

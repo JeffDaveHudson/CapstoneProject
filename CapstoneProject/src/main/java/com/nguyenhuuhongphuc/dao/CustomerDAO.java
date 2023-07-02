@@ -159,4 +159,24 @@ public class CustomerDAO {
 			});
 			return customerList;
 	}
+	
+	public List<Customer> getCustomerContractByPhone(int phone) {
+		String sql = "SELECT * FROM Customer WHERE Phone = "+phone;
+		List<Customer> customerList = jdbcTemplate.query(sql, new RowMapper<Customer>() {
+
+			public Customer mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Customer customer = new Customer();
+
+				customer.setId(rs.getInt("ID"));
+				customer.setCustomerName(rs.getString("CustomerName"));
+				customer.setPhone(rs.getInt("Phone"));
+				customer.setAddress(rs.getString("Address"));
+				customer.setEmail(rs.getString("Email"));
+
+				// System.out.println(product.getId()+"-"+product.getProductName()+"-"+product.getIdProductType()+"-"+product.getIdSupplier()+"-"+product.getPrice()+"-"+product.getIdProductInventory());
+				return customer;
+			}
+		});
+		return customerList;
+	}
 }

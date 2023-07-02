@@ -8,6 +8,20 @@ public class Processs {
 	private Date startDate;
 	private Date endDate;
 	private int idContract;
+	private int idState;
+	private int cost;
+	public int getCost() {
+		return cost;
+	}
+	public void setCost(int cost) {
+		this.cost = cost;
+	}
+	public int getIdState() {
+		return idState;
+	}
+	public void setIdState(int idState) {
+		this.idState = idState;
+	}
 	public int getId() {
 		return id;
 	}
@@ -38,12 +52,14 @@ public class Processs {
 	public void setIdContract(int idContract) {
 		this.idContract = idContract;
 	}
-	public Processs(int id, String detail, Date startDate, Date endDate, int idContract) {
+	public Processs(int id, String detail, Date startDate, Date endDate, int idContract, int idState, int cost) {
 		this.id = id;
 		this.detail = detail;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.idContract = idContract;
+		this.idState = idState;
+		this.cost = cost;
 	}
 	
 	public Processs() {

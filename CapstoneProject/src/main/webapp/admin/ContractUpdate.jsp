@@ -39,8 +39,8 @@
 	<jsp:include page="navbar.jsp"/>
 
 	<section class="home">
-		<div class="text">Contract Updating Page</div>
-		<h2 class="banner ">Contract Updating</h2>
+		<div class="text">Thỏa Thuận</div>
+		<h2 class="banner ">Cập Nhật Thỏa Thuận</h2>
 		<form:form modelAttribute="contractupdate" class="searchform" action="processupdatecontract" method="post">
 			
 			<button style="" class="button-search">Cập Nhật</button>
@@ -49,8 +49,8 @@
 				<table class="fl-table">
 					<thead>
 						<tr>
-						<th>Mã Hợp Đồng</th>
-						<th>Tên Hợp Đồng</th>
+						<th>Mã Thỏa Thuận</th>
+						<th>Tên Thỏa Thuận</th>
 						<th>Khách Hàng</th>
 						<th>SĐT</th>
 						<th>Địa Chỉ</th>
@@ -77,7 +77,7 @@
 							
 							<c:forEach items="${customerList}" var="customerlist">
 								<c:if test="${contractlist.idCustomer == customerlist.id}">
-									<td><input type="text" name="phone" value = "${customerlist.phone}"/></td>
+									<td><input type="text" name="phone" pattern="[0-9]+" title="Vui lòng nhập đúng định dạng số" value = "${customerlist.phone}"/></td>
 								</c:if>
 							</c:forEach>
 							
@@ -95,7 +95,7 @@
 							
 							<td><form:input type="date" path="signingDate" value = "${contractlist.signingDate}"/></td>
 							
-							<td><form:input type="text" path="price" value = "${contractlist.price}"/></td>
+							<td><form:input type="text" path="price" pattern="[0-9]+" title="Vui lòng nhập đúng định dạng số" value = "${contractlist.price}" readonly="true"/></td>
 							
 							<%-- <c:forEach items="${staffList}" var="stafflist">
 								<c:if test="${contractlist.idStaff == stafflist.id}">

@@ -39,8 +39,8 @@
 	<jsp:include page="navbar.jsp"/>
 
 	<section class="home">
-		<div class="text">Process Updating Page</div>
-		<h2 class="banner ">Process Updating</h2>
+		<div class="text">Trang Cập Nhật Tiến Trình</div>
+		<h2 class="banner ">Cập Nhật Tiến Trình</h2>
 		<form:form modelAttribute="processupdate" class="searchform" action="processupdateprocess" method="post">
 			
 			<button style="" class="button-search">Cập Nhật</button>
@@ -49,11 +49,12 @@
 				<table class="fl-table">
 					<thead>
 						<tr>
-							<th>ID</th>
+							<th style="width: 10%">ID</th>
 							<th>Chi Tiết</th>
 							<th>Ngày Bắt Đầu</th>
 							<th>Ngày Kết Thúc</th>
-							<th>Hợp Đồng</th>
+							<th style="width: 20%">Trạng Thái</th>
+							<th style="width: 10%">Hợp Đồng</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -68,7 +69,15 @@
 								
 								<td><form:input type="date" path="endDate" value="${processlist.endDate}"/></td>
 								
+								<td><form:select path="idState">
+									<c:forEach items="${stateList}" var="statelist">
+											<option value="${statelist.id}">${statelist.detail}</option>
+									</c:forEach>
+								</form:select>
+								
 								<td><form:input type="text" path="idContract" value = "${processlist.idContract}" readonly="true"/></td>
+								
+								
 							</tr>
 						</c:forEach>
 					

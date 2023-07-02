@@ -37,8 +37,8 @@
 	<jsp:include page="navbar.jsp" />
 
 	<section class="home">
-		<div class="text">Bill Page</div>
-		<h2 class="banner ">Create New Bill</h2>
+		<div class="text">Hóa Đơn</div>
+		<h2 class="banner ">Tạo Mới Hóa Đơn</h2>
 		<div class="table-wrapper">
 
 			<form:form modelAttribute="bill" id="billCreateForm" action="">
@@ -122,9 +122,9 @@
 									</c:forEach>
 								</form:select>
 							</td>
-							<td><form:input path="price" placeholder="0" style="border: 1px solid; border-radius: 10px"/></td>
+							<td><form:input path="price" placeholder="0" pattern="[0-9]+" title="Vui lòng nhập đúng định dạng số" style="border: 1px solid; border-radius: 10px"/></td>
 							
-							<td><form:input path="quantity" placeholder="0" style="border: 1px solid; border-radius: 10px"/></td>
+							<td><form:input path="quantity" placeholder="0" pattern="[0-9]+" title="Vui lòng nhập đúng định dạng số" style="border: 1px solid; border-radius: 10px"/></td>
 						</tr>
 					<tbody>
 				</table>

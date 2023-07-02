@@ -23,8 +23,8 @@
  	<jsp:include page="navbar.jsp"/>
 
     <section class="home">
-        		<div class="text">Bill Page</div>
-        <h2 class = "banner ">Bill Table</h2>
+        		<div class="text">Hóa Đơn</div>
+        <h2 class = "banner ">Danh Sách Hóa Đơn</h2>
         <%-- <div class = "banner">
 			
 			<a href="<%=request.getContextPath()%>/showAddBillAvailable" class="button-search" role="button">Add Bill (Available Product)</a>

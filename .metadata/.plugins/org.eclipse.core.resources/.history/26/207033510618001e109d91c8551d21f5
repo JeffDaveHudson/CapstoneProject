@@ -1,0 +1,8 @@
+package com.nguyenhuuhongphuc.dao;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class StepDAO {
+
+}

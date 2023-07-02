@@ -39,8 +39,8 @@
 	<jsp:include page="navbar.jsp" />
 
 	<section class="home">
-		<div class="text">Product Updating Page</div>
-		<h2 class="banner ">Product Updating</h2>
+		<div class="text">Kho</div>
+		<h2 class="banner ">Cập Nhật Sản Phẩm</h2>
 		<form:form modelAttribute="productupdate" class="searchform"
 			action="processupdateproduct" method="post">
 
@@ -75,9 +75,9 @@
 										</c:forEach>
 								</select></td>
 
-								<td><form:input type="text" path="price"
+								<td><form:input type="text" path="price" pattern="[0-9]+" title="Vui lòng nhập đúng định dạng số"
 										value="${productlist.price}" /></td>
-								<td><form:input type="text" path="stock"
+								<td><form:input type="text" path="stock" pattern="[0-9]+" title="Vui lòng nhập đúng định dạng số"
 										value="${productlist.stock}" readonly="true"/></td>
 							</tr>
 						</c:forEach>

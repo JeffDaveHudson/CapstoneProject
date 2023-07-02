@@ -3,7 +3,6 @@ package com.nguyenhuuhongphuc.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.swing.tree.RowMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -18,6 +17,16 @@ public class AccountDAO {
 	
 	public Account getAccount(String userName) {
 		String query = "SELECT * FROM Account WHERE Username = '" + userName + "'";
+		Account account = new Account();
+		try {
+			account =   jdbcTemplate.query(query, new AccountMapper()).get(0);
+		} catch (Exception e) {
+		}
+		return account;
+	}
+	
+	public Account loginAccount2(String userName, String passWord) {
+		String query = "SELECT * FROM Account WHERE Username = '" + userName + "' AND Pass = '"+ passWord+"'";
 		Account account = new Account();
 		try {
 			account =   jdbcTemplate.query(query, new AccountMapper()).get(0);

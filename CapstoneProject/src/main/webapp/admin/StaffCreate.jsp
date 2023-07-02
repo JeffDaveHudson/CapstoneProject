@@ -39,8 +39,8 @@
 	<jsp:include page="navbar.jsp"/>
 
 	<section class="home">
-		<div class="text">Staff Creating Page</div>
-		<h2 class="banner ">Staff Creating</h2>
+		<div class="text">Nhân Viên</div>
+		<h2 class="banner ">Tạo Mới Nhân Viên</h2>
 		<form:form modelAttribute="staff" class="searchform" action="staffcreate" method="post">
 			
 			<button style="" class="button-search">Thêm Mới</button>
@@ -62,7 +62,7 @@
 						<tr>
 							<!-- <th><input type="text"></th> -->
 							<td><form:input type="text" path="staffName"/></td>
-							<td><form:input type="text" path="salary"/></td>
+							<td><form:input type="text" path="salary" pattern="[0-9]+" title="Vui lòng nhập đúng định dạng số"/></td>
 							<td>
 							
 							<select name="staffTypeClicked">

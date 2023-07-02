@@ -18,10 +18,12 @@ import com.nguyenhuuhongphuc.bean.Customer;
 import com.nguyenhuuhongphuc.bean.Processs;
 import com.nguyenhuuhongphuc.bean.Staff;
 import com.nguyenhuuhongphuc.bean.StaffType;
+import com.nguyenhuuhongphuc.bean.State;
 import com.nguyenhuuhongphuc.service.ContractService;
 import com.nguyenhuuhongphuc.service.CustomerService;
 import com.nguyenhuuhongphuc.service.ProcesssService;
 import com.nguyenhuuhongphuc.service.StaffService;
+import com.nguyenhuuhongphuc.service.StateService;
 
 @Controller
 public class ProcesssController {
@@ -38,12 +40,16 @@ public class ProcesssController {
 	@Autowired
 	ProcesssService processsService;
 	
+	@Autowired
+	StateService stateService;
+	
 	
 	Processs processsIdContract = new Processs();
 	
-	
+//	public static int staticIdContract;
 	@RequestMapping("contractshowprocess")
 	public String showProcess(Model model, @RequestParam("id") int idContract) {
+//		staticIdContract = idContract;
 		List<Contract> contractList = contractService.getContractById(idContract);
 		model.addAttribute("contractList", contractList);
 		
@@ -57,6 +63,9 @@ public class ProcesssController {
 		
 		List<Processs> processsList = processsService.showProcess(idContract);
 		model.addAttribute("processList", processsList);
+		
+		List<State> stateList = stateService.getStateList();
+		model.addAttribute("stateList", stateList);
 		
 		model.addAttribute("process", new Processs());
 		
@@ -79,7 +88,8 @@ public class ProcesssController {
 		List<Staff> staffList = staffService.getStaffList();
 		model.addAttribute("staffList", staffList);
 		
-		
+		List<State> stateList = stateService.getStateList();
+		model.addAttribute("stateList", stateList);
 		
 		processsService.createNewProcess(processs);
 		
@@ -117,6 +127,10 @@ public class ProcesssController {
 		System.out.println("update: "+id);
 		List<Processs> processsList = processsService.getProcessById(id);
 		model.addAttribute("processList",processsList);
+		
+		List<State> stateList = stateService.getStateList();
+		model.addAttribute("stateList", stateList);
+		
 		model.addAttribute("processupdate", new Processs());
 		return "admin/ProcessUpdate";
 	}
@@ -135,6 +149,9 @@ public class ProcesssController {
 		List<Staff> staffList = staffService.getStaffList();
 		model.addAttribute("staffList", staffList);
 		
+		List<State> stateList = stateService.getStateList();
+		model.addAttribute("stateList", stateList);
+		
 		List<Processs> processsList = processsService.showProcess(processsIdContract.getIdContract());
 		model.addAttribute("processList", processsList);
 		
@@ -143,4 +160,60 @@ public class ProcesssController {
 		return "admin/Process";
 		//staff
 	}
+	
+	@RequestMapping("customerpage-contractshowprocess")
+	public String showProcessCustomerPage(Model model, @RequestParam("id") int idContract) {
+		List<Contract> contractList = contractService.getContractById(idContract);
+		model.addAttribute("contractList", contractList);
+		
+		processsIdContract.setIdContract(idContract);
+		
+		List<Customer> customerList = customerService.getCustomer();
+		model.addAttribute("customerList", customerList);
+		
+		List<Staff> staffList = staffService.getStaffList();
+		model.addAttribute("staffList", staffList);
+		
+		List<Processs> processsList = processsService.showProcess(idContract);
+		model.addAttribute("processList", processsList);
+		
+		List<State> stateList = stateService.getStateList();
+		model.addAttribute("stateList", stateList);
+		
+		model.addAttribute("process", new Processs());
+		
+		return "customer/ProcessContractDetailFrame";
+	}
+	
+	/*
+	 * @RequestMapping("customerprocess") public String showCustomerProcess(Model
+	 * model, @RequestParam("phone") String phone) {
+	 * 
+	 * 
+	 * return "customer/Process"; }
+	 */
+	
+//	@RequestMapping("customerpage-processshowstep")
+//	public String showStepCustomerPage(Model model, @RequestParam("id") int idContract) {
+//		List<Contract> contractList = contractService.getContractById(idContract);
+//		model.addAttribute("contractList", contractList);
+//		
+//		processsIdContract.setIdContract(idContract);
+//		
+//		List<Customer> customerList = customerService.getCustomer();
+//		model.addAttribute("customerList", customerList);
+//		
+//		List<Staff> staffList = staffService.getStaffList();
+//		model.addAttribute("staffList", staffList);
+//		
+//		List<Processs> processsList = processsService.showProcess(idContract);
+//		model.addAttribute("processList", processsList);
+//		
+//		List<State> stateList = stateService.getStateList();
+//		model.addAttribute("stateList", stateList);
+//		
+//		model.addAttribute("process", new Processs());
+//		
+//		return "customer/ProcessContractDetailFrame";
+//	}
 }

@@ -43,6 +43,7 @@
 	<jsp:include page="navbar.jsp" />
 	<section class="home">
 		<div class="text">Danh Sách Khách Hàng Yêu Cầu Được Tư Vấn</div>
+		<%-- ${username} --%>
 		<h2 class="banner "></h2>
 
 		<form class="searchform" action="customerisnotsignedsearch" method="post">
@@ -65,10 +66,12 @@
 			</form>
 		</div> --%>
 
-		<br> <br> <a href="staffcreateform">
+		<!-- <br> <br> <a href="staffcreateform">
 			<button style="margin-left: 70px" class="button-search">Thêm
 				NV</button>
-		</a>
+		</a> -->
+		
+		<br><br><br>
 		<div class="table-wrapper"
 			style="position: relative; width: 90%; z-index: 1; overflow: auto; height: 350px;">
 			<table class="fl-table"
@@ -80,6 +83,7 @@
 						<th>SĐT</th>
 						<th>Địa Chỉ</th>
 						<th>Email</th>
+						<th>Vấn Đề Gặp Phải</th>
 						<th>Action</th>
 					</tr>
 				</thead>
@@ -94,7 +98,12 @@
 							<td>${customerlist.phone}</td>
 							<td>${customerlist.address}</td>
 							<td>${customerlist.email}</td>
+							<c:forEach items="${problemList}" var="problemlist">
+								<c:if test="${customerlist.id == problemlist.idCustomer}">
 
+									<td>${problemlist.detail}</td>
+								</c:if>
+							</c:forEach>
 
 							<td><a class="bx bxs-edit bx-xs"
 								<%-- style="text-decoration: none; color: green" href="staffupdate/${stafflist.idStaff}"></a> &nbsp --%>

@@ -53,8 +53,8 @@
 	<jsp:include page="navbar.jsp" />
 
 	<section class="home">
-		<div class="text">Process Page</div>
-		<h2 class="banner ">Detail Process</h2>
+		<div class="text">Trang Tiến Trình</div>
+		<h2 class="banner ">Tiến Trình Xử Lý</h2>
 		<div class="table-wrapper">
 
 			<form:form modelAttribute="bill" id="billCreateForm" action="">
@@ -152,6 +152,8 @@
 							<th>Chi Tiết</th>
 							<th>Ngày Bắt Đầu</th>
 							<th>Ngày Kết Thúc</th>
+							<th>Chi Phí</th>
+							<th>Trạng Thái</th>
 							<th>Action</th>
 						</tr>
 					</thead>
@@ -176,7 +178,20 @@
 								
 								<td>${processlist.endDate}</td>
 								
-								<td><a class="bx bxs-edit bx-xs"
+								<td>${processlist.cost}</td>
+								
+								<c:forEach items="${stateList}" var="statelist">
+								<c:if test="${processlist.idState == statelist.id}">
+
+									<td>${statelist.detail}</td>
+								</c:if>
+							</c:forEach>
+								
+								<td>
+								<a class="bx bxs-detail bx-xs"
+							style="text-decoration: none; color: green"
+							href="processshowstep?id=${processlist.id}"></a>
+								<a class="bx bxs-edit bx-xs"
 								style="text-decoration: none; color: green"
 								href="processupdateform?id=${processlist.id}"></a> &nbsp &nbsp <a
 								class="bx bxs-trash bx-xs"
@@ -214,7 +229,14 @@
 																					border: 1px solid;
 																					border-radius: 10px;
 																				" /></td>
-							
+							<td></td>
+						
+							<td><form:select path="idState">
+									<c:forEach items="${stateList}" var="statelist">
+											<option value="${statelist.id}">${statelist.detail}</option>
+									</c:forEach>
+								</form:select>
+							</td>
 						</tr>
 					<tbody>
 				</table>
