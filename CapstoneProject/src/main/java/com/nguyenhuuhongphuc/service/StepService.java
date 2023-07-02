@@ -33,4 +33,12 @@ public class StepService {
 	public int getCostByIdStep(int idStep) {
 		return stepDAO.getCostByIdStep(idStep);
 	}
+
+	public List<Step> getStepByIdStep(int idStep) {
+		return stepDAO.getStepByIdStep(idStep);
+	}
+
+	public void updateStep(Step step, int staticOldStepCost) {
+		stepDAO.updateStep(step, staticOldStepCost);
+	}
 }

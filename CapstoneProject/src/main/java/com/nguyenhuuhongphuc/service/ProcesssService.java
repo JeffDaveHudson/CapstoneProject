@@ -54,4 +54,8 @@ public class ProcesssService {
 	public void updateProcessCostWhenRemovingStep(int cost, int staticIdProcess) {
 		processsDAO.updateProcessCostWhenRemovingStep(cost, staticIdProcess);
 	}
+
+	public void updateCostWhenUpdatingStep(int staticOldStepCost, int newCost, int staticIdProcess) {
+		processsDAO.updateCostWhenUpdatingStep (staticOldStepCost, newCost, staticIdProcess);
+	}
 }

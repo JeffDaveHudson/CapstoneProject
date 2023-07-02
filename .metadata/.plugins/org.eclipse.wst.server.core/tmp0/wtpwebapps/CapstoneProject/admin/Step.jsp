@@ -149,7 +149,7 @@
 								
 								<td><a class="bx bxs-edit bx-xs"
 								style="text-decoration: none; color: green"
-								href="processupdateform?id=${steplist.id}"></a> &nbsp &nbsp <a
+								href="stepupdateform?id=${steplist.id}"></a> &nbsp &nbsp <a
 								class="bx bxs-trash bx-xs"
 								style="text-decoration: none; color: red" onclick="confirm_decision('${steplist.id}')"></a></td>
 								

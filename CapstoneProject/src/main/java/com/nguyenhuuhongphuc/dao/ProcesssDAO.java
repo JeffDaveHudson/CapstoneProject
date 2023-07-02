@@ -80,9 +80,9 @@ public class ProcesssDAO {
 		 * processs.getDetail() + "', " +processs.getStartDate() + "," +
 		 * processs.getEndDate() + ", " + processs.getIdContract() + ")";
 		 */
-		String sql = "INSERT INTO Process (Detail, StartDate, EndDate, IDState, IDContract) VALUES ('"
+		String sql = "INSERT INTO Process (Detail, StartDate, EndDate, Cost, IDState, IDContract) VALUES ('"
                 + processs.getDetail() + "', '" +processs.getStartDate() + "', '"
-                + processs.getEndDate() + "', "+ processs.getIdState()+"," + processs.getIdContract() + ")";
+                + processs.getEndDate() + "', " +0                       + ", "+ processs.getIdState()+"," + processs.getIdContract() + ")";
 		
 		 jdbcTemplate.update(sql);
 	}
@@ -141,6 +141,13 @@ public class ProcesssDAO {
 		String sql = "UPDATE Process SET "
 				+ "Cost = Cost -"  + cost +" "
 				+ "WHERE ID = " + idProcess;
+		jdbcTemplate.update(sql);
+	}
+
+	public void updateCostWhenUpdatingStep(int staticOldStepCost, int newCost, int staticIdProcess) {
+		String sql = "UPDATE Process SET "
+				+ "Cost = Cost - "  + staticOldStepCost + " + " + newCost +" "
+				+ "WHERE ID = " + staticIdProcess;
 		jdbcTemplate.update(sql);
 	}
 }

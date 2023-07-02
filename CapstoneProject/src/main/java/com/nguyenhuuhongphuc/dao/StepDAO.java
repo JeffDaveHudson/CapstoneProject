@@ -80,4 +80,35 @@ public class StepDAO {
 			return 0;
 		}
 	}
+
+	public List<Step> getStepByIdStep(int idStep) {
+		String sql = "SELECT * FROM Step WHERE ID = "+idStep;
+		List<Step> stepList = jdbcTemplate.query(sql, new RowMapper<Step>() {
+
+			public Step mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Step step = new Step();
+
+				step.setId(rs.getInt("ID"));
+				step.setDetail(rs.getString("Detail"));
+				step.setIdProcess(rs.getInt("IDProcess"));
+				step.setIdProduct(rs.getInt("IDProduct"));
+				step.setCost(rs.getInt("Cost"));
+				step.setIdState(rs.getInt("IDState"));
+				
+				//System.out.println("stepDAO: "+step.getId()+" - "+step.getDetail()+" - "+step.getIdProcess()+" - "+step.getIdProduct()+" - "+step.getCost()+" - "+step.getCost());
+				return step;
+			}
+		});
+		return stepList;
+	}
+
+	public void updateStep(Step step, int staticOldStepCost) {
+		String sql = "UPDATE Step SET "
+				+ "Detail = '"+ step.getDetail() +"', "
+				+ "IDProduct = "+ step.getIdProduct() + ", "
+				+ "Cost = Cost - " + staticOldStepCost  +" + "+ step.getCost() +", "
+				+ "IDState = "+ step.getIdState() + " "
+				+ "WHERE ID = " + step.getId();
+		jdbcTemplate.update(sql);
+	}
 }

@@ -123,4 +123,60 @@ public class StepController {
 		
 		return "admin/Step";
 	}
+	
+	static int staticOldStepCost;
+	@GetMapping("stepupdateform")
+	public String stepUpdateForm(Model model, @RequestParam("id") int idStep) {
+		
+		List<Step> stepList = stepService.getStepByIdStep(idStep);
+		model.addAttribute("stepList", stepList);
+		
+		for (Step step : stepList) {
+			staticOldStepCost = step.getCost();
+		}
+		
+		List<Product> productList = inventoryService.getInventory();
+		model.addAttribute("productList", productList);
+		
+		List<State> stateList = stateService.getStateList();
+		model.addAttribute("stateList", stateList);
+		
+//		List<Processs> processList = processsService.getProcessById(staticIdProcess);
+//		model.addAttribute("processList", processList);
+		
+//		List<Step> stepList = stepService.getStepByIdProcess(staticIdProcess);
+//		model.addAttribute("stepList", stepList);
+		
+		model.addAttribute("stepupdate", new Step());
+		
+		return "admin/StepUpdate";
+	}
+	
+	@PostMapping("stepupdatestep")
+	public String updateStep(Model model, @ModelAttribute("stepupdate") Step step) {
+		step.setIdProcess(staticIdProcess);
+		//System.out.println("step:: "+step.getDetail()+" - "+step.getIdProduct()+" - "+step.getCost()+" - "+step.getIdState()+" - "+step.getIdProcess());
+		
+		
+		stepService.updateStep(step, staticOldStepCost);
+		processsService.updateCostWhenUpdatingStep (staticOldStepCost, step.getCost(), staticIdProcess);
+		contractService.updatePriceWhenUpdatingStep(staticOldStepCost, step.getCost(), staticIdContract);
+		
+		List<Product> productList = inventoryService.getInventory();
+		model.addAttribute("productList", productList);
+		
+		List<State> stateList = stateService.getStateList();
+		model.addAttribute("stateList", stateList);
+		
+		List<Processs> processList = processsService.getProcessById(staticIdProcess);
+		model.addAttribute("processList", processList);
+		
+		List<Step> stepList = stepService.getStepByIdProcess(staticIdProcess);
+		model.addAttribute("stepList", stepList);
+		
+		
+		model.addAttribute("step", new Step());
+		
+		return "admin/Step";
+	}
 }

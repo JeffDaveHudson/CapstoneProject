@@ -95,7 +95,7 @@
 							
 							<td><form:input type="date" path="signingDate" value = "${contractlist.signingDate}"/></td>
 							
-							<td><form:input type="text" path="price" pattern="[0-9]+" title="Vui lòng nhập đúng định dạng số" value = "${contractlist.price}"/></td>
+							<td><form:input type="text" path="price" pattern="[0-9]+" title="Vui lòng nhập đúng định dạng số" value = "${contractlist.price}" readonly="true"/></td>
 							
 							<%-- <c:forEach items="${staffList}" var="stafflist">
 								<c:if test="${contractlist.idStaff == stafflist.id}">
