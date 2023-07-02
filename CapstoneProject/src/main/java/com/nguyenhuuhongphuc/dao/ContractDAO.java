@@ -355,4 +355,11 @@ public class ContractDAO {
 			return 0;
 		}
 	}
+
+	public void updateContractPriceWhenRemovingStep(int cost, int idContract) {
+		String sql = "UPDATE Contract SET "
+				+ "Price = Price -  " + cost      + " "
+				+ "WHERE ID =    " + idContract;
+		jdbcTemplate.update(sql);
+	}
 }

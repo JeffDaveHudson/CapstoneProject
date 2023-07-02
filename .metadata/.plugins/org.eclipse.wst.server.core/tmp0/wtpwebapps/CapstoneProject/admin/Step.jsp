@@ -41,7 +41,7 @@
 	function confirm_decision(user_id) {
 		if (confirm("you want to delete?")) // this will pop up confirmation box and if yes is clicked it call servlet else return to page
 		{
-			window.location = "processremove?idProcess=" + user_id;
+			window.location = "stepremove?idStep=" + user_id;
 		} else {
 			return false;
 		}
@@ -147,11 +147,11 @@
 									</c:if>
 								</c:forEach>
 								
-								<%-- <td><a class="bx bxs-edit bx-xs"
+								<td><a class="bx bxs-edit bx-xs"
 								style="text-decoration: none; color: green"
-								href="processupdateform?id=${processlist.id}"></a> &nbsp &nbsp <a
+								href="processupdateform?id=${steplist.id}"></a> &nbsp &nbsp <a
 								class="bx bxs-trash bx-xs"
-								style="text-decoration: none; color: red" onclick="confirm_decision('${processlist.id}')"></a></td> --%>
+								style="text-decoration: none; color: red" onclick="confirm_decision('${steplist.id}')"></a></td>
 								
 							</tr>
 						</c:forEach>

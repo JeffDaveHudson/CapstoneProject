@@ -136,4 +136,11 @@ public class ProcesssDAO {
 				+ "WHERE ID = " + idProcess;
 		jdbcTemplate.update(sql);
 	}
+
+	public void updateProcessCostWhenRemovingStep(int cost, int idProcess) {
+		String sql = "UPDATE Process SET "
+				+ "Cost = Cost -"  + cost +" "
+				+ "WHERE ID = " + idProcess;
+		jdbcTemplate.update(sql);
+	}
 }

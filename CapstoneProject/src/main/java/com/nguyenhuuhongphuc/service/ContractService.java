@@ -97,4 +97,8 @@ public class ContractService {
 	public void updatePrice(int cost, int idProcess) {
 		contractDAO.updatePrice(cost, idProcess);
 	}
+
+	public void updateContractPriceWhenRemovingStep(int cost, int staticIdContract) {
+		contractDAO.updateContractPriceWhenRemovingStep(cost, staticIdContract);
+	}
 }

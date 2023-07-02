@@ -31,7 +31,7 @@ public class StepDAO {
 				step.setCost(rs.getInt("Cost"));
 				step.setIdState(rs.getInt("IDState"));
 				
-				System.out.println("stepDAO: "+step.getId()+" - "+step.getDetail()+" - "+step.getIdProcess()+" - "+step.getIdProduct()+" - "+step.getCost()+" - "+step.getCost());
+				//System.out.println("stepDAO: "+step.getId()+" - "+step.getDetail()+" - "+step.getIdProcess()+" - "+step.getIdProduct()+" - "+step.getCost()+" - "+step.getCost());
 				return step;
 			}
 		});
@@ -65,5 +65,19 @@ public class StepDAO {
                 + step.getIdProduct() + ", "+ step.getCost()+"," + step.getIdState() + ")";
 		
 		 jdbcTemplate.update(sql);
+	}
+
+	public void removeStep(int idStep) {
+		String sql = "DELETE FROM Step WHERE ID = " + idStep;
+        jdbcTemplate.update(sql);
+	}
+
+	public int getCostByIdStep(int idStep) {
+		String sql = "SELECT Cost FROM Step WHERE ID = "+idStep;
+		try {
+			return jdbcTemplate.queryForObject(sql, int.class);
+		} catch (Exception e) {
+			return 0;
+		}
 	}
 }

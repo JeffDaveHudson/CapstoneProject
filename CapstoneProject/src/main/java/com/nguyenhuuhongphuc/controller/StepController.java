@@ -98,4 +98,29 @@ public class StepController {
 		
 		return "admin/Step";
 	}
+	
+	@GetMapping("stepremove")
+	public String stepRemove(Model model, @RequestParam("idStep") int idStep) {
+		
+		int cost = stepService.getCostByIdStep(idStep);
+		processsService.updateProcessCostWhenRemovingStep(cost, staticIdProcess);
+		contractService.updateContractPriceWhenRemovingStep(cost, staticIdContract);
+		stepService.removeStep(idStep);
+		
+		List<Product> productList = inventoryService.getInventory();
+		model.addAttribute("productList", productList);
+		
+		List<State> stateList = stateService.getStateList();
+		model.addAttribute("stateList", stateList);
+		
+		List<Processs> processList = processsService.getProcessById(staticIdProcess);
+		model.addAttribute("processList", processList);
+		
+		List<Step> stepList = stepService.getStepByIdProcess(staticIdProcess);
+		model.addAttribute("stepList", stepList);
+		
+		model.addAttribute("step", new Step());
+		
+		return "admin/Step";
+	}
 }
