@@ -1,0 +1,20 @@
+package com.nguyenhuuhongphuc.dao;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import com.nguyenhuuhongphuc.bean.Step;
+
+public class StepProductQuantityDAO {
+	
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+
+	public void createStepProductQuantity(Step step, int quantity) {
+		String sql = "INSERT INTO StepProductQuantity (Quantity, IDStep) VALUES ("
+                + quantity + ", " + step.getId() + ")";
+		
+		 jdbcTemplate.update(sql);
+	}
+
+}

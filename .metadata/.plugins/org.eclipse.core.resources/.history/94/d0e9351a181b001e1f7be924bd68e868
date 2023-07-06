@@ -1,0 +1,44 @@
+package com.nguyenhuuhongphuc.dao;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+
+import com.nguyenhuuhongphuc.bean.Step;
+import com.nguyenhuuhongphuc.bean.StepProductQuantity;
+
+public class StepProductQuantityDAO {
+	
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+	
+	public List<StepProductQuantity> getStepProductQuantity() {
+		String sql = "SELECT * FROM StepProductQuantity";
+		List<StepProductQuantity> stepProductQuantityList = jdbcTemplate.query(sql, new RowMapper<StepProductQuantity>() {
+
+			public StepProductQuantity mapRow(ResultSet rs, int rowNum) throws SQLException {
+				StepProductQuantity stepProductQuantity = new Step();
+
+				stepProductQuantity.setId(rs.getInt("ID"));
+				stepProductQuantity.setQuantity(rs.getInt("Quantity"));
+				stepProductQuantity.setIdStep(rs.getInt("IDStep"));
+				
+				//System.out.println("stepDAO: "+step.getId()+" - "+step.getDetail()+" - "+step.getIdProcess()+" - "+step.getIdProduct()+" - "+step.getCost()+" - "+step.getCost());
+				return step;
+			}
+		});
+		return stepList;
+	}
+	
+	public void createStepProductQuantity(Step step, int quantity) {
+		String sql = "INSERT INTO StepProductQuantity (Quantity, IDStep) VALUES ("
+                + quantity + ", " + step.getId() + ")";
+		
+		 jdbcTemplate.update(sql);
+	}
+
+}

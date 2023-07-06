@@ -193,7 +193,7 @@
 							href="processshowstep?id=${processlist.id}"></a>
 								<a class="bx bxs-edit bx-xs"
 								style="text-decoration: none; color: green"
-								href="processupdateform?id=${processlist.id}"></a> &nbsp &nbsp <a
+								href="processupdateform?id=${processlist.id}"></a> <a
 								class="bx bxs-trash bx-xs"
 								style="text-decoration: none; color: red" onclick="confirm_decision('${processlist.id}')"></a></td>
 								
@@ -242,7 +242,7 @@
 				</table>
 				<br>
 				<button class="button-search" type="submit" onclick="setInitialCount()">Thêm</button>
-				<a href="contract" class="button-search" style="text-decoration: none; padding: 11px 18px 11px 18px;">Xong</a>
+				<a href="contract" class="button-search" style="text-decoration: none; padding: 11px 18px 11px 18px;">Quay Lại</a>
 			</form:form>
 		</div>
 	</section>

@@ -1,0 +1,19 @@
+package com.nguyenhuuhongphuc.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.nguyenhuuhongphuc.bean.Step;
+import com.nguyenhuuhongphuc.dao.StepProductQuantityDAO;
+
+@Service
+public class StepProductQuantityService {
+	
+	@Autowired
+	StepProductQuantityDAO stepProductQuantityDAO;
+
+	public void createStepProductQuantity(Step step, int quantity) {
+		
+	}
+
+}

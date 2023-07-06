@@ -32,6 +32,16 @@
 	border-radius: 10px;
 }
 
+#number{
+	padding-top: 7px;
+	padding-bottom: 7px;
+	width: 80%;
+	background-color: #fff;
+	border: 1px solid;
+	border-radius: 10px;
+	text-align: center;
+}
+
 </style>
 <script type="text/javascript">
 	function setInitialCount() {
@@ -116,6 +126,8 @@
 							<th>Bước</th>
 							<th>Chi Tiết</th>
 							<th>Sản phẩm</th>
+							<th>Số Lượng</th>
+							<th>Thành Giá</th>
 							<th>Chi Phí Công Đoạn</th>
 							<th>Trạng Thái</th>
 							<th>Action</th>
@@ -136,6 +148,18 @@
 								<c:forEach items="${productList}" var="productlist">
 									<c:if test="${steplist.idProduct == productlist.id}">
 										<td>${productlist.productName}</td>
+									</c:if>
+								</c:forEach>
+								
+								<c:forEach items="${stepProductQuantityList}" var="stepproductquantitylist">
+									<c:if test="${steplist.id == stepproductquantitylist.idStep}">
+										<td>${stepproductquantitylist.quantity}</td>
+									</c:if>
+								</c:forEach>
+								
+								<c:forEach items="${stepProductQuantityList}" var="stepproductquantitylist">
+									<c:if test="${steplist.id == stepproductquantitylist.idStep}">
+										<td>${stepproductquantitylist.cost}</td>
 									</c:if>
 								</c:forEach>
 								
@@ -176,8 +200,12 @@
 											<option value="${productlist.id}">${productlist.productName}</option>
 									</c:forEach>
 								</form:select></td>
+								
+							<td><input id="number" name="quantity" pattern="[0-9]+" title="Vui lòng nhập đúng định dạng số" type=number value="0"/> </td>
 							
-							<td><form:input path="cost" type="text" style=" padding-top: 3px;
+							<td></td>
+							
+							<td><form:input path="cost" pattern="[0-9]+" title="Vui lòng nhập đúng định dạng số" type="text" style=" padding-top: 3px;
 																					padding-bottom: 3px;
 																					width: 60%;
 																					background-color: #fff;

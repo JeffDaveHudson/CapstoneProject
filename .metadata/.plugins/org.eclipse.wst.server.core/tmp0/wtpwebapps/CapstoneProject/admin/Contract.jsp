@@ -55,7 +55,7 @@
 
 		<br> <br> <a href="contractcreateform">
 			<button style="margin-left: 70px" class="button-search">Thêm
-				Hợp Đồng</button>
+				Thỏa Thuận</button>
 		</a>
 		<div class="table-wrapper"
 			style="position: relative; width: 90%; z-index: 1; overflow: auto; height: 350px;">

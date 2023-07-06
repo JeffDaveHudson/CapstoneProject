@@ -144,9 +144,9 @@ public class ProcesssDAO {
 		jdbcTemplate.update(sql);
 	}
 
-	public void updateCostWhenUpdatingStep(int staticOldStepCost, int newCost, int staticIdProcess) {
+	public void updateCostWhenUpdatingStep(int staticOldStepCost, int newStepCost, int staticOldStepProductQuantityCost, int newStepProductQuantityCost, int staticIdProcess) {
 		String sql = "UPDATE Process SET "
-				+ "Cost = Cost - "  + staticOldStepCost + " + " + newCost +" "
+				+ "Cost = Cost - "  + staticOldStepCost + " + " + newStepCost + " - " + staticOldStepProductQuantityCost + " + " + newStepProductQuantityCost +" "
 				+ "WHERE ID = " + staticIdProcess;
 		jdbcTemplate.update(sql);
 	}

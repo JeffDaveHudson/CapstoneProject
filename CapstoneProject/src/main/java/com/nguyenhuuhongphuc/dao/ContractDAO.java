@@ -363,9 +363,9 @@ public class ContractDAO {
 		jdbcTemplate.update(sql);
 	}
 
-	public void updatePriceWhenUpdatingStep(int staticOldStepCost, int newCost, int staticIdContract) {
+	public void updatePriceWhenUpdatingStep(int staticOldStepCost, int newStepCost, int staticOldStepProductQuantityCost, int newStepProductQuantity, int staticIdContract) {
 		String sql = "UPDATE Contract SET "
-				+ "Price = Price -  " + staticOldStepCost   + " + " + newCost +" "
+				+ "Price = Price -  " + staticOldStepCost   + " + " + newStepCost + " - " + staticOldStepProductQuantityCost + " + " + newStepProductQuantity +" "
 				+ "WHERE ID =    " + staticIdContract;
 		jdbcTemplate.update(sql);
 	}

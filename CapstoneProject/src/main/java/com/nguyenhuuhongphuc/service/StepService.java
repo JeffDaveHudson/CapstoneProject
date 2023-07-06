@@ -41,4 +41,8 @@ public class StepService {
 	public void updateStep(Step step, int staticOldStepCost) {
 		stepDAO.updateStep(step, staticOldStepCost);
 	}
+	
+	public List<Step> getLastestStep() {
+		return stepDAO.getLastestStep();
+	}
 }

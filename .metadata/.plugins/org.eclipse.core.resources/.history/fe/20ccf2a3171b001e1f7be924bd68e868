@@ -1,0 +1,11 @@
+package com.nguyenhuuhongphuc.dao;
+
+import com.nguyenhuuhongphuc.bean.Step;
+
+public class StepProductQuantityDAO {
+
+	public void createStepProductQuantity(Step step, int quantity) {
+		
+	}
+
+}

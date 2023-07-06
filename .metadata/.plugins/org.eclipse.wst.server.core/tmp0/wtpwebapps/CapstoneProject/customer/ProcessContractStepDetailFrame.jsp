@@ -138,6 +138,8 @@
 							<th>Bước</th>
 							<th>Chi Tiết</th>
 							<th>Sản phẩm</th>
+							<th>Số Lượng</th>
+							<th>Thành Giá</th>
 							<th>Chi Phí Công Đoạn</th>
 							<th>Trạng Thái</th>
 						</tr>
@@ -157,6 +159,18 @@
 								<c:forEach items="${productList}" var="productlist">
 									<c:if test="${steplist.idProduct == productlist.id}">
 										<td>${productlist.productName}</td>
+									</c:if>
+								</c:forEach>
+								
+								<c:forEach items="${stepProductQuantityList}" var="stepproductquantitylist">
+									<c:if test="${steplist.id == stepproductquantitylist.idStep}">
+										<td>${stepproductquantitylist.quantity}</td>
+									</c:if>
+								</c:forEach>
+								
+								<c:forEach items="${stepProductQuantityList}" var="stepproductquantitylist">
+									<c:if test="${steplist.id == stepproductquantitylist.idStep}">
+										<td>${stepproductquantitylist.cost}</td>
 									</c:if>
 								</c:forEach>
 								

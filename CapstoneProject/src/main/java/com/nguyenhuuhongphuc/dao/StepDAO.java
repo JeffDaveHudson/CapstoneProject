@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import com.nguyenhuuhongphuc.bean.Customer;
 import com.nguyenhuuhongphuc.bean.Step;
 
 @Repository
@@ -110,5 +111,26 @@ public class StepDAO {
 				+ "IDState = "+ step.getIdState() + " "
 				+ "WHERE ID = " + step.getId();
 		jdbcTemplate.update(sql);
+	}
+	
+	public List<Step> getLastestStep() {
+		String sql = "SELECT * FROM Step ORDER BY ID DESC LIMIT 1";
+		List<Step> stepList = jdbcTemplate.query(sql, new RowMapper<Step>() {
+
+			public Step mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Step step = new Step();
+
+				step.setId(rs.getInt("ID"));
+				step.setDetail(rs.getString("Detail"));
+				step.setIdProcess(rs.getInt("IDProcess"));
+				step.setIdProduct(rs.getInt("IDProduct"));
+				step.setCost(rs.getInt("Cost"));
+				step.setIdState(rs.getInt("IDState"));
+				
+				//System.out.println("stepDAO: "+step.getId()+" - "+step.getDetail()+" - "+step.getIdProcess()+" - "+step.getIdProduct()+" - "+step.getCost()+" - "+step.getCost());
+				return step;
+			}
+		});
+		return stepList;
 	}
 }

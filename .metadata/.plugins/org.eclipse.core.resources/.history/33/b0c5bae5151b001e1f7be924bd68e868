@@ -1,0 +1,35 @@
+package com.nguyenhuuhongphuc.bean;
+
+public class StepProductQuantity {
+	private int id;
+	private int quantity;
+	private int idStep;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	public int getIdStep() {
+		return idStep;
+	}
+	public void setIdStep(int idStep) {
+		this.idStep = idStep;
+	}
+	public StepProductQuantity(int id, int quantity, int idStep) {
+		super();
+		this.id = id;
+		this.quantity = quantity;
+		this.idStep = idStep;
+	}
+	
+	public StepProductQuantity() {
+		// TODO Auto-generated constructor stub
+	}
+}

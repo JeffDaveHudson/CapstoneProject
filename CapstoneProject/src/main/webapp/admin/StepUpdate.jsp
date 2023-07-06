@@ -32,6 +32,16 @@
 	border: 1px solid;
 	border-radius: 10px;
 }
+
+#number{
+	padding-top: 7px;
+	padding-bottom: 7px;
+	width: 80%;
+	background-color: #fff;
+	border: 1px solid;
+	border-radius: 10px;
+	text-align: center;
+}
 </style>
 </head>
 <body>
@@ -52,6 +62,8 @@
 							<th>ID</th>
 							<th>Chi Tiết</th>
 							<th>Sản phẩm</th>
+							<th>Số Lượng</th>
+							<!-- <th>Thành Giá</th> -->
 							<th>Chi Phí Công Đoạn</th>
 							<th>Trạng Thái</th>
 						</tr>
@@ -70,7 +82,15 @@
 									</c:forEach>
 								</form:select>
 								
-								<td><form:input type="text" path="cost" value="${steplist.cost}"/></td>
+								
+								<c:forEach items="${stepProductQuantityList}" var="stepproductquantitylist">
+									<c:if test="${steplist.id == stepproductquantitylist.idStep}">
+										<td><input id="number" type="number" pattern="[0-9]+" title="Vui lòng nhập đúng định dạng số" name="quantity" value = "${stepproductquantitylist.quantity}" /></td>
+									</c:if>
+								</c:forEach>
+								
+								
+								<td><form:input type="text" path="cost" pattern="[0-9]+" title="Vui lòng nhập đúng định dạng số" value="${steplist.cost}"/></td>
 								
 								<td><form:select path="idState">
 									<c:forEach items="${stateList}" var="statelist">
