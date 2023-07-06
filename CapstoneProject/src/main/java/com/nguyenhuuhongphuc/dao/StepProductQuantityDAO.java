@@ -67,4 +67,9 @@ public class StepProductQuantityDAO {
 		jdbcTemplate.update(sql);
 	}
 
+	public void removeStepProductQuantityByIdStep(int idStep) {
+		String sql = "DELETE FROM StepProductQuantity WHERE IDStep = " + idStep;
+        jdbcTemplate.update(sql);
+	}
+
 }

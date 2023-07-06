@@ -35,4 +35,8 @@ public class StepProductQuantityService {
 		stepProductQuantityDAO.updateStepProductQuantityCost(stepProductQuantity, staticOldStepProductQuantityCost);
 	}
 
+	public void removeStepProductQuantityByIdStep(int idStep) {
+		stepProductQuantityDAO.removeStepProductQuantityByIdStep(idStep);
+	}
+
 }

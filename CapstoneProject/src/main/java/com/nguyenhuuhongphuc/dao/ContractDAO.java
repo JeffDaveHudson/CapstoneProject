@@ -369,4 +369,11 @@ public class ContractDAO {
 				+ "WHERE ID =    " + staticIdContract;
 		jdbcTemplate.update(sql);
 	}
+
+	public void updateContractPriceWhenRemovingProcess(int cost, int idContract) {
+		String sql = "UPDATE Contract SET "
+				+ "Price = Price -  " + cost      + " "
+				+ "WHERE ID =    " + idContract;
+		jdbcTemplate.update(sql);
+	}
 }

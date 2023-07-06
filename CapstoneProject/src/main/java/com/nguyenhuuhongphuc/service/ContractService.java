@@ -105,4 +105,8 @@ public class ContractService {
 	public void updatePriceWhenUpdatingStep(int staticOldStepCost, int newStepCost, int staticOldStepProductQuantityCost, int newStepProductQuantity, int staticIdContract) {
 		contractDAO.updatePriceWhenUpdatingStep(staticOldStepCost, newStepCost, staticOldStepProductQuantityCost, newStepProductQuantity, staticIdContract);
 	}
+
+	public void updateContractPriceWhenRemovingProcess(int cost, int idContract) {
+		contractDAO.updateContractPriceWhenRemovingProcess(cost, idContract);
+	}
 }

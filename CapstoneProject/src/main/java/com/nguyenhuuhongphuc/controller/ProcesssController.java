@@ -19,11 +19,14 @@ import com.nguyenhuuhongphuc.bean.Processs;
 import com.nguyenhuuhongphuc.bean.Staff;
 import com.nguyenhuuhongphuc.bean.StaffType;
 import com.nguyenhuuhongphuc.bean.State;
+import com.nguyenhuuhongphuc.bean.Step;
 import com.nguyenhuuhongphuc.service.ContractService;
 import com.nguyenhuuhongphuc.service.CustomerService;
 import com.nguyenhuuhongphuc.service.ProcesssService;
 import com.nguyenhuuhongphuc.service.StaffService;
 import com.nguyenhuuhongphuc.service.StateService;
+import com.nguyenhuuhongphuc.service.StepProductQuantityService;
+import com.nguyenhuuhongphuc.service.StepService;
 
 @Controller
 public class ProcesssController {
@@ -42,6 +45,12 @@ public class ProcesssController {
 	
 	@Autowired
 	StateService stateService;
+	
+	@Autowired
+	StepProductQuantityService stepProductQuantityService;
+	
+	@Autowired
+	StepService stepService;
 	
 	
 	Processs processsIdContract = new Processs();
@@ -102,6 +111,16 @@ public class ProcesssController {
 	@GetMapping(value = "processremove")
 	public String removeProcess(@RequestParam(value = "idProcess", required=true) int idd, Model model) {
 		//System.out.println("delete: "+id);
+		int cost = processsService.getProcessCostInAProcess(idd);
+		System.out.println("cost: "+cost);
+		
+		List<Step> stepList = stepService.getStepByIdProcess(idd);
+		for (Step step : stepList) {
+			stepProductQuantityService.removeStepProductQuantityByIdStep(step.getId());
+			stepService.removeStep(step.getId());
+		}
+		System.out.println("cost: "+cost);
+		contractService.updateContractPriceWhenRemovingProcess(cost, processsIdContract.getIdContract());
 		
 		processsService.removeProcess(idd);
 		List<Contract> contractList = contractService.getContractById(processsIdContract.getIdContract());

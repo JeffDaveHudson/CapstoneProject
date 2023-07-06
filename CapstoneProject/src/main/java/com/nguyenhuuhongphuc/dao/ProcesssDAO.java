@@ -150,4 +150,13 @@ public class ProcesssDAO {
 				+ "WHERE ID = " + staticIdProcess;
 		jdbcTemplate.update(sql);
 	}
+	
+	public int getProcessCostInAProcess(int idProcess) {
+		String sql = "SELECT Cost FROM Process WHERE ID = "+idProcess;
+		try {
+			return jdbcTemplate.queryForObject(sql, int.class);
+		} catch (Exception e) {
+			return 0;
+		}
+	}
 }

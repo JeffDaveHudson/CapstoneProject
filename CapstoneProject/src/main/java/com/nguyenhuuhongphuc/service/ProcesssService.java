@@ -58,4 +58,8 @@ public class ProcesssService {
 	public void updateCostWhenUpdatingStep(int staticOldStepCost, int newStepCost, int staticOldStepProductQuantityCost, int newStepProductQuantityCost, int staticIdProcess) {
 		processsDAO.updateCostWhenUpdatingStep (staticOldStepCost, newStepCost, staticOldStepProductQuantityCost, newStepProductQuantityCost, staticIdProcess);
 	}
+	
+	public int getProcessCostInAProcess(int idProcess) {
+		return processsDAO.getProcessCostInAProcess(idProcess);
+	}
 }
