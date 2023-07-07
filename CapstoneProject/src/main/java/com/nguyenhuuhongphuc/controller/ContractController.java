@@ -20,11 +20,14 @@ import com.nguyenhuuhongphuc.bean.Customer;
 import com.nguyenhuuhongphuc.bean.Problem;
 import com.nguyenhuuhongphuc.bean.Processs;
 import com.nguyenhuuhongphuc.bean.Staff;
+import com.nguyenhuuhongphuc.bean.Step;
 import com.nguyenhuuhongphuc.service.ContractService;
 import com.nguyenhuuhongphuc.service.CustomerService;
 import com.nguyenhuuhongphuc.service.ProblemService;
 import com.nguyenhuuhongphuc.service.ProcesssService;
 import com.nguyenhuuhongphuc.service.StaffService;
+import com.nguyenhuuhongphuc.service.StepProductQuantityService;
+import com.nguyenhuuhongphuc.service.StepService;
 
 @Controller
 public class ContractController {
@@ -43,6 +46,12 @@ public class ContractController {
 	
 	@Autowired
 	ProblemService problemService;
+	
+	@Autowired
+	StepProductQuantityService stepProductQuantityService;
+	
+	@Autowired
+	StepService stepService;
 
 	@RequestMapping("contract")
 	public String showContract(Model model) {
@@ -75,8 +84,19 @@ public class ContractController {
 	@GetMapping(value = "contractremove")
 	public String removeContract(@RequestParam(value = "id", required = true) int id, Model model) {
 		// System.out.println("delete: "+id);
+		
+		List<Step> stepList;
+		List<Processs> processsList = processsService.getProcessByIdContract(id);
+		for (Processs processs : processsList) {
+			stepList = stepService.getStepByIdProcess(processs.getId());
+			for (Step step : stepList) {
+				stepProductQuantityService.removeStepProductQuantityByIdStep(step.getId());
+				stepService.removeStep(step.getId());
+			}
+			processsService.removeProcess(processs.getId());
+		}
 
-		processsService.removeProcessWhenRemovingContract(id);
+		//processsService.removeProcessWhenRemovingContract(id);
 
 		contractService.removeContract(id);
 
@@ -151,23 +171,12 @@ public class ContractController {
 			@RequestParam("customerName") String customerName, @RequestParam("phone") String phone,
 			@RequestParam("address") String address, @RequestParam("email") String email) {
 
-		// System.out.println("Contract: "+contract.getDetail()+" -
-		// "+contract.getSigningDate()+" - "+contract.getPrice()+" -
-		// "+contract.getIdStaff());
-		// System.out.println("Contract--: "+customerName+" -
-		// "+Integer.parseInt(phone)+" - "+address+" - "+email);
-
 		Customer customerCreateContract = new Customer();
 		customerCreateContract.setId(idCustomerContract);
 		customerCreateContract.setCustomerName(customerName);
 		customerCreateContract.setPhone(Integer.parseInt(phone));
 		customerCreateContract.setAddress(address);
 		customerCreateContract.setEmail(email);
-
-		// System.out.println("cContract--: "+customerCreateContract.getCustomerName()+"
-		// - "+customerCreateContract.getPhone()+" -
-		// "+customerCreateContract.getAddress()+" -
-		// "+customerCreateContract.getEmail());
 
 		customerService.createCustomerWhenUpdatingContract(customerCreateContract);
 
@@ -219,15 +228,9 @@ public class ContractController {
 
 		List<Customer> customerByPhone = customerService.getCustomerContractByPhone(Integer.parseInt(phone));
 		model.addAttribute("customerList", customerByPhone);
-//		for (Customer customer : customerByPhone) {
-//			System.out.println(customer.getId()+" - "+customer.getCustomerName()+" - "+customer.getPhone()+" - "+customer.getEmail()+" - "+customer.getAddress());
-//		}
 
 		List<Contract> contractByCustomer = contractService.getCustomerContract(Integer.parseInt(phone));
 		model.addAttribute("contractList", contractByCustomer);
-//		for (Contract contract : contractByCustomer) {
-//			System.out.println(contract.getId()+" - "+contract.getDetail()+" - "+contract.getSigningDate()+" - "+contract.getIdCustomer()+" - "+contract.getPrice()+" - "+contract.getIdCustomer());
-//		}
 
 		List<Staff> staffList = staffService.getStaffList();
 		model.addAttribute("staffList", staffList);

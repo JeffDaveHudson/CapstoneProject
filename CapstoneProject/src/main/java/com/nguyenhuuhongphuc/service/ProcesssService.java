@@ -30,6 +30,10 @@ public class ProcesssService {
 	public List<Processs> getProcessById(int id){
 		return processsDAO.getProcessById(id);
 	}
+	
+	public List<Processs> getProcessByIdContract(int idContract) {
+		return processsDAO.getProcessByIdContract(idContract);
+	}
 
 	public void updateProcess(Processs processs) {
 		processsDAO.updateProcess(processs);

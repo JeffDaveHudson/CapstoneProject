@@ -71,6 +71,32 @@ public class ProcesssDAO {
 		});
 		return processsList;
 	}
+	
+	public List<Processs> getProcessByIdContract(int idContract) {
+		String sql = "SELECT * FROM Process WHERE IDContract = " + idContract;
+		List<Processs> processsList = jdbcTemplate.query(sql, new RowMapper<Processs>() {
+
+			public Processs mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Processs process = new Processs();
+
+				process.setId(rs.getInt("ID"));
+				process.setDetail(rs.getString("Detail"));
+				process.setStartDate(rs.getDate("StartDate"));
+				process.setEndDate(rs.getDate("EndDate"));
+				process.setCost(rs.getInt("Cost"));
+				process.setIdState(rs.getInt("IDState"));
+				process.setIdContract(rs.getInt("IDContract"));
+
+				// System.out.println("DAOLastestbill:
+				// "+bill.getId()+"-"+bill.getBillName()+"-"+bill.getIdSupplier()+"-"+bill.getIdStaff()+"-"+bill.getTotal()+"-"+bill.getDateTransfer());
+				// System.out.println("dd: "+process.getEndDate());
+
+				return process;
+
+			}
+		});
+		return processsList;
+	}
 
 	public void createNewProcess(Processs processs) {
 		//System.out.println("DAO: "+processs.getDetail()+processs.getStartDate()+processs.getEndDate()+"==="+processs.getIdContract());
